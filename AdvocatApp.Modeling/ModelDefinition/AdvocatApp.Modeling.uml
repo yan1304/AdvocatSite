@@ -1,0 +1,984 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/dsltools/UseCaseModel"
+  dslVersion="1.0.0.0"
+  Id="0eb8f9d4-8af1-4ee9-9311-770c64624762"
+  name="AdvocatApp.Modeling" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <profileInstances>
+    <packageHasProfileInstances
+      Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b">
+      <profileInstance
+        Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791"
+        name="StandardProfileL2" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances
+      Id="29349502-908c-4fda-9054-c48619c59ed0">
+      <profileInstance
+        Id="532ea607-fb19-44b8-8502-3351b05452be"
+        name="StandardProfileL3" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <packageHasNamedElement>
+      <actor
+        Id="f2695c20-2503-460a-81f2-4f146363ce5c"
+        name="Пользователь"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="4a71035d-6f33-4fbf-845b-ecd38637e233"
+            isDerived="false"
+            sourceEndRoleName="Пользователь"
+            targetEndRoleName="Авторизация"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="d784765e-a00a-452c-9de8-73017fc264a6"
+              LastKnownName="Авторизация"
+              LastKnownLocation="AdvocatApp.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="99c56f0d-9891-46cd-bee9-858c707bb778"
+                  name="Пользователь"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="68dd571b-bc01-404e-a820-ba8e7e73a2d4"
+                  name="Авторизация"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="812f46a1-74ae-45ef-ad09-57ce96294c65"
+            isDerived="false"
+            sourceEndRoleName="Пользователь"
+            targetEndRoleName="Задать вопрос онлайн"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="12504773-afaf-406f-94cb-b3c118eadd20"
+              LastKnownName="Задать вопрос онлайн"
+              LastKnownLocation="AdvocatApp.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="332e8ba6-217c-4325-96b9-bcd805aaeb0e"
+                  name="Пользователь"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="d14949e7-66ba-4d00-a836-14c86567c079"
+                  name="Задать вопрос онлайн"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="53025697-2cbb-49b7-b543-40a5b9eb0d92"
+            isDerived="false"
+            sourceEndRoleName="Пользователь"
+            targetEndRoleName="Чтение об владельце"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="342d6899-1d9d-4404-b8d1-cc32dd8199ee"
+              LastKnownName="Чтение об владельце"
+              LastKnownLocation="AdvocatApp.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="4cdf5bbb-fe1d-47c4-ab94-33ad5690612b"
+                  name="Пользователь"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="2e0e2430-70ff-4a4a-b760-b042eca4e4f1"
+                  name="Чтение об владельце"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="fdbad202-8bdf-48ca-94fc-21fd149307ab"
+            isDerived="false"
+            sourceEndRoleName="Пользователь"
+            targetEndRoleName="Чтение статьи"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="a18cee35-fe5d-485c-a371-1a7cacfeda36"
+              LastKnownName="Чтение статьи"
+              LastKnownLocation="AdvocatApp.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="ddcea0d2-fef4-4db2-b2d4-b6f97907435a"
+                  name="Пользователь"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="5d591bb2-d060-47f8-8d6b-c1090b0d890d"
+                  name="Чтение статьи"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="9f3c067d-7442-4fd4-978f-74e26a7d404a"
+            isDerived="false"
+            sourceEndRoleName="Пользователь"
+            targetEndRoleName="Использовать навигацию"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="d191551d-ebf5-422d-83f0-9788966de37c"
+              LastKnownName="Использовать навигацию"
+              LastKnownLocation="AdvocatApp.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="1447f655-c15a-436d-b864-22895756923a"
+                  name="Пользователь"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="74f0bacb-1497-4479-8c77-deb5e57df1c7"
+                  name="Использовать навигацию"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="d784765e-a00a-452c-9de8-73017fc264a6"
+        name="Авторизация"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="06a3e8bf-83b9-40c1-97d9-253061409eba"
+            isDerived="false"
+            sourceEndRoleName="Авторизация"
+            targetEndRoleName="Администратор"
+            isLeaf="false"
+            isAbstract="false">
+            <actorMoniker
+              Id="2a0f79d5-b5c9-46dc-9039-d2170df6bf13"
+              LastKnownName="Администратор"
+              LastKnownLocation="AdvocatApp.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="80a7db2a-4f17-4b16-9cc7-38cb55914aa7"
+                  name="Авторизация"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="ecd413c5-c99e-4533-9865-ba2a12aaddf3"
+                  name="Администратор"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="2a0f79d5-b5c9-46dc-9039-d2170df6bf13"
+        name="Администратор"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="b7ff0350-b44e-48d9-a4b1-a033273ac273"
+            isDerived="false"
+            sourceEndRoleName="Администратор"
+            targetEndRoleName="Изменить левое меню"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="c93b7663-0a95-4919-bc6d-169e6644de70"
+              LastKnownName="Изменить левое меню"
+              LastKnownLocation="AdvocatApp.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="dc144ee4-ae3f-45ec-a4cb-cf93a573d509"
+                  name="Администратор"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="013b971e-d549-4727-a521-76d89b5ec174"
+                  name="Изменить левое меню"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="4991634b-0757-4dac-aff7-8d3058626103"
+            isDerived="false"
+            sourceEndRoleName="Администратор"
+            targetEndRoleName="Изменить статью"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="fefa2b64-9fb9-4cae-a622-5fbe6f1232cb"
+              LastKnownName="Изменить статью"
+              LastKnownLocation="AdvocatApp.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="6a55724b-4ebe-4315-851e-51c8b3b5b031"
+                  name="Администратор"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="971642ca-b4dd-4160-b5fc-59272b02387b"
+                  name="Изменить статью"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="e326ce0a-7e60-4c27-9f25-db0dd018bf00"
+            isDerived="false"
+            sourceEndRoleName="Администратор"
+            targetEndRoleName="Изменить вопрос-ответ"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="04d2b20e-0393-4b29-979f-ee7ab531ab0d"
+              LastKnownName="Изменить вопрос-ответ"
+              LastKnownLocation="AdvocatApp.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="ad03d634-960f-467a-8072-654eb5483357"
+                  name="Администратор"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="2743ad50-8271-483b-a416-15d28093c3a1"
+                  name="Изменить вопрос-ответ"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="c271e640-2396-4eb5-a34a-431ec9d1b5dd"
+            isDerived="false"
+            sourceEndRoleName="Администратор"
+            targetEndRoleName="Включить/отключить онлайн чат"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="50d3569f-c958-4554-a91d-aa9188fddc9b"
+              LastKnownName="Включить/отключить онлайн чат"
+              LastKnownLocation="AdvocatApp.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="5d657ef2-7391-42de-b576-44b09b4d14e2"
+                  name="Администратор"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="2826313e-9a5f-416b-94c5-a122e557cbb9"
+                  name="Включить/отключить онлайн чат"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="19fd7d43-2348-4e42-815e-2c34766a9291"
+            isDerived="false"
+            sourceEndRoleName="Администратор"
+            targetEndRoleName="Удалить ссылку с правой панели"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="3998c878-ec4b-4fdb-87d1-a3e530dbcdcc"
+              LastKnownName="Удалить ссылку с правой панели"
+              LastKnownLocation="AdvocatApp.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="ed8a9c0a-d983-4ff9-a43c-8749d2611c09"
+                  name="Администратор"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="22f532e9-92e8-4a1a-b149-121293f02959"
+                  name="Удалить ссылку с правой панели"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="85732bfa-1adc-4153-a71d-e2a4ca730f60"
+            isDerived="false"
+            sourceEndRoleName="Администратор"
+            targetEndRoleName="Добавить ссылку на правую панель"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="c580c9af-23cc-42e7-b20c-292a17fc2e5b"
+              LastKnownName="Добавить ссылку на правую панель"
+              LastKnownLocation="AdvocatApp.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="3fb9f553-db08-4c07-bdfb-92297bc182d3"
+                  name="Администратор"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="015af0ca-821b-4a25-b386-ea0f2a8ce5c5"
+                  name="Добавить ссылку на правую панель"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="f86a624d-9808-4484-a44a-52bb322c9efd"
+            isDerived="false"
+            sourceEndRoleName="Администратор"
+            targetEndRoleName="Изменить footer"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="514da3d6-c2c9-4e32-ad0f-7d1bbe613980"
+              LastKnownName="Изменить footer"
+              LastKnownLocation="AdvocatApp.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="4003cb72-e619-41a8-ad5b-ab5d1d77fcb6"
+                  name="Администратор"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="b153d32b-96f1-4ad5-8a4e-4287d47f1f14"
+                  name="Изменить footer"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="5c4686dd-9b8f-476b-b31b-1e39b95dfbf6"
+            isDerived="false"
+            sourceEndRoleName="Администратор"
+            targetEndRoleName="Добавить статью"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="d785f443-8414-4acd-b12d-6561e03ebc13"
+              LastKnownName="Добавить статью"
+              LastKnownLocation="AdvocatApp.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="edc15dd9-8459-425e-8c2b-3d641f3d7e37"
+                  name="Администратор"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="b501b4a6-a3f7-49d9-a7d0-6747f9333b36"
+                  name="Добавить статью"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="28da0262-ee0a-4719-ac07-a15bbb9b6b20"
+            isDerived="false"
+            sourceEndRoleName="Администратор"
+            targetEndRoleName="Удалить статью"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="c981feee-c762-46b4-b2c6-ee3a55cb8de0"
+              LastKnownName="Удалить статью"
+              LastKnownLocation="AdvocatApp.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="e722ef9e-f631-4303-a75e-c6c13a682757"
+                  name="Администратор"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="b560660d-9856-4fdc-ab4e-8b02e2e114d1"
+                  name="Удалить статью"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="b83a6832-e416-4454-8109-9298f230dd5e"
+            isDerived="false"
+            sourceEndRoleName="Администратор"
+            targetEndRoleName="Изменить инфо о владельце"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="ecb9edf2-e642-437a-b470-c0db4eea8254"
+              LastKnownName="Изменить инфо о владельце"
+              LastKnownLocation="AdvocatApp.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="ee064fe2-8fba-4637-a528-1ec2d761f6a4"
+                  name="Администратор"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="3b1a47dd-395a-4181-af9f-79956aee6a07"
+                  name="Изменить инфо о владельце"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="d785f443-8414-4acd-b12d-6561e03ebc13"
+        name="Добавить статью"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="fe1a761c-47b7-47c3-9e23-ef762950336d"
+            LastKnownName="Authorised"
+            LastKnownLocation="AdvocatApp.Modeling.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="c981feee-c762-46b4-b2c6-ee3a55cb8de0"
+        name="Удалить статью"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="fe1a761c-47b7-47c3-9e23-ef762950336d"
+            LastKnownName="Authorised"
+            LastKnownLocation="AdvocatApp.Modeling.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="fefa2b64-9fb9-4cae-a622-5fbe6f1232cb"
+        name="Изменить статью"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="fe1a761c-47b7-47c3-9e23-ef762950336d"
+            LastKnownName="Authorised"
+            LastKnownLocation="AdvocatApp.Modeling.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="514da3d6-c2c9-4e32-ad0f-7d1bbe613980"
+        name="Изменить footer"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="fe1a761c-47b7-47c3-9e23-ef762950336d"
+            LastKnownName="Authorised"
+            LastKnownLocation="AdvocatApp.Modeling.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="c580c9af-23cc-42e7-b20c-292a17fc2e5b"
+        name="Добавить ссылку на правую панель"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="fe1a761c-47b7-47c3-9e23-ef762950336d"
+            LastKnownName="Authorised"
+            LastKnownLocation="AdvocatApp.Modeling.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="3998c878-ec4b-4fdb-87d1-a3e530dbcdcc"
+        name="Удалить ссылку с правой панели"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="fe1a761c-47b7-47c3-9e23-ef762950336d"
+            LastKnownName="Authorised"
+            LastKnownLocation="AdvocatApp.Modeling.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="c93b7663-0a95-4919-bc6d-169e6644de70"
+        name="Изменить левое меню"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="fe1a761c-47b7-47c3-9e23-ef762950336d"
+            LastKnownName="Authorised"
+            LastKnownLocation="AdvocatApp.Modeling.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="04d2b20e-0393-4b29-979f-ee7ab531ab0d"
+        name="Изменить вопрос-ответ"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="fe1a761c-47b7-47c3-9e23-ef762950336d"
+            LastKnownName="Authorised"
+            LastKnownLocation="AdvocatApp.Modeling.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="50d3569f-c958-4554-a91d-aa9188fddc9b"
+        name="Включить/отключить онлайн чат"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="55d1f21e-03da-41dd-959d-c4d6ba0fc6a9"
+            isDerived="false"
+            sourceEndRoleName="Включить/отключить онлайн чат"
+            targetEndRoleName="Задать вопрос онлайн"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="12504773-afaf-406f-94cb-b3c118eadd20"
+              LastKnownName="Задать вопрос онлайн"
+              LastKnownLocation="AdvocatApp.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="a3b50601-e527-48b3-8d31-ae6a8179c77b"
+                  name="Включить/отключить онлайн чат"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="c7353964-841c-4e6a-a346-99def151eaee"
+                  name="Задать вопрос онлайн"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <subjects>
+          <subsystemMoniker
+            Id="fe1a761c-47b7-47c3-9e23-ef762950336d"
+            LastKnownName="Authorised"
+            LastKnownLocation="AdvocatApp.Modeling.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="12504773-afaf-406f-94cb-b3c118eadd20"
+        name="Задать вопрос онлайн"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="d191551d-ebf5-422d-83f0-9788966de37c"
+        name="Использовать навигацию"
+        isAbstract="false"
+        isLeaf="false">
+        <suppliersInternal>
+          <dependency
+            Id="8ebd35a1-6931-4a9a-8aa7-ad31672b7218">
+            <actorMoniker
+              Id="76d9706a-69a5-40e0-9db4-b81111957cf8"
+              LastKnownName="БД"
+              LastKnownLocation="AdvocatApp.Modeling.uml" />
+          </dependency>
+        </suppliersInternal>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="a18cee35-fe5d-485c-a371-1a7cacfeda36"
+        name="Чтение статьи"
+        isAbstract="false"
+        isLeaf="false">
+        <suppliersInternal>
+          <dependency
+            Id="7b104cbb-ab4d-45c9-83cc-a28b5d19a70a">
+            <actorMoniker
+              Id="76d9706a-69a5-40e0-9db4-b81111957cf8"
+              LastKnownName="БД"
+              LastKnownLocation="AdvocatApp.Modeling.uml" />
+          </dependency>
+        </suppliersInternal>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="342d6899-1d9d-4404-b8d1-cc32dd8199ee"
+        name="Чтение об владельце"
+        isAbstract="false"
+        isLeaf="false">
+        <suppliersInternal>
+          <dependency
+            Id="a9a3b5a5-3fbc-4d84-9165-544e9bbea29c">
+            <actorMoniker
+              Id="76d9706a-69a5-40e0-9db4-b81111957cf8"
+              LastKnownName="БД"
+              LastKnownLocation="AdvocatApp.Modeling.uml" />
+          </dependency>
+        </suppliersInternal>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="ecb9edf2-e642-437a-b470-c0db4eea8254"
+        name="Изменить инфо о владельце"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="fe1a761c-47b7-47c3-9e23-ef762950336d"
+            LastKnownName="Authorised"
+            LastKnownLocation="AdvocatApp.Modeling.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <subsystem
+        Id="e2d81595-cd1b-4f5f-9c03-87d824287f42"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <subsystem
+        Id="fe1a761c-47b7-47c3-9e23-ef762950336d"
+        name="Authorised"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <suppliersInternal>
+          <dependency
+            Id="7a0c4671-550c-4866-9632-08d764968f53">
+            <actorMoniker
+              Id="76d9706a-69a5-40e0-9db4-b81111957cf8"
+              LastKnownName="БД"
+              LastKnownLocation="AdvocatApp.Modeling.uml" />
+          </dependency>
+        </suppliersInternal>
+      </subsystem>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="76d9706a-69a5-40e0-9db4-b81111957cf8"
+        name="БД"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="f83d22d6-6c6f-49a8-adb3-52c0d6ed6c7f"
+        name="IdentyDB"
+        isAbstract="false"
+        isLeaf="false">
+        <suppliersInternal>
+          <dependency
+            Id="c4c7162f-dc7f-4bbf-a672-769f39fde413">
+            <useCaseMoniker
+              Id="d784765e-a00a-452c-9de8-73017fc264a6"
+              LastKnownName="Авторизация"
+              LastKnownLocation="AdvocatApp.Modeling.uml" />
+          </dependency>
+        </suppliersInternal>
+      </actor>
+    </packageHasNamedElement>
+  </packagedElements>
+  <primitiveType
+    Id="220a3521-e091-4221-bae9-3ef9018e845c"
+    name="Integer"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+    name="Boolean"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+    name="String"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="3ab42e7d-4969-445a-b209-471f5cb8209c"
+    name="UnlimitedNatural"
+    isAbstract="false"
+    isLeaf="false" />
+</modelStoreModel>
