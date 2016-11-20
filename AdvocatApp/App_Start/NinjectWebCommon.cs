@@ -9,6 +9,7 @@ namespace AdvocatApp.App_Start
     using Microsoft.Web.Infrastructure.DynamicModuleHelper;
 
     using Ninject;
+    using System.Web.Mvc;
     using Ninject.Web.Common;
 
     public static class NinjectWebCommon 
@@ -61,6 +62,7 @@ namespace AdvocatApp.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
+            DependencyResolver.SetResolver(new AdvocatApp.Util.NinjectDependencyResolver(kernel));
         }        
     }
 }

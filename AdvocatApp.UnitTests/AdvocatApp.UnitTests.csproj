@@ -64,6 +64,20 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AdvocatApp.BL\AdvocatApp.BL.csproj">
+      <Project>{8ff0e333-4b22-4b78-a8ae-9b7f11e80fe6}</Project>
+      <Name>AdvocatApp.BL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AdvocatApp.DAL\AdvocatApp.DAL.csproj">
+      <Project>{e068a63c-72f6-4ada-b9d8-185470a2de55}</Project>
+      <Name>AdvocatApp.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AdvocatApp\AdvocatApp.csproj">
+      <Project>{c67e5866-a86a-45e4-83cf-5539c7758353}</Project>
+      <Name>AdvocatApp</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>
