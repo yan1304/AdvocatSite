@@ -11,7 +11,7 @@ namespace AdvocatApp.DAL.Authorization.Entities
     /// <summary>
     /// Модель для авторизации администратора
     /// </summary>
-    class ApplicationUser:IdentityUser
+    public class ApplicationUser:IdentityUser
     {
         public virtual AboutAdmin AboutAdmin { get; set; }
     }

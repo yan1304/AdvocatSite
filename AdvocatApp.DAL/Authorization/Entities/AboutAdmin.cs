@@ -12,7 +12,7 @@ namespace AdvocatApp.DAL.Authorization.Entities
     /// <summary>
     /// Информация об администраторе сайта
     /// </summary>
-    class AboutAdmin
+    public class AboutAdmin
     {
         [Key]
         [ForeignKey("ApplicationUser")]

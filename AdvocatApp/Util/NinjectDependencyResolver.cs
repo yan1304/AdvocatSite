@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using Ninject;
 using System.Web.Mvc;
+using AdvocatApp.DAL.Interfaces;
+using AdvocatApp.DAL.Repositories;
 
 namespace AdvocatApp.Util
 {
@@ -35,7 +37,8 @@ namespace AdvocatApp.Util
         /// </summary>
         private void AddBindings()
         {
-            throw new NotImplementedException();
+            kernel.Bind<IAdminManager>().To<AdminManager>();
+            kernel.Bind<IUnitOfWork>().To<IdentityUnitOfWork>();
         }
     }
 }

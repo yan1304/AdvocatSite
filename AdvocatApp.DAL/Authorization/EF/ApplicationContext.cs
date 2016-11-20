@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace AdvocatApp.DAL.Authorization.EF
 {
-    class ApplicationContext:IdentityDbContext<ApplicationUser>
+    public class ApplicationContext:IdentityDbContext<ApplicationUser>
     {
         public ApplicationContext(string conectionString) : base(conectionString) { }
 

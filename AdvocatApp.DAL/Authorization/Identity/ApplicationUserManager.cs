@@ -3,7 +3,7 @@ using Microsoft.AspNet.Identity;
 
 namespace AdvocatApp.DAL.Authorization.Identity
 {
-    class ApplicationUserManager : UserManager<ApplicationUser>
+    public class ApplicationUserManager : UserManager<ApplicationUser>
     {
         public ApplicationUserManager(IUserStore<ApplicationUser> store) : base(store)
         {
