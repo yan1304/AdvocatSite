@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace AdvocatApp.DAL.Authorization.Entities
 {
@@ -12,7 +11,7 @@ namespace AdvocatApp.DAL.Authorization.Entities
     /// Модель для авторизации администратора
     /// </summary>
     public class ApplicationUser:IdentityUser
-    {
+    { 
         public virtual AboutAdmin AboutAdmin { get; set; }
     }
 }

@@ -4,10 +4,10 @@ using System.Linq;
 using System.Web;
 using Ninject;
 using System.Web.Mvc;
-using AdvocatApp.DAL.Interfaces;
-using AdvocatApp.DAL.Repositories;
 using AdvocatApp.BL.Authorization.Interfaces;
 using AdvocatApp.BL.Authorization.Services;
+using AdvocatApp.DAL.Interfaces;
+using AdvocatApp.DAL.Repositories;
 
 namespace AdvocatApp.Util
 {

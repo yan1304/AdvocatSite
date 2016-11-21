@@ -22,6 +22,17 @@ namespace AdvocatApp.BL.Authorization.Services
             Database = uow;
         }
 
+        public async Task<AdminDTO> GetUser(string email)
+        {
+            ApplicationUser user = await Database.UserManager.FindByEmailAsync(email);
+            return new AdminDTO
+            {
+                Address = user.AboutAdmin.Address,
+                Name = user.AboutAdmin.Name,
+                AboutMe = user.AboutAdmin.AboutMe,
+            };
+        }
+
         public async Task<ClaimsIdentity> Authenticate(AdminDTO adminDto)
         {
             ClaimsIdentity claim = null;

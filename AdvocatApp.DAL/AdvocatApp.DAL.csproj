@@ -61,6 +61,9 @@
     <Compile Include="Authorization\Entities\AboutAdmin.cs" />
     <Compile Include="Authorization\Entities\ApplicationUser.cs" />
     <Compile Include="Authorization\Identity\ApplicationUserManager.cs" />
+    <Compile Include="Entities\Menu.cs" />
+    <Compile Include="Entities\Page.cs" />
+    <Compile Include="Entities\Question.cs" />
     <Compile Include="Interfaces\IAdminManager.cs" />
     <Compile Include="Interfaces\IUnitOfWork.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
