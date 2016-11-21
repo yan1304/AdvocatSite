@@ -6,6 +6,8 @@ using Ninject;
 using System.Web.Mvc;
 using AdvocatApp.DAL.Interfaces;
 using AdvocatApp.DAL.Repositories;
+using AdvocatApp.BL.Authorization.Interfaces;
+using AdvocatApp.BL.Authorization.Services;
 
 namespace AdvocatApp.Util
 {
@@ -39,6 +41,7 @@ namespace AdvocatApp.Util
         {
             kernel.Bind<IAdminManager>().To<AdminManager>();
             kernel.Bind<IUnitOfWork>().To<IdentityUnitOfWork>();
+            kernel.Bind<IServiceCreator>().To<ServiceCreator>();
         }
     }
 }

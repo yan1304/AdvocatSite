@@ -57,6 +57,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Authorization\DTO\AdminDTO.cs" />
+    <Compile Include="Authorization\Infrastructure\OperationDetails.cs" />
+    <Compile Include="Authorization\Interfaces\IServiceCreator.cs" />
+    <Compile Include="Authorization\Interfaces\IUserService.cs" />
+    <Compile Include="Authorization\Services\ServiceCreator.cs" />
+    <Compile Include="Authorization\Services\UserService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
