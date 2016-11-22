@@ -31,7 +31,7 @@ namespace AdvocatApp.DAL.Repositories
                 db.MenuItems.Remove(menu);
         }
 
-        public async void DeleteAsync(int id)
+        public async Task DeleteAsync(int id)
         {
             Menu menu = await db.MenuItems.FindAsync(id);
             if (menu != null)

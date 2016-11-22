@@ -10,13 +10,13 @@ namespace AdvocatApp.DAL.Interfaces
     {
         IEnumerable<T> GetAll();
         T Get(int id);
-        IEnumerable<T> Find(Func<T, Boolean> predicate);
+        IEnumerable<T> Find(Func<T, bool> predicate);
         void Create(T item);
         void Update(T item);
         void Delete(int id);
 
         Task<T> GetAsync(int id);
 
-        void DeleteAsync(int id);
+        Task DeleteAsync(int id);
     }
 }

@@ -29,7 +29,7 @@ namespace AdvocatApp.DAL.Repositories
             if (page != null)
                 db.Pages.Remove(page);
         }
-        public async void DeleteAsync(int id)
+        public async Task DeleteAsync(int id)
         {
             Page page = await  db.Pages.FindAsync(id);
             if (page != null)
@@ -55,7 +55,6 @@ namespace AdvocatApp.DAL.Repositories
         {
             return await db.Pages.FindAsync(id);
         }
-
         public void Update(Page item)
         {
             db.Entry(item).State = EntityState.Modified;

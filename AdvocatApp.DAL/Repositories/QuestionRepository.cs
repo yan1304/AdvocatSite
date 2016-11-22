@@ -31,7 +31,7 @@ namespace AdvocatApp.DAL.Repositories
                 db.Questions.Remove(question);
         }
 
-        public async void DeleteAsync(int id)
+        public async Task DeleteAsync(int id)
         {
             Question question = await db.Questions.FindAsync(id);
             if (question != null)

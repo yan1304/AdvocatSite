@@ -4,12 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AdvocatApp.DAL.Entities
+namespace AdvocatApp.BL.DTO
 {
-    /// <summary>
-    /// Модель вопрос-ответ
-    /// </summary>
-    public class Question
+    public class QuestionDTO
     {
         public int Id { get; set; }
         public string Ask { get; set; }

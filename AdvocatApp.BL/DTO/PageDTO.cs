@@ -4,12 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AdvocatApp.DAL.Entities
+namespace AdvocatApp.BL.DTO
 {
-    /// <summary>
-    /// Модель статьи
-    /// </summary>
-    public class Page
+    public class PageDTO
     {
         public int Id { get; set; }
         public string Name { get; set; }
@@ -17,6 +14,6 @@ namespace AdvocatApp.DAL.Entities
         public string VideoURL { get; set; }
         public string Text { get; set; }
 
-       public  DateTime Date { get; set; }
+        public DateTime Date { get; set; }
     }
 }
