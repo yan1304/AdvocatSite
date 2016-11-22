@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AdvocatApp.DAL.Entities
 {
-    class Menu
+    public class Menu
     {
         int Id { get; set; }
         public string Header { get; set; }  // заголовок меню

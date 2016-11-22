@@ -9,7 +9,7 @@ namespace AdvocatApp.DAL.Entities
     /// <summary>
     /// Модель вопрос-ответ
     /// </summary>
-    class Question
+    public class Question
     {
         public int Id { get; set; }
         public int Ask { get; set; }

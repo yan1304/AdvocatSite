@@ -9,11 +9,13 @@ namespace AdvocatApp.DAL.Entities
     /// <summary>
     /// Модель статьи
     /// </summary>
-    class Page
+    public class Page
     {
         int Id { get; set; }
         string Name { get; set; }
         string VideoURL { get; set; }
         string Text { get; set; }
+
+        DateTime Date { get; set; }
     }
 }
