@@ -14,7 +14,7 @@ namespace AdvocatApp.BL.DTO
         public int? Order { get; set; }  // порядок следования пункта в подменю
         public int? ParentId { get; set; }  // ссылка на id родительского меню
         public MenuDTO Parent { get; set; }    // родительское меню
-
+        public int? PageId { get; set; }
         public ICollection<MenuDTO> Children { get; set; }   // дочерние пункты меню
         public MenuDTO()
         {

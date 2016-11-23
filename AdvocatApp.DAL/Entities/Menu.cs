@@ -14,7 +14,7 @@ namespace AdvocatApp.DAL.Entities
         public int? Order { get; set; }  // порядок следования пункта в подменю
         public int? ParentId { get; set; }  // ссылка на id родительского меню
         public Menu Parent { get; set; }    // родительское меню
-
+        public int? PageId { get; set; }
         public ICollection<Menu> Children { get; set; }   // дочерние пункты меню
         public Menu()
         {

@@ -2,6 +2,8 @@
 using AdvocatApp.BL.Authorization.Services;
 using AdvocatApp.BL.DTO;
 using AdvocatApp.BL.Interfaces;
+using AdvocatApp.Models;
+using AutoMapper;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using System;
@@ -69,10 +71,32 @@ namespace AdvocatApp.Controllers
         [Authorize]
         public async Task<ActionResult> Page(int? id)
         {
+            if (id == null) RedirectToAction("Index");
             PageDTO page = await siteService.GetPageAsync(id);
             if (page == null)
                 HttpNotFound();
             return View(page);
+        }
+
+        [Authorize]
+        [HttpGet]
+        public ActionResult AddPage()
+        {
+            return View();
+        }
+        [Authorize]
+        [HttpPost]
+        public async Task<ActionResult> AddPage(PageModel p)
+        {
+            Mapper.Initialize(cfg => cfg.CreateMap<PageModel, PageDTO>());
+            var page = Mapper.Map<PageModel, PageDTO>(p);
+            page.Date = DateTime.Now;
+            page.Text.Replace("<sc", "<sr");
+            page.Text.Replace("<Sc", "<sr");
+            page.Text.Replace("<SC", "<sr");
+            page.Text.Replace("<sC", "<sr");
+            await siteService.AddPageAsync(page);
+            return RedirectToAction("Index");
         }
     }
 }
