@@ -12,6 +12,7 @@ namespace AdvocatApp.BL.Interfaces
         void AddPage(PageDTO pageDTO);
         Task AddPageAsync(PageDTO pageDTO);
         PageDTO GetPage(int? id);
+        IEnumerable<PageDTO> GetPages();
         Task<PageDTO> GetPageAsync(int? id);
         void UpdatePage(PageDTO pageDTO);
         Task UpdatePageAsync(PageDTO pageDTO);
@@ -19,6 +20,7 @@ namespace AdvocatApp.BL.Interfaces
         Task DeletePageAsync(int? id);
 
         MenuDTO GetMenuItem(int? id);
+        IEnumerable<MenuDTO> GetMenuItems();
         void AddMenuItem(MenuDTO menuDTO);
         Task AddMenuItemAsync(MenuDTO menuDTO);
         Task<MenuDTO> GetMenuItemAsync(int? id);
@@ -26,10 +28,12 @@ namespace AdvocatApp.BL.Interfaces
         Task UpdateMenuAsync(MenuDTO menuDTO);
         void DeleteMenuItem(int? id);
         Task DeleteMenuItemAsync(int? id);
+        Task ReplaceMenuAsync(IEnumerable<MenuDTO> m);
 
         void AddQuestion(QuestionDTO questionDTO);
         Task AddQuestionAsync(QuestionDTO pageDTO);
         QuestionDTO GetQuestion(int? id);
+        IEnumerable<QuestionDTO> GetQuestions();
         Task<QuestionDTO> GetQuestionAsync(int? id);
         void UpdateQuestion(QuestionDTO questionDTO);
         Task UpdateQuestionAsync(QuestionDTO questionDTO);

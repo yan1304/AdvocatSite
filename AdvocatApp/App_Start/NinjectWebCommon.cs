@@ -11,6 +11,8 @@ namespace AdvocatApp.App_Start
     using Ninject;
     using System.Web.Mvc;
     using Ninject.Web.Common;
+    using BL.Infrastructure;
+    using Ninject.Modules;
 
     public static class NinjectWebCommon 
     {
@@ -40,7 +42,8 @@ namespace AdvocatApp.App_Start
         /// <returns>The created kernel.</returns>
         private static IKernel CreateKernel()
         {
-            var kernel = new StandardKernel();
+            var modules = new INinjectModule[] { new ServiceModule("DefaultConnection") };
+            var kernel = new StandardKernel(modules);
             try
             {
                 kernel.Bind<Func<IKernel>>().ToMethod(ctx => () => new Bootstrapper().Kernel);

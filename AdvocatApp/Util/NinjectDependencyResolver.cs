@@ -8,7 +8,8 @@ using AdvocatApp.BL.Authorization.Interfaces;
 using AdvocatApp.BL.Authorization.Services;
 using AdvocatApp.DAL.Interfaces;
 using AdvocatApp.DAL.Repositories;
-
+using AdvocatApp.BL.Interfaces;
+using AdvocatApp.BL.Services;
 namespace AdvocatApp.Util
 {
     /// <summary>
@@ -42,6 +43,7 @@ namespace AdvocatApp.Util
             kernel.Bind<IAdminManager>().To<AdminManager>();
             kernel.Bind<IUnitOfWork>().To<IdentityUnitOfWork>();
             kernel.Bind<IServiceCreator>().To<ServiceCreator>();
+            kernel.Bind<ISiteService>().To<SiteService>();
         }
     }
 }

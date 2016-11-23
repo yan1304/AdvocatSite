@@ -19,8 +19,20 @@ namespace AdvocatApp.BL.BusinessModels
 
         public static MenuDTO FromMenu(Menu menu)
         {
-            Mapper.Initialize(cfg => cfg.CreateMap<Menu, MenuDTO>());
-            return Mapper.Map<Menu, MenuDTO>(menu);
+            MenuDTO m = new MenuDTO
+            {
+                Id = menu.Id,
+                Header = menu.Header,
+                Url = menu.Url,
+                Order = menu.Order,
+                ParentId = menu.ParentId
+            };
+            
+            if(menu.Parent!=null)
+            {
+                m.Parent = FromMenu(menu.Parent);
+            }
+            return m;
         }
         public static PageDTO FromPage(Page page)
         {

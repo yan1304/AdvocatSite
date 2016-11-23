@@ -53,9 +53,9 @@ namespace AdvocatApp.DAL.Repositories
             }
         }
 
-        public Task SaveAsync()
+        public async Task SaveAsync()
         {
-            throw new NotImplementedException();
+            await db.SaveChangesAsync();
         }
     }
 }

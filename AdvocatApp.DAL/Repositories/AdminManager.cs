@@ -33,5 +33,10 @@ namespace AdvocatApp.DAL.Repositories
             Database.Entry(item).State = System.Data.Entity.EntityState.Modified;
             Database.SaveChanges();
         }
+
+        public AboutAdmin GetInfo()
+        {
+            return Database.AboutAdmin.FirstOrDefault();
+        }
     }
 }

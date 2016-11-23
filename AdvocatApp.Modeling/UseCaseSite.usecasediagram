@@ -1,19 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm10="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="4b62f354-1a5c-42c4-9122-7286641108cd" name="UseCaseSite" linkedPackageId="c726a48f-5f05-4d4f-a3cf-4a6afd18d794" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
-  <profileInstances>
-    <packageHasProfileInstances Id="e3ef73c7-9f5e-440d-aa6c-b91f90ebeab6">
-      <profileInstance Id="3bb45e41-f486-42ee-9360-525f647e34fb" name="StandardProfileL2">
-        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
-      </profileInstance>
-      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
-    </packageHasProfileInstances>
-    <packageHasProfileInstances Id="bf78da64-50eb-48bd-a9dd-da4e29d50e5e">
-      <profileInstance Id="eea3723e-9ade-4f87-8195-44f482281392" name="StandardProfileL3">
-        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
-      </profileInstance>
-      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
-    </packageHasProfileInstances>
-  </profileInstances>
+<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm10="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm11="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner" dslVersion="1.0.0.0" Id="4b62f354-1a5c-42c4-9122-7286641108cd" name="UseCaseSite" linkedPackageId="c726a48f-5f05-4d4f-a3cf-4a6afd18d794" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
   <packagedElements>
     <useCaseModelRootHasTypes>
       <actor Id="80db5057-37ca-4729-abc9-020edc48c3f0" name="Пользователь" isAbstract="false" isLeaf="false">
@@ -225,22 +211,6 @@
             </relationshipOwnedElementsInternal>
             <elementDefinition Id="85732bfa-1adc-4153-a71d-e2a4ca730f60" />
           </association>
-          <association Id="da099d60-d307-4c9e-a010-c02dfb6e9fdd" isDerived="false" sourceEndRoleName="Администратор" targetEndRoleName="Изменить footer" isLeaf="false" isAbstract="false">
-            <useCaseMoniker Id="3fb15a24-bd81-4569-892a-cf5d0081f848" LastKnownName="Изменить footer" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd Id="57a5c8ae-ba89-44e1-9d24-504da5e6d1ed" name="Администратор" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
-                  <elementDefinition Id="4003cb72-e619-41a8-ad5b-ab5d1d77fcb6" />
-                </memberEnd>
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd Id="14ae8cf1-7dfc-44ef-84cb-3bd1c15d6fd7" name="Изменить footer" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-                  <elementDefinition Id="b153d32b-96f1-4ad5-8a4e-4287d47f1f14" />
-                </memberEnd>
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-            <elementDefinition Id="f86a624d-9808-4484-a44a-52bb322c9efd" />
-          </association>
           <association Id="279a2a49-0fca-4564-8a74-052638ef2916" isDerived="false" sourceEndRoleName="Администратор" targetEndRoleName="Добавить статью" isLeaf="false" isAbstract="false">
             <useCaseMoniker Id="a75cf311-4da9-44a2-8ab8-6fcedfef1961" LastKnownName="Добавить статью" />
             <relationshipOwnedElementsInternal>
@@ -311,14 +281,6 @@
     <useCaseModelRootHasTypes>
       <useCase Id="f99747df-e63f-48b5-86ed-42881854239e" name="Изменить статью" isAbstract="false" isLeaf="false">
         <elementDefinition Id="fefa2b64-9fb9-4cae-a622-5fbe6f1232cb" />
-        <subjects>
-          <subsystemMoniker Id="f3e53b3e-61e2-4e6e-93fd-0987bfb8ee04" LastKnownName="Authorised" />
-        </subjects>
-      </useCase>
-    </useCaseModelRootHasTypes>
-    <useCaseModelRootHasTypes>
-      <useCase Id="3fb15a24-bd81-4569-892a-cf5d0081f848" name="Изменить footer" isAbstract="false" isLeaf="false">
-        <elementDefinition Id="514da3d6-c2c9-4e32-ad0f-7d1bbe613980" />
         <subjects>
           <subsystemMoniker Id="f3e53b3e-61e2-4e6e-93fd-0987bfb8ee04" LastKnownName="Authorised" />
         </subjects>
@@ -458,5 +420,19 @@
   </packagedElements>
   <package Id="c726a48f-5f05-4d4f-a3cf-4a6afd18d794" name="AdvocatApp.Modeling">
     <elementDefinition Id="0eb8f9d4-8af1-4ee9-9311-770c64624762" />
+    <profileInstances>
+      <packageHasProfileInstances Id="e3ef73c7-9f5e-440d-aa6c-b91f90ebeab6">
+        <profileInstance Id="3bb45e41-f486-42ee-9360-525f647e34fb" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="bf78da64-50eb-48bd-a9dd-da4e29d50e5e">
+        <profileInstance Id="eea3723e-9ade-4f87-8195-44f482281392" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
   </package>
 </useCaseModelRoot>

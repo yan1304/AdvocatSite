@@ -75,5 +75,27 @@ namespace AdvocatApp.BL.Authorization.Services
                 return new OperationDetails(false, "Пользователь с таким логином уже существует", "Email");
             }
         }
+
+        public AdminDTO GetInfo()
+        {
+            var v = Database.AdminManager.GetInfo();
+            AdminDTO adm = new AdminDTO
+            {
+                AboutMe = v.AboutMe,
+                Address = v.Address,
+                Email = v.Email,
+                Name = v.Name,
+                Surname = v.Surname,
+                Fathername = v.Fathername,
+                Phone = v.Phone,
+                HomePhone = v.HomePhone,
+                Vk = v.Vk,
+                Youtube = v.Youtube,
+                Twitter = v.Twitter,
+                Facebook = v.Facebook,
+                GooglePl = v.GooglePl
+            };
+            return adm;
+        }
     }
 }

@@ -11,6 +11,7 @@ namespace AdvocatApp.BL.Authorization.Interfaces
 {
     public interface IUserService:IDisposable
     {
+        AdminDTO GetInfo();
         Task<AdminDTO> GetUser(string email);
         Task<OperationDetails> Create(AdminDTO adminDto);
         Task<ClaimsIdentity> Authenticate(AdminDTO adminDto);

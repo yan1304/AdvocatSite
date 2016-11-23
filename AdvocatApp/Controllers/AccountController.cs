@@ -30,11 +30,6 @@ namespace AdvocatApp.Controllers
                 return HttpContext.GetOwinContext().Authentication;
             }
         }
-        [Authorize]
-        public async Task<ActionResult> About()
-        {
-            return View(await UserService.GetUser(HttpContext.User.Identity.Name));
-        }
         public ActionResult Login()
         {
             return View();
@@ -60,7 +55,7 @@ namespace AdvocatApp.Controllers
                     {
                         IsPersistent = true
                     }, claim);
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "Admin");
                 }
             }
             return View(model);

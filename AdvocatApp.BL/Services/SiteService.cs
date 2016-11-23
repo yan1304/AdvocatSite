@@ -13,7 +13,7 @@ using AutoMapper;
 
 namespace AdvocatApp.BL.Services
 {
-    class SiteService : ISiteService
+    public class SiteService : ISiteService
     {
         IUnitOfWorkSite Database { get; set; }
 
@@ -314,6 +314,54 @@ namespace AdvocatApp.BL.Services
         public void Dispose()
         {
             Database.Dispose();
+        }
+
+        public IEnumerable<PageDTO> GetPages()
+        {
+            IEnumerable<Page> page = Database.Pages.GetAll().ToList();
+            List<PageDTO> p = new List<PageDTO>();
+            foreach (Page item in page)
+            {
+                p.Add(ServiceFunctions.FromPage(item));
+            }
+            return p;
+        }
+
+        public IEnumerable<MenuDTO> GetMenuItems()
+        {
+            IEnumerable<Menu> menu = Database.MenuItems.GetAll().ToList();
+            List<MenuDTO> m = new List<MenuDTO>();
+            foreach (Menu item in menu)
+            {
+                m.Add(ServiceFunctions.FromMenu(item));
+            }
+            return m;
+        }
+
+        public IEnumerable<QuestionDTO> GetQuestions()
+        {
+            IEnumerable<Question> quest = Database.Questions.GetAll().ToList();
+            List<QuestionDTO> q = new List<QuestionDTO>();
+            foreach (Question item in quest)
+            {
+                q.Add(ServiceFunctions.FromQuestion(item));
+            }
+            return q;
+        }
+
+        public async Task ReplaceMenuAsync(IEnumerable<MenuDTO> m)
+        {
+            IEnumerable<Menu> menu = Database.MenuItems.GetAll();
+            foreach(Menu m1 in menu)
+            {
+                await Database.MenuItems.DeleteAsync(m1.Id);
+            }
+            foreach (MenuDTO m1 in m)
+            {
+                Menu m2 = ServiceFunctions.FromMenuDTO(m1);
+                Database.MenuItems.Create(m2);
+            }
+            await Database.SaveAsync();
         }
     }
 }

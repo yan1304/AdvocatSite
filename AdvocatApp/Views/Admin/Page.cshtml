@@ -1,0 +1,16 @@
+﻿@using AdvocatApp.BL.DTO
+@model PageDTO
+@{
+    ViewBag.Title = "Page";
+}
+
+<h2>Page</h2>
+
+<h3>@Model.Header</h3>
+
+<p>
+    @Model.Text
+</p>
+
+<iframe width="560" height="315" src="@Model.VideoURL" frameborder="0" allowfullscreen></iframe>
+
