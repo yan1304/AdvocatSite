@@ -2,6 +2,7 @@
 @model PageDTO
 @{
     ViewBag.Title = "Page";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
 <h2>Page</h2>
@@ -9,9 +10,14 @@
 <h3>@Model.Header</h3>
 
 <input id="textSt" type="hidden" value="@Model.Text" />
-<p id="textSite">
-    Заменить скрипторм
-    @Model.Text
-</p>
+<div id="textSite">
+</div>
 
 <iframe width="560" height="315" src="@Model.VideoURL" frameborder="0" allowfullscreen></iframe>
+
+@section scripts{
+<script src='@Url.Content("~/Scripts/PageScript.js")'>
+</script> 
+    <script src='@Url.Content("~/Scripts/PageScript.js")'>
+    </script>    
+}

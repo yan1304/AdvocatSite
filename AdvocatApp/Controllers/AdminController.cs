@@ -9,6 +9,7 @@ using Microsoft.Owin.Security;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
@@ -91,10 +92,15 @@ namespace AdvocatApp.Controllers
             Mapper.Initialize(cfg => cfg.CreateMap<PageModel, PageDTO>());
             var page = Mapper.Map<PageModel, PageDTO>(p);
             page.Date = DateTime.Now;
-            page.Text.Replace("<sc", "<sr");
-            page.Text.Replace("<Sc", "<sr");
-            page.Text.Replace("<SC", "<sr");
-            page.Text.Replace("<sC", "<sr");
+            StringBuilder s = new StringBuilder("<p>");
+            s = s.Append(page.Text);
+            s = s.Replace("<sc", "<sr");
+            s = s.Replace("<Sc", "<sr");
+            s = s.Replace("<SC", "<sr");
+            s = s.Replace("<sC", "<sr");
+            s = s.Replace("\r\n","</p><p>");
+            s = s.Append("</p>");
+            page.Text = s.ToString();
             await siteService.AddPageAsync(page);
             return RedirectToAction("Index");
         }
