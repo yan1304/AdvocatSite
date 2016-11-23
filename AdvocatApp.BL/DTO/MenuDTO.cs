@@ -10,6 +10,7 @@ namespace AdvocatApp.BL.DTO
     {
         public int Id { get; set; }
         public string Header { get; set; }  // заголовок меню
+        public string NamePage { get; set; }
         public string Url { get; set; } // адрес ссылки
         public int? Order { get; set; }  // порядок следования пункта в подменю
         public int? ParentId { get; set; }  // ссылка на id родительского меню

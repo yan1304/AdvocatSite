@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AdvocatApp.DAL.Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -24,6 +25,8 @@ namespace AdvocatApp.Models
         [Display(Name = "Введите текст статьи")]
         [DataType(DataType.MultilineText)]
         public string Text { get; set; }
+        [HiddenInput(DisplayValue = false)]
+        public TypePage Type { get; set; }
         [HiddenInput(DisplayValue = false)]
         public DateTime Date { get; set; }
     }

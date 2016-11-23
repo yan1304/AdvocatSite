@@ -23,13 +23,13 @@ namespace AdvocatApp.BL.Services
         }
         public void AddPage(PageDTO pageDTO)
         {
-            var v = Database.Pages.Find(p => p.Header == pageDTO.Header).FirstOrDefault();
+            var v = Database.Pages.Find(p => p.Name == pageDTO.Name).FirstOrDefault();
             if(v==null)
             {
                 Database.Pages.Create(ServiceFunctions.FromPageDTO(pageDTO));
-                var m1 = Database.MenuItems.Find(menu => menu.Header == pageDTO.Header).FirstOrDefault();
+                var m1 = Database.MenuItems.Find(menu => menu.NamePage == pageDTO.Name).FirstOrDefault();
                 if (m1 != null) throw new ValidationExeption("Ошибка создания нового пункта меню", "MenuItems");
-                if (pageDTO.Name != "Index")
+                if (pageDTO.Type == TypePage.Statie)
                 {
                     MenuDTO menu = ServiceFunctions.MenuDTOFromPageDTO(pageDTO);
                     for(;;)
@@ -185,11 +185,19 @@ namespace AdvocatApp.BL.Services
         public void UpdatePage(PageDTO pageDTO)
         {
             Database.Pages.Update(ServiceFunctions.FromPageDTO(pageDTO));
-            var m = Database.MenuItems.Find(me => me.PageId == pageDTO.Id).FirstOrDefault();
+            var m = Database.MenuItems.Find(me => me.NamePage == pageDTO.Name).FirstOrDefault();
             if (m != null)
             {
-                m.Header = pageDTO.Header;
-                m.Url = "/Page/" + pageDTO.Id;
+                if (pageDTO.Type == TypePage.Statie)
+                {
+                    m.Header = pageDTO.Header;
+                    m.Url = "/Page/" + pageDTO.Id;
+                    Database.MenuItems.Update(m);
+                }
+                else
+                {
+                    Database.MenuItems.Delete(m.Id);
+                }
             }
             Database.Save();
         }
@@ -215,9 +223,9 @@ namespace AdvocatApp.BL.Services
                     VideoURL = pageDTO.VideoURL
                 };
                 Database.Pages.Create(p);
-                var m1 =Database.MenuItems.Find(menu => menu.Header == pageDTO.Header).FirstOrDefault();
+                var m1 =Database.MenuItems.Find(menu => menu.NamePage == pageDTO.Name).FirstOrDefault();
                 if (m1 != null) throw new ValidationExeption("Ошибка создания нового пункта меню", "MenuItems");
-                if (pageDTO.Name != "Index")
+                if (pageDTO.Type == TypePage.Statie)
                 {
                     MenuDTO menu = ServiceFunctions.MenuDTOFromPageDTO(pageDTO);
                     for (;;)
@@ -236,8 +244,16 @@ namespace AdvocatApp.BL.Services
                 var m = Database.MenuItems.Find(me => me.PageId == pageDTO.Id).FirstOrDefault();
                 if (m != null)
                 {
-                    m.Header = pageDTO.Header;
-                    m.Url = "/Page/" + pageDTO.Id;
+                    if (pageDTO.Type == TypePage.Statie)
+                    {
+                        m.Header = pageDTO.Header;
+                        m.Url = "/Page/" + pageDTO.Id;
+                        Database.MenuItems.Update(m);
+                    }
+                    else
+                    {
+                        Database.MenuItems.Delete(m.Id);
+                    }
                 }
                 await Database.SaveAsync();
             }
@@ -326,8 +342,17 @@ namespace AdvocatApp.BL.Services
             var m = Database.MenuItems.Find(me => me.PageId == pageDTO.Id).FirstOrDefault();
             if (m != null)
             {
-                m.Header = pageDTO.Header;
-                m.Url = "/Page/" + pageDTO.Id;
+                if (pageDTO.Type == TypePage.Statie)
+                {
+                    m.Header = pageDTO.Header;
+                    m.Url = "/Page/" + pageDTO.Id;
+                    Database.MenuItems.Update(m);
+                }
+                else
+                {
+                    await Database.MenuItems.DeleteAsync(m.Id);
+                }
+                
             }
             await Database.SaveAsync();
         }

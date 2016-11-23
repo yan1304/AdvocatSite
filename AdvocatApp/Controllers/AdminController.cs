@@ -2,6 +2,7 @@
 using AdvocatApp.BL.Authorization.Services;
 using AdvocatApp.BL.DTO;
 using AdvocatApp.BL.Interfaces;
+using AdvocatApp.DAL.Entities;
 using AdvocatApp.Models;
 using AutoMapper;
 using Microsoft.AspNet.Identity.Owin;
@@ -101,6 +102,7 @@ namespace AdvocatApp.Controllers
             s = s.Replace("\r\n","</p><p>");
             s = s.Append("</p>");
             page.Text = s.ToString();
+            page.Type = TypePage.Statie;
             await siteService.AddPageAsync(page);
             return RedirectToAction("Index");
         }
