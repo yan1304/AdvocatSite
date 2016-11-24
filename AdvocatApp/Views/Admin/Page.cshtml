@@ -13,7 +13,7 @@
 <div id="textSite">
 </div>
 
-@if (Model.VideoURL!=null)
+@if (Model.VideoURL!=null && (Model.Type == AdvocatApp.DAL.Entities.TypePage.Statie || Model.Type == AdvocatApp.DAL.Entities.TypePage.VideoStatie))
 {
     if (Model.VideoURL != "")
     {
@@ -23,7 +23,5 @@
 
 @section scripts{
 <script src='@Url.Content("~/Scripts/PageScript.js")'>
-</script> 
-    <script src='@Url.Content("~/Scripts/PageScript.js")'>
-    </script>    
+</script>    
 }
