@@ -13,7 +13,13 @@
 <div id="textSite">
 </div>
 
-<iframe width="560" height="315" src="@Model.VideoURL" frameborder="0" allowfullscreen></iframe>
+@if (Model.VideoURL!=null)
+{
+    if (Model.VideoURL != "")
+    {
+        <iframe width="560" height="315" src="@Model.VideoURL" frameborder="0" allowfullscreen></iframe>
+    }
+}
 
 @section scripts{
 <script src='@Url.Content("~/Scripts/PageScript.js")'>
