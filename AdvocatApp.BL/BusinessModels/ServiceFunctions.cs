@@ -63,6 +63,7 @@ namespace AdvocatApp.BL.BusinessModels
             MenuDTO m = new MenuDTO
             {
                 Header = pageDTO.Header,
+                NamePage = pageDTO.Name,
                 Id=pageDTO.Id,
                 PageId = pageDTO.Id,
                 Url = "/Page/" + pageDTO.Id
@@ -74,6 +75,8 @@ namespace AdvocatApp.BL.BusinessModels
         {
             Menu m = new Menu
             {
+                NamePage = pageDTO.Name,
+                PageId = pageDTO.Id,
                 Header = pageDTO.Header,
                 Id = pageDTO.Id,
                 Url = "/Pages/" + pageDTO.Name

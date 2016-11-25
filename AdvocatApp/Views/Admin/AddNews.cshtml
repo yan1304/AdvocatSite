@@ -1,0 +1,14 @@
+﻿@using AdvocatApp.Models
+@model PageModelWithoutVideo
+@{
+    ViewBag.Title = "AddNews";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<h2>AddPageWithVideo</h2>
+
+@Html.BeginForm("AddNews", "Admin", FormMethod.Post)
+{
+@Html.EditorForModel()
+<br />
+<input type="submit" value="Send" />
+}

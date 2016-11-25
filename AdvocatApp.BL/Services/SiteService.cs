@@ -77,7 +77,7 @@ namespace AdvocatApp.BL.Services
                 throw new ValidationExeption("Не установлено id страницы", "");
             }
             var p = Database.Pages.Get(id.Value);
-            var m = Database.MenuItems.Find(i=>i.Header==p.Header).FirstOrDefault();
+            var m = Database.MenuItems.Find(i=>i.NamePage==p.Name).FirstOrDefault();
             if(m!=null)
             {
                 Database.MenuItems.Delete(m.Id);
@@ -93,7 +93,7 @@ namespace AdvocatApp.BL.Services
                 throw new ValidationExeption("Не установлено id страницы", "");
             }
             var p = await Database.Pages.GetAsync(id.Value);
-            var m = Database.MenuItems.Find(i => i.Header == p.Header).FirstOrDefault();
+            var m = Database.MenuItems.Find(i => i.NamePage == p.Name).FirstOrDefault();
             if (m != null)
             {
                 await Database.MenuItems.DeleteAsync(m.Id);
@@ -213,15 +213,7 @@ namespace AdvocatApp.BL.Services
             var v = Database.Pages.Find(p => p.Id == pageDTO.Id).FirstOrDefault();
             if (v == null)
             {
-                Page p = new Page
-                {
-                    Id = pageDTO.Id,
-                    Name = pageDTO.Name,
-                    Header = pageDTO.Header,
-                    Text = pageDTO.Text,
-                    Date = pageDTO.Date,
-                    VideoURL = pageDTO.VideoURL
-                };
+                Page p = ServiceFunctions.FromPageDTO(pageDTO);
                 Database.Pages.Create(p);
                 var m1 =Database.MenuItems.Find(menu => menu.NamePage == pageDTO.Name).FirstOrDefault();
                 if (m1 != null) throw new ValidationExeption("Ошибка создания нового пункта меню", "MenuItems");

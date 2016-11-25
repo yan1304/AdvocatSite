@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewBag.Title = "EditPage";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>EditPage</h2>
+
+@Html.BeginForm("EditPage", "Admin", FormMethod.Post)
+{
+@Html.EditorForModel()
+<br />
+<input type="submit" value="Send" />
+}
