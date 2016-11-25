@@ -59,11 +59,6 @@ namespace AdvocatApp.Controllers
             return PartialView(siteService.GetPages());
         }
         [Authorize]
-        public ActionResult Menus()
-        {
-            return PartialView(siteService.GetMenuItems());
-        }
-        [Authorize]
         public ActionResult Questions()
         {
             return PartialView(siteService.GetQuestions());
@@ -218,5 +213,64 @@ namespace AdvocatApp.Controllers
 
             return RedirectToAction("Index");
         }
+        
+        [Authorize]
+        public ActionResult AddQuestion()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [Authorize]
+        public async Task<ActionResult> AddQuestion(QuestionModel question)
+        {
+            Mapper.Initialize(cfg => cfg.CreateMap<QuestionModel, QuestionDTO>());
+            var quest = Mapper.Map<QuestionModel, QuestionDTO>(question);
+            await siteService.AddQuestionAsync(quest);
+            return RedirectToAction("Index");
+        }
+        [Authorize]
+        public async Task<ActionResult> EditQuestion(int? id)
+        {
+            if (id == null) return HttpNotFound();
+            var quest = await siteService.GetQuestionAsync(id.Value);
+            if (quest == null) return HttpNotFound();
+            Mapper.Initialize(cfg => cfg.CreateMap<QuestionDTO, QuestionModel>());
+            var q = Mapper.Map<QuestionDTO, QuestionModel>(quest);
+            return View(q);
+        }
+
+        [Authorize]
+        [HttpPost]
+        public async Task<ActionResult> EditQuestion(QuestionModel q)
+        {
+            Mapper.Initialize(cfg => cfg.CreateMap<QuestionModel, QuestionDTO>());
+            var question = Mapper.Map<QuestionModel, QuestionDTO>(q);
+
+            await siteService.UpdateQuestionAsync(question);
+
+            return RedirectToAction("Index");
+        }
+
+        [Authorize]
+        public async Task<ActionResult> DeleteQ(int id)
+        {
+            QuestionDTO question = await siteService.GetQuestionAsync(id);
+            if (question == null)
+            {
+                return HttpNotFound();
+            }
+            return View(question);
+        }
+
+
+        [Authorize]
+        [HttpPost, ActionName("DeleteQ")]
+        public async Task<ActionResult> DeleteQuestion(int id)
+        {
+            await siteService.DeleteQuestionAsync(id);
+            return RedirectToAction("Index");
+        }
+
     }
 }

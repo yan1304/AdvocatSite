@@ -11,7 +11,6 @@ namespace AdvocatApp.DAL.Interfaces
     {
         IRepository<Question> Questions { get;}
         IRepository<Page> Pages { get;}
-        IRepository<Menu> MenuItems { get; }
         void Save();
         Task SaveAsync();
     }

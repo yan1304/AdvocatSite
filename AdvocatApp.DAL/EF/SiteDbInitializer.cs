@@ -9,18 +9,6 @@ namespace AdvocatApp.DAL.EF
     {
         protected override void Seed(SiteContext db)
         {
-            List<Menu> menu = new List<Menu>
-            {
-                new Menu { Id=1,Header = "One",Url="#",Order=1},
-                new Menu { Id=2,Header = "Two",Url="#",Order=2},
-                new Menu { Id=3,Header = "Tree",Url="#",Order=3},
-                new Menu { Id=4,Header = "OneOne",Url="#",Order=1,ParentId=1},
-                new Menu { Id=5,Header = "OneTwo",Url="#",Order=2,ParentId=1},
-                new Menu { Id=6,Header = "OneOneOne",Url="#",Order=1,ParentId=4},
-                new Menu { Id=7,Header = "TwoOne",Url="#",Order=1,ParentId=2},
-            };
-
-            db.MenuItems.AddRange(menu);
 
             List<Page> pages = new List<Page>
             {

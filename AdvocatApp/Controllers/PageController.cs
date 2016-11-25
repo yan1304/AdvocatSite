@@ -21,12 +21,6 @@ namespace AdvocatApp.Controllers
         {
             return PartialView(siteService.GetPages());
         }
-
-        public ActionResult Menus()
-        {
-            return PartialView(siteService.GetMenuItems());
-        }
-
         public ActionResult Questions()
         {
             return PartialView(siteService.GetQuestions());

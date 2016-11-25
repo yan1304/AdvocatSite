@@ -12,8 +12,7 @@ namespace AdvocatApp.DAL.EF
     {
         public DbSet<Question> Questions { get; set; }
         public DbSet<Page> Pages { get; set; }
-        public DbSet<Menu> MenuItems { get; set; }
-
+        
         static SiteContext()
         {
             Database.SetInitializer<SiteContext>(new SiteDbInitializer());

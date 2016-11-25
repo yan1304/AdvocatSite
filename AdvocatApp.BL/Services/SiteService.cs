@@ -27,30 +27,11 @@ namespace AdvocatApp.BL.Services
             if(v==null)
             {
                 Database.Pages.Create(ServiceFunctions.FromPageDTO(pageDTO));
-                var m1 = Database.MenuItems.Find(menu => menu.NamePage == pageDTO.Name).FirstOrDefault();
-                if (m1 != null) throw new ValidationExeption("Ошибка создания нового пункта меню", "MenuItems");
-                if (pageDTO.Type == TypePage.Statie)
-                {
-                    MenuDTO menu = ServiceFunctions.MenuDTOFromPageDTO(pageDTO);
-                    for(;;)
-                    {
-                        var i = Database.MenuItems.Find(me => me.Id == menu.Id).FirstOrDefault();
-                        if (i != null) menu.Id++;
-                        else break;
-                    }
-                    AddMenuItem(menu);
-                }
                 Database.Save();
             }
             else
             {
                 UpdatePage(pageDTO);
-                var m = Database.MenuItems.Find(me => me.PageId == pageDTO.Id).FirstOrDefault();
-                if (m != null)
-                {
-                    m.Header = pageDTO.Header;
-                    m.Url = "/Page/" + pageDTO.Id;
-                }
                 Database.Save();
             }
         }
@@ -76,12 +57,6 @@ namespace AdvocatApp.BL.Services
             {
                 throw new ValidationExeption("Не установлено id страницы", "");
             }
-            var p = Database.Pages.Get(id.Value);
-            var m = Database.MenuItems.Find(i=>i.NamePage==p.Name).FirstOrDefault();
-            if(m!=null)
-            {
-                Database.MenuItems.Delete(m.Id);
-            }
             Database.Pages.Delete(id.Value);
             Database.Save();
         }
@@ -91,12 +66,6 @@ namespace AdvocatApp.BL.Services
             if (id == null)
             {
                 throw new ValidationExeption("Не установлено id страницы", "");
-            }
-            var p = await Database.Pages.GetAsync(id.Value);
-            var m = Database.MenuItems.Find(i => i.NamePage == p.Name).FirstOrDefault();
-            if (m != null)
-            {
-                await Database.MenuItems.DeleteAsync(m.Id);
             }
             await Database.Pages.DeleteAsync(id.Value);
             await Database.SaveAsync();
@@ -121,27 +90,7 @@ namespace AdvocatApp.BL.Services
             await Database.Questions.DeleteAsync(id.Value);
             await Database.SaveAsync();
         }
-        
-        public MenuDTO GetMenuItem(int? id)
-        {
-            if (id == null)
-                throw new ValidationExeption("Не установлено id ячейки меню", "");
-            var menu = Database.MenuItems.Get(id.Value);
-            if(menu == null)
-                throw new ValidationExeption("Ячейка меню не найдена", "");
-            return ServiceFunctions.FromMenu(menu);
-        }
-
-        public async Task<MenuDTO> GetMenuItemAsync(int? id)
-        {
-            if (id == null)
-                throw new ValidationExeption("Не установлено id ячейки меню", "");
-            var menu = await Database.MenuItems.GetAsync(id.Value);
-            if (menu == null)
-                throw new ValidationExeption("Ячейка меню не найдена", "");
-            return ServiceFunctions.FromMenu(menu);
-        }
-
+      
         public PageDTO GetPage(int? id)
         {
             if (id == null)
@@ -185,20 +134,6 @@ namespace AdvocatApp.BL.Services
         public void UpdatePage(PageDTO pageDTO)
         {
             Database.Pages.Update(ServiceFunctions.FromPageDTO(pageDTO));
-            var m = Database.MenuItems.Find(me => me.NamePage == pageDTO.Name).FirstOrDefault();
-            if (m != null)
-            {
-                if (pageDTO.Type == TypePage.Statie)
-                {
-                    m.Header = pageDTO.Header;
-                    m.Url = "/Page/" + pageDTO.Id;
-                    Database.MenuItems.Update(m);
-                }
-                else
-                {
-                    Database.MenuItems.Delete(m.Id);
-                }
-            }
             Database.Save();
         }
 
@@ -215,38 +150,11 @@ namespace AdvocatApp.BL.Services
             {
                 Page p = ServiceFunctions.FromPageDTO(pageDTO);
                 Database.Pages.Create(p);
-                var m1 =Database.MenuItems.Find(menu => menu.NamePage == pageDTO.Name).FirstOrDefault();
-                if (m1 != null) throw new ValidationExeption("Ошибка создания нового пункта меню", "MenuItems");
-                if (pageDTO.Type == TypePage.Statie)
-                {
-                    MenuDTO menu = ServiceFunctions.MenuDTOFromPageDTO(pageDTO);
-                    for (;;)
-                    {
-                        var i = Database.MenuItems.Find(me => me.Id == menu.Id).FirstOrDefault();
-                        if (i != null) menu.Id++;
-                        else break;
-                    }
-                    await AddMenuItemAsync(menu);
-                }
                 await Database.SaveAsync();
             }
             else
             {
                 UpdatePage(pageDTO);
-                var m = Database.MenuItems.Find(me => me.PageId == pageDTO.Id).FirstOrDefault();
-                if (m != null)
-                {
-                    if (pageDTO.Type == TypePage.Statie)
-                    {
-                        m.Header = pageDTO.Header;
-                        m.Url = "/Page/" + pageDTO.Id;
-                        Database.MenuItems.Update(m);
-                    }
-                    else
-                    {
-                        Database.MenuItems.Delete(m.Id);
-                    }
-                }
                 await Database.SaveAsync();
             }
         }
@@ -266,86 +174,9 @@ namespace AdvocatApp.BL.Services
             }
         }
 
-        public void AddMenuItem(MenuDTO menuDTO)
-        {
-            var v = Database.MenuItems.Find(p => p.Id == menuDTO.Id).FirstOrDefault();
-            if (v == null)
-            {
-                Database.MenuItems.Create(ServiceFunctions.FromMenuDTO(menuDTO));
-                Database.Save();
-            }
-            else
-            {
-                UpdateMenu(menuDTO);
-                Database.Save();
-            }
-        }
-
-        public void UpdateMenu(MenuDTO menuDTO)
-        {
-            Database.MenuItems.Update(ServiceFunctions.FromMenuDTO(menuDTO));
-            Database.Save();
-        }
-
-        public async Task UpdateMenuAsync(MenuDTO menuDTO)
-        {
-            Database.MenuItems.Update(ServiceFunctions.FromMenuDTO(menuDTO));
-            await Database.SaveAsync();
-        }
-
-        public async Task AddMenuItemAsync(MenuDTO menuDTO)
-        {
-            var v = Database.MenuItems.Find(p => p.Id == menuDTO.Id).FirstOrDefault();
-            if (v == null)
-            {
-                Database.MenuItems.Create(ServiceFunctions.FromMenuDTO(menuDTO));
-                await Database.SaveAsync();
-            }
-            else
-            {
-                UpdateMenu(menuDTO);
-                await Database.SaveAsync();
-            }
-        }
-
-        public void DeleteMenuItem(int? id)
-        {
-            if(id == null)
-            {
-                throw new ValidationExeption("Не указан Id ячейки меню", "");
-            }
-            Database.MenuItems.Delete(id.Value);
-            Database.Save();
-        }
-
-        public async Task DeleteMenuItemAsync(int? id)
-        {
-            if (id == null)
-            {
-                throw new ValidationExeption("Не указан Id ячейки меню", "");
-            }
-            await Database.MenuItems.DeleteAsync(id.Value);
-            await Database.SaveAsync();
-        }
-
         public async Task UpdatePageAsync(PageDTO pageDTO)
         {
             Database.Pages.Update(ServiceFunctions.FromPageDTO(pageDTO));
-            var m = Database.MenuItems.Find(me => me.PageId == pageDTO.Id).FirstOrDefault();
-            if (m != null)
-            {
-                if (pageDTO.Type == TypePage.Statie)
-                {
-                    m.Header = pageDTO.Header;
-                    m.Url = "/Page/" + pageDTO.Id;
-                    Database.MenuItems.Update(m);
-                }
-                else
-                {
-                    await Database.MenuItems.DeleteAsync(m.Id);
-                }
-                
-            }
             await Database.SaveAsync();
         }
 
@@ -371,17 +202,7 @@ namespace AdvocatApp.BL.Services
             return p;
         }
 
-        public IEnumerable<MenuDTO> GetMenuItems()
-        {
-            IEnumerable<Menu> menu = Database.MenuItems.GetAll().ToList();
-            List<MenuDTO> m = new List<MenuDTO>();
-            foreach (Menu item in menu)
-            {
-                m.Add(ServiceFunctions.FromMenu(item));
-            }
-            return m;
-        }
-
+       
         public IEnumerable<QuestionDTO> GetQuestions()
         {
             IEnumerable<Question> quest = Database.Questions.GetAll().ToList();
@@ -391,21 +212,6 @@ namespace AdvocatApp.BL.Services
                 q.Add(ServiceFunctions.FromQuestion(item));
             }
             return q;
-        }
-
-        public async Task ReplaceMenuAsync(IEnumerable<MenuDTO> m)
-        {
-            IEnumerable<Menu> menu = Database.MenuItems.GetAll();
-            foreach(Menu m1 in menu)
-            {
-                await Database.MenuItems.DeleteAsync(m1.Id);
-            }
-            foreach (MenuDTO m1 in m)
-            {
-                Menu m2 = ServiceFunctions.FromMenuDTO(m1);
-                Database.MenuItems.Create(m2);
-            }
-            await Database.SaveAsync();
-        }
+        }       
     }
 }

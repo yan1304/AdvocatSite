@@ -17,23 +17,6 @@ namespace AdvocatApp.BL.BusinessModels
             return Mapper.Map<Question, QuestionDTO>(question);
         }
 
-        public static MenuDTO FromMenu(Menu menu)
-        {
-            MenuDTO m = new MenuDTO
-            {
-                Id = menu.Id,
-                Header = menu.Header,
-                Url = menu.Url,
-                Order = menu.Order,
-                ParentId = menu.ParentId
-            };
-            
-            if(menu.Parent!=null)
-            {
-                m.Parent = FromMenu(menu.Parent);
-            }
-            return m;
-        }
         public static PageDTO FromPage(Page page)
         {
             Mapper.Initialize(cfg => cfg.CreateMap<Page, PageDTO>());
@@ -50,38 +33,6 @@ namespace AdvocatApp.BL.BusinessModels
         {
             Mapper.Initialize(cfg => cfg.CreateMap<PageDTO, Page>());
             return Mapper.Map<PageDTO, Page>(pageDTO);
-        }
-
-        public static Menu FromMenuDTO(MenuDTO menuDTO)
-        {
-            Mapper.Initialize(cfg => cfg.CreateMap<MenuDTO, Menu>());
-            return Mapper.Map<MenuDTO, Menu>(menuDTO);
-        }
-
-        public static MenuDTO MenuDTOFromPageDTO(PageDTO pageDTO)
-        {
-            MenuDTO m = new MenuDTO
-            {
-                Header = pageDTO.Header,
-                NamePage = pageDTO.Name,
-                Id=pageDTO.Id,
-                PageId = pageDTO.Id,
-                Url = "/Page/" + pageDTO.Id
-            };
-            return m;
-        }
-
-        public static Menu MenuFromPageDTO(PageDTO pageDTO)
-        {
-            Menu m = new Menu
-            {
-                NamePage = pageDTO.Name,
-                PageId = pageDTO.Id,
-                Header = pageDTO.Header,
-                Id = pageDTO.Id,
-                Url = "/Pages/" + pageDTO.Name
-            };
-            return m;
         }
     }
 }

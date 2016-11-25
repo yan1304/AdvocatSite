@@ -85,7 +85,6 @@
     <Compile Include="Authorization\Services\ServiceCreator.cs" />
     <Compile Include="Authorization\Services\UserService.cs" />
     <Compile Include="BusinessModels\ServiceFunctions.cs" />
-    <Compile Include="DTO\MenuDTO.cs" />
     <Compile Include="DTO\PageDTO.cs" />
     <Compile Include="DTO\QuestionDTO.cs" />
     <Compile Include="Infrastructure\ServiceModule.cs" />

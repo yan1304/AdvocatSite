@@ -19,17 +19,6 @@ namespace AdvocatApp.BL.Interfaces
         void DeletePage(int? id);
         Task DeletePageAsync(int? id);
 
-        MenuDTO GetMenuItem(int? id);
-        IEnumerable<MenuDTO> GetMenuItems();
-        void AddMenuItem(MenuDTO menuDTO);
-        Task AddMenuItemAsync(MenuDTO menuDTO);
-        Task<MenuDTO> GetMenuItemAsync(int? id);
-        void UpdateMenu(MenuDTO menuDTO);
-        Task UpdateMenuAsync(MenuDTO menuDTO);
-        void DeleteMenuItem(int? id);
-        Task DeleteMenuItemAsync(int? id);
-        Task ReplaceMenuAsync(IEnumerable<MenuDTO> m);
-
         void AddQuestion(QuestionDTO questionDTO);
         Task AddQuestionAsync(QuestionDTO pageDTO);
         QuestionDTO GetQuestion(int? id);

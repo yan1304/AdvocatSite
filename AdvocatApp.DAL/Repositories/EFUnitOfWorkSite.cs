@@ -13,22 +13,11 @@ namespace AdvocatApp.DAL.Repositories
     {
         private SiteContext db;
         private PageRepository pageRepository;
-        private MenuRepository menuRepository;
         private QuestionRepository questionRepository;
 
         public EFUnitOfWorkSite(string connectionString)
         {
             db = new SiteContext(connectionString);
-        }
-
-        public IRepository<Menu> MenuItems
-        {
-            get
-            {
-                if (menuRepository == null)
-                    menuRepository = new MenuRepository(db);
-                return menuRepository;
-            }
         }
 
         public IRepository<Page> Pages
