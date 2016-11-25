@@ -1,0 +1,13 @@
+﻿@model AdvocatApp.Models.ChangeAboutModel
+@{
+    ViewBag.Title = "EditAbout";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>EditAbout</h2>
+
+@Html.BeginForm("EditAbout","Account",FormMethod.Post)
+{
+    @Html.EditorForModel()
+    <input type="submit" value="send" />
+}

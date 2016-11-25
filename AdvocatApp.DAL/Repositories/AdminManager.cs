@@ -38,5 +38,15 @@ namespace AdvocatApp.DAL.Repositories
         {
             return Database.AboutAdmin.FirstOrDefault();
         }
+
+        public void Delete()
+        {
+            var v = Database.AboutAdmin.First();
+            if(v!=null)
+            {
+                Database.AboutAdmin.Remove(v);
+            }
+            Database.SaveChanges();
+        }
     }
 }

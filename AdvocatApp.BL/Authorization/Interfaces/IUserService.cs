@@ -16,5 +16,6 @@ namespace AdvocatApp.BL.Authorization.Interfaces
         Task<OperationDetails> Create(AdminDTO adminDto);
         Task<ClaimsIdentity> Authenticate(AdminDTO adminDto);
         Task SetInitialData(AdminDTO adminDto);//установка начальных данных в БД
+        Task Update(AdminDTO admin, string email);
     }
 }

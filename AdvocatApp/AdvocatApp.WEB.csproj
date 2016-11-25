@@ -211,6 +211,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ChangeAboutModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\PageModel.cs" />
     <Compile Include="Models\QuestionModel.cs" />
@@ -244,6 +245,7 @@
     <Content Include="Views\Admin\AddQuestion.cshtml" />
     <Content Include="Views\Admin\EditQuestion.cshtml" />
     <Content Include="Views\Admin\DeleteQ.cshtml" />
+    <Content Include="Views\Admin\EditAbout.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

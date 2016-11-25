@@ -6,10 +6,6 @@
 <h2>Информация</h2>
 <br />
 <p>
-    <h6>@Model.Name @Model.Surname @Model.Fathername</h6>
-    <br />
-    @if (Model.Address != null) {
-         @Model.Address
-    }
+    @Html.DisplayForModel()
 
 </p>

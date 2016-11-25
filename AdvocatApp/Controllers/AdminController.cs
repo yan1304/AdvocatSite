@@ -1,4 +1,5 @@
-﻿using AdvocatApp.BL.Authorization.Interfaces;
+﻿using AdvocatApp.BL.Authorization.DTO;
+using AdvocatApp.BL.Authorization.Interfaces;
 using AdvocatApp.BL.Authorization.Services;
 using AdvocatApp.BL.DTO;
 using AdvocatApp.BL.Interfaces;
@@ -173,7 +174,7 @@ namespace AdvocatApp.Controllers
         public async Task<ActionResult> DeleteP(int id)
         {
             PageDTO page = await siteService.GetPageAsync(id);
-            if(page == null)
+            if (page == null)
             {
                 return HttpNotFound();
             }
@@ -213,7 +214,7 @@ namespace AdvocatApp.Controllers
 
             return RedirectToAction("Index");
         }
-        
+
         [Authorize]
         public ActionResult AddQuestion()
         {
@@ -272,5 +273,12 @@ namespace AdvocatApp.Controllers
             return RedirectToAction("Index");
         }
 
+        [Authorize]
+        public ActionResult EditAbout()
+        {
+            Mapper.Initialize(cfg => cfg.CreateMap<AdminDTO, ChangeAboutModel>());
+            var q = Mapper.Map<AdminDTO, ChangeAboutModel>(UserService.GetInfo());
+            return View(q);
+        }
     }
 }

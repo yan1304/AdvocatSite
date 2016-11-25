@@ -10,6 +10,8 @@ using System.Security.Claims;
 using AdvocatApp.DAL.Interfaces;
 using AdvocatApp.DAL.Authorization.Entities;
 using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using AutoMapper;
 
 namespace AdvocatApp.BL.Authorization.Services
 {
@@ -65,7 +67,9 @@ namespace AdvocatApp.BL.Authorization.Services
                 if (result.Errors.Count() > 0)
                     return new OperationDetails(false, result.Errors.FirstOrDefault(), "");
                 // создаем профиль клиента
-                AboutAdmin clientProfile = new AboutAdmin{ Id = user.Id, Address = adminDto.Address, Name = adminDto.Name };
+                Mapper.Initialize(cfg => cfg.CreateMap<AdminDTO, AboutAdmin>());
+                AboutAdmin clientProfile = Mapper.Map<AdminDTO, AboutAdmin>(adminDto);
+                clientProfile.Id = user.Id;
                 Database.AdminManager.Create(clientProfile);
                 await Database.SaveAsync();
                 return new OperationDetails(true, "Регистрация успешно пройдена", "");
@@ -79,23 +83,35 @@ namespace AdvocatApp.BL.Authorization.Services
         public AdminDTO GetInfo()
         {
             var v = Database.AdminManager.GetInfo();
-            AdminDTO adm = new AdminDTO
+            if (v != null)
             {
-                AboutMe = v.AboutMe,
-                Address = v.Address,
-                Email = v.Email,
-                Name = v.Name,
-                Surname = v.Surname,
-                Fathername = v.Fathername,
-                Phone = v.Phone,
-                HomePhone = v.HomePhone,
-                Vk = v.Vk,
-                Youtube = v.Youtube,
-                Twitter = v.Twitter,
-                Facebook = v.Facebook,
-                GooglePl = v.GooglePl
-            };
-            return adm;
+                AdminDTO adm = new AdminDTO
+                {
+                    AboutMe = v.AboutMe,
+                    Address = v.Address,
+                    Email = v.Email,
+                    Name = v.Name,
+                    Surname = v.Surname,
+                    Fathername = v.Fathername,
+                    Phone = v.Phone,
+                    HomePhone = v.HomePhone,
+                    Vk = v.Vk,
+                    Youtube = v.Youtube,
+                    Twitter = v.Twitter,
+                    Facebook = v.Facebook,
+                    GooglePl = v.GooglePl
+                };
+                return adm;
+            }
+            else return null;
+        }
+
+        public async Task Update(AdminDTO admin,string email)
+        {
+            ApplicationUser user = Database.UserManager.FindByEmail(email);
+            Database.AdminManager.Delete();
+            await Database.UserManager.DeleteAsync(user);
+            await Create(admin);
         }
     }
 }

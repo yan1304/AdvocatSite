@@ -1,6 +1,7 @@
 ﻿using AdvocatApp.BL.Authorization.DTO;
 using AdvocatApp.BL.Authorization.Interfaces;
 using AdvocatApp.Models;
+using AutoMapper;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using System;
@@ -60,31 +61,44 @@ namespace AdvocatApp.Controllers
             }
             return View(model);
         }
+        
+        [HttpPost]
+        public async Task<ActionResult> EditAbout(ChangeAboutModel adm)
+        {
+            Mapper.Initialize(cfg => cfg.CreateMap<ChangeAboutModel, AdminDTO>());
+            var q = Mapper.Map<ChangeAboutModel, AdminDTO> (adm);
+            string s = User.Identity.Name;
+            await UserService.Update(q, s);
+            return RedirectToAction("Index","Home");
+        }
 
-        public ActionResult Logout()
+    public ActionResult Logout()
         {
             AuthenticationManager.SignOut();
             return RedirectToAction("Index", "Home");
         }
         private async Task SetInitialDataAsync()
         {
-            await UserService.SetInitialData(new AdminDTO
+            if (UserService.GetInfo() == null)
             {
-                Email = "yan1304@mail.ru",
-                Password = "fil130494",
-                Name = "Ян",
-                Surname ="",
-                Fathername="",
-                AboutMe ="",
-                Phone="89160161601",
-                Vk="",
-                Youtube="",
-                Facebook="",
-                Twitter="",
-                HomePhone="",
-                GooglePl="",
-                Address = "ул. Спортивная, д.30, кв.75"
-            });
+                await UserService.SetInitialData(new AdminDTO
+                {
+                    Email = "yan1304@mail.ru",
+                    Password = "fil130494",
+                    Name = "Ян",
+                    Surname = "",
+                    Fathername = "",
+                    AboutMe = "",
+                    Phone = "89160161601",
+                    Vk = "",
+                    Youtube = "",
+                    Facebook = "",
+                    Twitter = "",
+                    HomePhone = "",
+                    GooglePl = "",
+                    Address = "ул. Спортивная, д.30, кв.75"
+                });
+            }
         }
     }
 }

@@ -11,6 +11,8 @@ namespace AdvocatApp.DAL.Interfaces
     {
         void Create(AboutAdmin item);
         void Update(AboutAdmin item);
+
+        void Delete();
         AboutAdmin GetInfo();
     }
 }
