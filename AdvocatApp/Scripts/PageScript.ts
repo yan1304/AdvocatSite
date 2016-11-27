@@ -15,7 +15,7 @@ window.onload = () => {
                 elem.setAttribute("width", (innerWidth / 1.3).toString());
             }
             else {
-                elem.setAttribute("width", (innerWidth /3).toString());
+                elem.setAttribute("width", (innerWidth /2.5).toString());
             }
             elem.setAttribute("height", (parseInt(elem.getAttribute("width"))/1.75).toString());
         });
@@ -33,7 +33,7 @@ window.onresize = () => {
                 elem.setAttribute("width", (innerWidth / 1.3).toString());
             }
             else {
-                elem.setAttribute("width", (innerWidth / 3).toString());
+                elem.setAttribute("width", (innerWidth / 2.5).toString());
             }
             elem.setAttribute("height", (parseInt(elem.getAttribute("width")) / 1.75).toString());
         });
