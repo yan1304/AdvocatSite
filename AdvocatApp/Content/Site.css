@@ -29,6 +29,7 @@ textarea {
 
 .navbar-default h2{
     float:left;
+    font-size:30px;
 }
 
 /* цвет текста, содержащий название сайта или бренда */
@@ -36,6 +37,14 @@ textarea {
     color: #DDDDDD;
     font-size:20px;
     text-shadow: 2px 2px 2px #333;
+}
+
+@media(max-width: 768px)
+{
+    .navbar-default h2 {
+    font-size:20px;
+    margin:10px;
+    }
 }
 .footer{
     padding-top:0px;
@@ -81,7 +90,6 @@ textarea {
     background-image:-webkit-linear-gradient(top,#03205b, #0052f7);
     background-image:-o-linear-gradient(top,#1F3F7F,#0f3f7f);
     background-image:linear-gradient(top,#1F3F7F,#0f3f7f);
-}
 }
 /* Цвет и фон активного пункта меню, а также поднесении к нему курсора мышки или при его нахождении в фокусе */
 .navbar-default .navbar-nav > .active > a, 
@@ -144,7 +152,7 @@ textarea {
 }
 
 #admin-content{
-    margin-top:30px;
+    margin-top:82px;
     background-color:white;
     padding-bottom:0px;
     border:2px solid #aaaaaa;
