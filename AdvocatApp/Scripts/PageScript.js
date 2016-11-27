@@ -10,13 +10,16 @@ window.onload = function () {
     if (youtubeFrame !== undefined && youtubeFrame.length > 0) {
         youtubeFrame.each(function (i, elem) {
             if (innerWidth < 768) {
-                elem.setAttribute("width", (innerWidth / 1.2).toString());
+                elem.setAttribute("width", (innerWidth / 1.3).toString());
             }
             else {
-                elem.setAttribute("width", (innerWidth / 3.3).toString());
+                elem.setAttribute("width", (innerWidth / 3).toString());
             }
             elem.setAttribute("height", (parseInt(elem.getAttribute("width")) / 1.75).toString());
         });
+    }
+    if (innerWidth < 600) {
+        $("h1").css("font-size", 20);
     }
 };
 window.onresize = function () {
@@ -24,12 +27,18 @@ window.onresize = function () {
     if (youtubeFrame !== undefined && youtubeFrame.length > 0) {
         youtubeFrame.each(function (i, elem) {
             if (innerWidth < 768) {
-                elem.setAttribute("width", (innerWidth / 1.2).toString());
+                elem.setAttribute("width", (innerWidth / 1.3).toString());
             }
             else {
-                elem.setAttribute("width", (innerWidth / 3.3).toString());
+                elem.setAttribute("width", (innerWidth / 3).toString());
             }
             elem.setAttribute("height", (parseInt(elem.getAttribute("width")) / 1.75).toString());
         });
+    }
+    if (innerWidth < 600) {
+        $("h1").css("font-size", 20);
+    }
+    else {
+        $("h1").css("font-size", 40);
     }
 };

@@ -7,11 +7,20 @@
     <title>Администратирование  @ViewBag.Title</title>
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
     <link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" />
-    @Styles.Render("~/Content/css")
+    <link href="~/Content/Site.css" rel="stylesheet"/>
 </head>
 <body>
     <div id="#header">
-        <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <h2>Site name</h2>
+                <div class="rightMobile">
+                    <p>Phone: 89160161601</p>
+                </div>    
+            </div>
+        </div>
+    </div>
+        <div class="navbar navbar-default navbar-fixed-top navbar-1">
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -32,18 +41,22 @@
             </div>
         </div>
     </div>
-    <div id="admin-content" class="col-xs-10 col-xs-offset-1">
-        @RenderBody()
-    </div>
-    <<div class="navbar-fixed-bottom row-fluid">
-        <div class="navbar-inner">
-            <div class="container">
-                <h2>Footer</h2>
-            </div>
+    <div class="row">
+        <div id="admin-content" class="col-xs-10 col-xs-offset-1">
+            @RenderBody()
         </div>
     </div>
+    <<div class="navbar navbar-default navbar-fixed-buttom footer">
+         <div class="container">
+             <div class="navbar-header">
+                 <h2>Footer</h2>
+                 <p>text of Footer</p>
+             </div>
+         </div>
+    </div>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/jquery")
-    @RenderSection("scripts", required: false)
+        @RenderSection("scripts", required: false)
+        <script src="~/Scripts/bootstrap.min.js"></script>
 </body>
 </html>

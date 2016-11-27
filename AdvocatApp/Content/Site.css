@@ -1,6 +1,7 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    background-color: #eeeeee;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -16,3 +17,218 @@ textarea {
     max-width: 280px;
 }
 
+/* цвет фона и рамки навигационного меню */
+.navbar-default {
+    color:white;
+    min-height:90px;
+    background-color: #000446;
+    background-image:none;
+    border:0px solid #ccc;
+    text-shadow: 3px 3px 3px #000;
+}
+
+.navbar-default h2{
+    float:left;
+}
+
+/* цвет текста, содержащий название сайта или бренда */
+.navbar-default .navbar-brand {
+    color: #DDDDDD;
+    font-size:20px;
+    text-shadow: 2px 2px 2px #333;
+}
+.footer{
+    padding-top:0px;
+    text-shadow: 2px 2px 2px #333;
+    color: #DDDDDD;
+}
+.footer h2 {
+    float:initial;
+    font-size:25px;
+}
+.footer p{
+    padding-top:10px;
+    font-size:18px;
+}
+/* цвет текста (название сайта или бренда), при поднесении к нему курсора мышки или при его нахождении в фокусе */
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+    color: white;
+    font-size:x-large;
+    text-shadow: 2px 2px 2px #666;
+}
+/* Цвет пунктов навигационного меню */
+.navbar-default .navbar-nav > li > a {
+    color: #ddd;
+    border-left:0px;
+    border: 1px solid #333;
+    border-radius:5px;
+    border-right:0px;
+    text-shadow: 2px 2px 2px #666;
+}
+.navbar-default .navbar-nav > li:last-child > a {
+    color: #ddd;
+    border-right:1px solid #333;
+    text-shadow: 2px 2px 2px #333;
+}
+
+/* Цвет пункта меню, при поднесении к нему курсора мышки или при его нахождении в фокусе */
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+    color: white;
+    font-size:larger;
+    background-image:-moz-linear-gradient(top,#0005ff, #031078);
+    background-image:-webkit-linear-gradient(top,#03205b, #0052f7);
+    background-image:-o-linear-gradient(top,#1F3F7F,#0f3f7f);
+    background-image:linear-gradient(top,#1F3F7F,#0f3f7f);
+}
+}
+/* Цвет и фон активного пункта меню, а также поднесении к нему курсора мышки или при его нахождении в фокусе */
+.navbar-default .navbar-nav > .active > a, 
+.navbar-default .navbar-nav > .active > a:hover, 
+.navbar-default .navbar-nav > .active > a:focus {
+    color: #555;
+    background-color:#0b59c2;
+}
+/* Цвет и фон открытого пункта меню, а также поднесении к нему курсора мышки или при его нахождении в фокусе */
+.navbar-default .navbar-nav > .open > a, 
+.navbar-default .navbar-nav > .open > a:hover, 
+.navbar-default .navbar-nav > .open > a:focus {
+    color: #555;
+    background-color: #D5D5D5;
+}
+/* Цвет стрелочки (треугольничка) у раскрывающихся пунктов меню */
+.navbar-default .navbar-nav > .dropdown > a .caret {
+    border-top-color: #777;
+    border-bottom-color: #777;
+}
+/* Цвет стрелочки (треугольничка) при поднесении к нему курсора мышки или при его нахождении в фокусе */
+.navbar-default .navbar-nav > .dropdown > a:hover .caret,
+.navbar-default .navbar-nav > .dropdown > a:focus .caret {
+    border-top-color: #333;
+    border-bottom-color: #333;
+}
+/* Цвет стрелочки (треугольничка), открывшегося пункта меню */
+.navbar-default .navbar-nav > .open > a .caret, 
+.navbar-default .navbar-nav > .open > a:hover .caret, 
+.navbar-default .navbar-nav > .open > a:focus .caret {
+    border-top-color: #555;
+    border-bottom-color: #555;
+}
+/* CSS стили для мобильных устройств */
+/* Цвет рамки у кнопки, которая открывает меню */
+.navbar-default .navbar-toggle {
+    border-color: white;
+}
+/* Цвет фона кнопки (которая открывает меню) при поднесении к ней курсора мышки или при нахождении её в фокусе */
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+    background-color: #DDD;
+}
+/* Цвет полосочек в кнопочке, которая открывает меню */
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #CCC;
+}
+ 
+@media (max-width: 767px) {
+/* Цвет пунктов меню в раскрывающихся списках */
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+        color: #777;
+    }
+/* Цвет и фон пункта меню в раскрывающихся списках, при поднесении к нему курсора мышки или при нахождении его в фокусе */
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+        color: #333;
+        background-color: transparent;
+    }
+}
+
+#admin-content{
+    margin-top:30px;
+    background-color:white;
+    padding-bottom:0px;
+    border:2px solid #aaaaaa;
+}
+
+#admin-content h1{
+    font-size:40px;
+    padding-bottom:10px;
+    color:white;
+    text-align:center;
+    border-bottom:2px solid #333;
+    text-shadow: 2px 2px 2px #000,
+               -2px -2px 2px #000,
+                2px -2px 2px #000,
+                -2px 2px 2px #000;
+    background-image:-moz-linear-gradient(right,white,lightblue, white);
+    background-image:-webkit-linear-gradient(right,white,lightblue, white);
+    background-image:-o-linear-gradient(right,white,lightblue, white);
+    background-image:linear-gradient(right,white,lightblue, white);
+}
+
+.pages{
+    border-top:1px solid #ccc;
+}
+.pages:last-of-type{
+    border-bottom: 1px solid #ccc;
+}
+
+.pageHead > a:last-of-type{
+    font-size:18px;
+    text-align:center;
+    text-decoration:underline;
+    color:#fa1515;
+    text-shadow:0px 1px 1px #000;
+}
+
+.pageHead{
+    border-top:2px solid #666;
+}
+
+.pageHead > h4 {
+    color:black;
+    font-weight:bold;
+    text-shadow:1px 0px 1px #000;
+}
+
+.pages a{
+    font-size:12px;
+    color:blue;
+    text-shadow:1px 1px 1px #000;
+}
+
+.pages h5{
+    font-size:16px;
+    font-weight:bold;
+}
+
+.dateOfCreating{
+    text-align:right;
+    font-size:10px;
+}
+
+.navbar-1{
+    border-top:4px solid white;
+     margin-top: 91px;
+     min-height:40px;
+     border-bottom: 4px inset #222;
+     background-image:-moz-linear-gradient(top,#0005ff, #031078);
+    background-image:-webkit-linear-gradient(top,#000000, #031078);
+    background-image:-o-linear-gradient(top,#1F3F7F,#0f3f7f);
+    background-image:linear-gradient(top,#1F3F7F,#0f3f7f);
+}
+
+.colored{
+    background-color:aliceblue;
+    border:1px solid #333;
+    border-bottom: 3px solid #333;
+}
+
+.rightMobile{
+    padding:25px;
+    text-align: right;
+    max-width: 360px;
+    float: right;
+    overflow: hidden;
+    font-size:20px;
+}

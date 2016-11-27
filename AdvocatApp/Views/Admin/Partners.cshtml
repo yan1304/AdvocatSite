@@ -1,22 +1,18 @@
 ﻿@using AdvocatApp.BL.DTO
 @model IEnumerable<PageDTO>
 
-<div id="myPartners">
-    <h2>Равноправные партнеры компании</h2>
-
+    <h4>Равноправные партнеры компании</h4>
+<div class="pages">
     <p>
-        <ul class="myPartnersUl">
             @foreach (PageDTO page in Model)
             {
-                <li>
-                    @page.Header
-                    <p>
-                        @Html.ActionLink("See", "Page/" + page.Id.ToString())|
-                        @Html.ActionLink("Edit", "EditPage/" + page.Id.ToString())|
-                        @Html.ActionLink("Delete", "DeleteP/" + page.Id.ToString())
-                    </p>
-                </li>
+                <p>@page.Header</p>
+
+        <p>
+            @Html.ActionLink("See", "Page/" + page.Id.ToString()) |
+            @Html.ActionLink("Edit", "EditPage/" + page.Id.ToString()) |
+            @Html.ActionLink("Delete", "DeleteP/" + page.Id.ToString())
+        </p>
             }
-        </ul>
-    </p>
+            </p>
 </div>
