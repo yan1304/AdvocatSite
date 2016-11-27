@@ -4,31 +4,23 @@
 
 <h4>Правовые новости</h4>
 <p>
-    <ul class="myNewsUl">
      @foreach (PageDTO page in Model)
      {
-          <li>
                     <div class="pages">
                         <a class="NewsLink" href="#"><h5>@page.Header</h5></a>
-                        <ul class="NewsLinkHidden">
-                            <li>
                                 <input class="textSt" type="hidden" value="@page.Text" />
                                 <div class="textSite">
                                 </div>
                                 <br />
         <p class="dateOfCreating">@page.Date.Day.ToString():@page.Date.Month.ToString():@page.Date.Year.ToString() </p>
     
-        </li>
-     </ul>
                 <p>
                     @Html.ActionLink("See", "Page/" + page.Id.ToString()) |
                     @Html.ActionLink("Edit", "EditPage/" + page.Id.ToString()) |
                     @Html.ActionLink("Delete", "DeleteP/" + page.Id.ToString())
                 </p>
-                    </div>
-                </li>
+</div>
             }
-            </ul>
 </p>
 
 
