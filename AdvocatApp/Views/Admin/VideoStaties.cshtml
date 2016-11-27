@@ -5,6 +5,7 @@
         @foreach (PageDTO page in Model)
         {
             <div class="pages">
+                <h5>@page.Header</h5>
                 @if (page.VideoURL != null)
                 {
                     if (page.VideoURL != "")
@@ -12,7 +13,7 @@
                         <iframe class="youtube" width="460" height="415" src="@page.VideoURL" frameborder="0" allowfullscreen></iframe>
                     }
                 }
-                <h5>@page.Header</h5>
+                
                 <p>
                     <input class="textSt" type="hidden" value="@page.Text" />
                     <div class="textSite"></div>

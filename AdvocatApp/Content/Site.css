@@ -45,6 +45,11 @@ textarea {
     font-size:20px;
     margin:10px;
     }
+
+    .pageHead{
+        padding-left:25px;
+        padding-right:25px;
+    }
 }
 .footer{
     padding-top:0px;
@@ -133,46 +138,14 @@ textarea {
 .navbar-default .navbar-toggle:focus {
     background-color: #DDD;
 }
-/* Цвет полосочек в кнопочке, которая открывает меню */
-.navbar-default .navbar-toggle .icon-bar {
-    background-color: #CCC;
-}
- 
-@media (max-width: 767px) {
-/* Цвет пунктов меню в раскрывающихся списках */
-    .navbar-default .navbar-nav .open .dropdown-menu > li > a {
-        color: #777;
-    }
-/* Цвет и фон пункта меню в раскрывающихся списках, при поднесении к нему курсора мышки или при нахождении его в фокусе */
-    .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
-    .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
-        color: #333;
-        background-color: transparent;
-    }
-}
 
 #admin-content{
-    margin-top:82px;
+    margin-top:92px;
     background-color:white;
     padding-bottom:0px;
     border:2px solid #aaaaaa;
 }
 
-#admin-content h1{
-    font-size:40px;
-    padding-bottom:10px;
-    color:white;
-    text-align:center;
-    border-bottom:2px solid #333;
-    text-shadow: 2px 2px 2px #000,
-               -2px -2px 2px #000,
-                2px -2px 2px #000,
-                -2px 2px 2px #000;
-    background-image:-moz-linear-gradient(right,white,lightblue, white);
-    background-image:-webkit-linear-gradient(right,white,lightblue, white);
-    background-image:-o-linear-gradient(right,white,lightblue, white);
-    background-image:linear-gradient(right,white,lightblue, white);
-}
 
 .pages{
     border-top:1px solid #ccc;

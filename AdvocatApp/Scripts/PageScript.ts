@@ -38,18 +38,4 @@ window.onresize = () => {
             elem.setAttribute("height", (parseInt(elem.getAttribute("width")) / 1.75).toString());
         });
     }
-    if (innerWidth < 768) {
-        $("h1").css("font-size", 20);
-        $(".navbar-default h2").css("font-size", 20);
-        $(".navbar-default h2").css("margin", 10);
-    }
-    else
-    {
-        $("h1").css("font-size", 40);
-        $(".navbar-default h2").css("font-size", 30);
-        $(".navbar-default h2").css("margin", "auto");
-        $(".navbar-default h2").css("margin-top", 20);
-        $(".navbar-default h2").css("margin-bottom", 10);
-        
-    }
 };
