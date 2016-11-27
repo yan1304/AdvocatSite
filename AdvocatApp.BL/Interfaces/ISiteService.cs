@@ -1,4 +1,5 @@
 ﻿using AdvocatApp.BL.DTO;
+using AdvocatApp.DAL.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +19,7 @@ namespace AdvocatApp.BL.Interfaces
         Task UpdatePageAsync(PageDTO pageDTO);
         void DeletePage(int? id);
         Task DeletePageAsync(int? id);
+        IEnumerable<PageDTO> FindPage(Func<Page, bool> predicate);
 
         void AddQuestion(QuestionDTO questionDTO);
         Task AddQuestionAsync(QuestionDTO pageDTO);

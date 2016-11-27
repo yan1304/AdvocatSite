@@ -1,0 +1,19 @@
+﻿@using AdvocatApp.BL.DTO
+@model IEnumerable<PageDTO>
+
+<h2>Статьи</h2>
+
+<p>
+    @foreach (PageDTO page in Model)
+    {
+        <div>
+            <h3>@page.Header</h3>
+            <p>
+                @Html.ActionLink("See", "Page/" + page.Id.ToString())|
+                @Html.ActionLink("Edit", "EditPage/" + page.Id.ToString())|
+                @Html.ActionLink("Delete", "DeleteP/" + page.Id.ToString())
+            </p>
+            <p>@page.Date.Day.ToString():@page.Date.Month.ToString():@page.Date.Year.ToString() </p>
+        </div>
+    }
+</p>

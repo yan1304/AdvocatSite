@@ -5,13 +5,45 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Администратирование  @ViewBag.Title</title>
-    
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" />
+    @Styles.Render("~/Content/css")
 </head>
 <body>
-    <div id="admin-content">
+    <div id="#header">
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @Html.ActionLink("My Site - admin view", "Index", "Admin", null, new { @class = "navbar-brand" })
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("To main", "Index", "Admin")</li>
+                        <li>@Html.ActionLink("Quesions", "Questions", "Admin")</li>
+                        <li>@Html.ActionLink("Edit information about me", "EditAbout", "Admin")</li>
+                        <li>@Html.ActionLink("Logout", "Logout", "Account")</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="admin-content" class="col-xs-10 col-xs-offset-1">
         @RenderBody()
     </div>
+    <<div class="navbar-fixed-bottom row-fluid">
+        <div class="navbar-inner">
+            <div class="container">
+                <h2>Footer</h2>
+            </div>
+        </div>
+    </div>
     @Scripts.Render("~/bundles/jquery")
-    @RenderSection("scripts",required: false)
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
 </body>
 </html>

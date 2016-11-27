@@ -1,0 +1,26 @@
+﻿@using AdvocatApp.BL.DTO
+@model IEnumerable<PageDTO>
+
+<div id="myVideo">
+    <h2>Обращения к клиентам!</h2>
+
+    <p>
+        @foreach (PageDTO page in Model)
+        {
+            <div class="myVideoContent">
+                <iframe class="youtube" width="460" height="415" src="@page.VideoURL" frameborder="0" allowfullscreen></iframe>
+                <h3>@page.Header</h3>
+                <p>
+                    <input class="textSt" type="hidden" value="@page.Text" />
+                    <div class="textSite"></div>
+                </p>
+                <p>@page.Date.Day.ToString():@page.Date.Month.ToString():@page.Date.Year.ToString() </p>
+                <p>
+                    @Html.ActionLink("See", "Page/" + page.Id.ToString())|
+                    @Html.ActionLink("Edit", "EditPage/" + page.Id.ToString())|
+                    @Html.ActionLink("Delete", "DeleteP/" + page.Id.ToString())
+                </p>
+            </div>
+        }
+    </p>
+</div>

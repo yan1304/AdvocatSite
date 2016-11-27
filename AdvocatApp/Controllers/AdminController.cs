@@ -42,9 +42,9 @@ namespace AdvocatApp.Controllers
         }
         // GET: Admin
         [Authorize]
-        public async Task<ActionResult> Index()
+        public ActionResult Index()
         {
-            return View(await UserService.GetUser(HttpContext.User.Identity.Name));
+            return View( siteService.GetPages().ToList());
         }
         [Authorize]
         public ActionResult Logout()
@@ -100,7 +100,7 @@ namespace AdvocatApp.Controllers
         [HttpPost]
         public async Task<ActionResult> AddPageWithVideo(PageModel p)
         {
-            p.Type = TypePage.Warrings;
+            p.Type = TypePage.VideoStatie;
             return await AddPageFunc(p);
         }
 
@@ -263,7 +263,6 @@ namespace AdvocatApp.Controllers
             }
             return View(question);
         }
-
 
         [Authorize]
         [HttpPost, ActionName("DeleteQ")]

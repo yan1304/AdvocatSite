@@ -212,6 +212,17 @@ namespace AdvocatApp.BL.Services
                 q.Add(ServiceFunctions.FromQuestion(item));
             }
             return q;
-        }       
+        }
+
+        public IEnumerable<PageDTO> FindPage(Func<Page, bool> predicate)
+        {
+            List<Page> pages = Database.Pages.Find(predicate).ToList();
+            List<PageDTO> page = new List<PageDTO>();
+            foreach(Page p in pages)
+            {
+                page.Add(ServiceFunctions.FromPage(p));
+            }
+            return page;
+        }
     }
 }

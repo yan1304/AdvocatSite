@@ -1,12 +1,44 @@
-﻿@model AdvocatApp.BL.Authorization.DTO.AdminDTO
-
+﻿@using AdvocatApp.BL.DTO
+@using AdvocatApp.DAL.Entities
+@model IEnumerable<PageDTO>
 @{
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
     ViewBag.Title = "IndexAdmin";
 }
 
-<h2>IndexAdmin</h2>
-<p>Hello @Model.Name</p>
-<p>@Html.ActionLink("Add page","AddPage")</p>
-@Html.ActionLink("LOgOut","Logout")
+<h1>Администратирование</h1>
 
+<div class="row">
+    <div class="col-sm-3">
+        @{Html.RenderPartial("Staties",Model.Where(p=>p.Type==TypePage.Statie)); }
+        @Html.ActionLink("Add","AddPage")
+    </div>
+    <div class="col-sm-9">
+        <div class="row">
+            <div class="col-sm-7">
+                @{Html.RenderPartial("VideoStaties", Model.Where(p => p.Type == TypePage.VideoStatie)); }
+                @Html.ActionLink("Add", "AddPageWithVideo")
+            </div>
+            <div class="col-sm-5">
+                @{Html.RenderPartial("Partners", Model.Where(p => p.Type == TypePage.Partners)); }
+                @Html.ActionLink("Add", "AddPartners")
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-7">
+                @{Html.RenderPartial("Warrings", Model.Where(p => p.Type == TypePage.Warrings)); }
+                @Html.ActionLink("Add", "AddWarringPage")
+            </div>
+            <div class="col-sm-5">
+                @{Html.RenderPartial("News", Model.Where(p => p.Type == TypePage.News)); }
+                @Html.ActionLink("Add", "AddNews")
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section scripts{
+    <script src='@Url.Content("~/Scripts/PageScript.js")'>
+    </script>
+}

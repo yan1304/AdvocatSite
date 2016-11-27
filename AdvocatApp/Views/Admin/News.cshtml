@@ -1,0 +1,37 @@
+﻿@using AdvocatApp.BL.DTO
+@model IEnumerable<PageDTO>
+
+<div id="myNews">
+    <h2>Правовые новости</h2>
+
+    <p>
+        <ul class="myNewsUl">
+            @foreach (PageDTO page in Model)
+            {
+                <li>
+                    <div>
+                        <a class="NewsLink" href="#">@page.Header</a>
+                        <ul class="NewsLinkHidden">
+                            <li>
+                                <input class="textSt" type="hidden" value="@page.Text" />
+                                <div class="textSite">
+                                </div>
+                                <br />
+        <p>@page.Date.Day.ToString():@page.Date.Month.ToString():@page.Date.Year.ToString() </p>
+    
+    </li>
+                    </ul>
+                <p>
+                    @Html.ActionLink("See", "Page/" + page.Id.ToString())|
+                    @Html.ActionLink("Edit", "EditPage/" + page.Id.ToString())|
+                    @Html.ActionLink("Delete", "DeleteP/" + page.Id.ToString())
+                </p>
+                    </div>
+                </li>
+            }
+            </ul>
+            </p>
+            </div>
+
+
+
