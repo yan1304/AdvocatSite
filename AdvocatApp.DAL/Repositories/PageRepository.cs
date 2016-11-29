@@ -38,7 +38,7 @@ namespace AdvocatApp.DAL.Repositories
 
         public IEnumerable<Page> Find(Func<Page, bool> predicate)
         {
-            return db.Pages.Where(predicate).ToList();
+            return db.Pages.Where(predicate).OrderByDescending(p=>p.Date).ToList();
         }
 
         public Page Get(int id)
@@ -48,7 +48,7 @@ namespace AdvocatApp.DAL.Repositories
 
         public IEnumerable<Page> GetAll()
         {
-            return db.Pages;
+            return db.Pages.OrderByDescending(p => p.Date);
         }
 
         public async Task<Page> GetAsync(int id)

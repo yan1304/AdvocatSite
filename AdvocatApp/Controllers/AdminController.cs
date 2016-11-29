@@ -171,7 +171,19 @@ namespace AdvocatApp.Controllers
         [HttpPost, ActionName("DeleteP")]
         public async Task<ActionResult> DeletePage(int id)
         {
-            await siteService.DeletePageAsync(id);
+            if (id == 1)
+            {
+                PageDTO page = await siteService.GetPageAsync(id);
+                page.Header = "";
+                page.Text = "";
+                page.Date = DateTime.Now;
+                page.VideoURL = null;
+                await siteService.UpdatePageAsync(page);
+            }
+            else
+            {
+                await siteService.DeletePageAsync(id);
+            }
             return RedirectToAction("Index");
         }
 
@@ -191,9 +203,9 @@ namespace AdvocatApp.Controllers
         [HttpPost]
         public async Task<ActionResult> EditPage(PageModel p)
         {
+            if (p.Id == 1) p.Name = "Index";
             Mapper.Initialize(cfg => cfg.CreateMap<PageModel, PageDTO>());
             var page = Mapper.Map<PageModel, PageDTO>(p);
-            page.Date = DateTime.Now;
 
             await siteService.UpdatePageAsync(page);
 

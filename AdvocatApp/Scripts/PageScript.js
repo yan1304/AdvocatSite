@@ -40,6 +40,9 @@ class Staties {
         }
         page.find(".textSite").first().html(this.statie.Text);
         page.find(".dateOfCreating").last().html(this.statie.Date);
+        var p = page.find(".linksPage");
+        p.children("a").first().attr("href", window.location.protocol + "//" + window.location.host + "/Admin/EditP/" + this.statie.Id);
+        p.children("a").last().attr("href", window.location.protocol + "//" + window.location.host + "/Admin/DeleteP/" + this.statie.Id);
     }
 }
 class Statie {
