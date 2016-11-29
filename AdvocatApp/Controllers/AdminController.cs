@@ -53,29 +53,6 @@ namespace AdvocatApp.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-
-        [Authorize]
-        public ActionResult Pages()
-        {
-            return PartialView(siteService.GetPages());
-        }
-        [Authorize]
-        public ActionResult Questions()
-        {
-            return PartialView(siteService.GetQuestions());
-        }
-
-        [HttpGet]
-        [Authorize]
-        public async Task<ActionResult> Page(int? id)
-        {
-            if (id == null) RedirectToAction("Index");
-            PageDTO page = await siteService.GetPageAsync(id);
-            if (page == null)
-                HttpNotFound();
-            return View(page);
-        }
-
         [Authorize]
         [HttpGet]
         public ActionResult AddPage()
@@ -87,20 +64,6 @@ namespace AdvocatApp.Controllers
         public async Task<ActionResult> AddPage(PageModel p)
         {
             p.Type = TypePage.Statie;
-            return await AddPageFunc(p);
-        }
-
-        [Authorize]
-        [HttpGet]
-        public ActionResult AddPageWithVideo()
-        {
-            return View();
-        }
-        [Authorize]
-        [HttpPost]
-        public async Task<ActionResult> AddPageWithVideo(PageModel p)
-        {
-            p.Type = TypePage.VideoStatie;
             return await AddPageFunc(p);
         }
 
@@ -144,6 +107,28 @@ namespace AdvocatApp.Controllers
         {
             p.Type = TypePage.News;
             return await AddPageFunc(p);
+        }
+        
+        [Authorize]
+        [HttpPost]
+        public ActionResult Page(PageDTO page)
+        {
+            if (page == null) page = new PageDTO();
+            return PartialView(page);
+        }
+
+        [Authorize]
+        public async Task<JsonResult> GetPage(int id)
+        {
+            var page = await siteService.GetPageAsync(id);
+            return Json(
+                new { Id = page.Id,
+                VideoURL = page.VideoURL,
+                Header = page.Header,
+                Date = page.Date.Day+":"+page.Date.Month+":"+page.Date.Year,
+                Text = page.Text}, 
+                JsonRequestBehavior.AllowGet
+                );
         }
 
         private string ReplaceStringTags(string str)
@@ -212,63 +197,6 @@ namespace AdvocatApp.Controllers
 
             await siteService.UpdatePageAsync(page);
 
-            return RedirectToAction("Index");
-        }
-
-        [Authorize]
-        public ActionResult AddQuestion()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        [Authorize]
-        public async Task<ActionResult> AddQuestion(QuestionModel question)
-        {
-            Mapper.Initialize(cfg => cfg.CreateMap<QuestionModel, QuestionDTO>());
-            var quest = Mapper.Map<QuestionModel, QuestionDTO>(question);
-            await siteService.AddQuestionAsync(quest);
-            return RedirectToAction("Index");
-        }
-        [Authorize]
-        public async Task<ActionResult> EditQuestion(int? id)
-        {
-            if (id == null) return HttpNotFound();
-            var quest = await siteService.GetQuestionAsync(id.Value);
-            if (quest == null) return HttpNotFound();
-            Mapper.Initialize(cfg => cfg.CreateMap<QuestionDTO, QuestionModel>());
-            var q = Mapper.Map<QuestionDTO, QuestionModel>(quest);
-            return View(q);
-        }
-
-        [Authorize]
-        [HttpPost]
-        public async Task<ActionResult> EditQuestion(QuestionModel q)
-        {
-            Mapper.Initialize(cfg => cfg.CreateMap<QuestionModel, QuestionDTO>());
-            var question = Mapper.Map<QuestionModel, QuestionDTO>(q);
-
-            await siteService.UpdateQuestionAsync(question);
-
-            return RedirectToAction("Index");
-        }
-
-        [Authorize]
-        public async Task<ActionResult> DeleteQ(int id)
-        {
-            QuestionDTO question = await siteService.GetQuestionAsync(id);
-            if (question == null)
-            {
-                return HttpNotFound();
-            }
-            return View(question);
-        }
-
-        [Authorize]
-        [HttpPost, ActionName("DeleteQ")]
-        public async Task<ActionResult> DeleteQuestion(int id)
-        {
-            await siteService.DeleteQuestionAsync(id);
             return RedirectToAction("Index");
         }
 

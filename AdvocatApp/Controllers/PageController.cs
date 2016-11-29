@@ -21,10 +21,6 @@ namespace AdvocatApp.Controllers
         {
             return PartialView(siteService.GetPages());
         }
-        public ActionResult Questions()
-        {
-            return PartialView(siteService.GetQuestions());
-        }
 
         [HttpGet]
         public async Task<ActionResult> Page(int id)

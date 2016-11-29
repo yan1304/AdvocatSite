@@ -65,7 +65,6 @@
     <Compile Include="EF\SiteContext.cs" />
     <Compile Include="EF\SiteDbInitializer.cs" />
     <Compile Include="Entities\Page.cs" />
-    <Compile Include="Entities\Question.cs" />
     <Compile Include="Interfaces\IAdminManager.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Interfaces\IUnitOfWork.cs" />
@@ -75,7 +74,6 @@
     <Compile Include="Repositories\EFUnitOfWorkSite.cs" />
     <Compile Include="Repositories\IdentityUnitOfWork.cs" />
     <Compile Include="Repositories\PageRepository.cs" />
-    <Compile Include="Repositories\QuestionRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

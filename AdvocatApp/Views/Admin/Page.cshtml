@@ -1,27 +1,24 @@
-﻿@using AdvocatApp.BL.DTO
-@model PageDTO
-@{
-    ViewBag.Title = "Page";
-    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
-}
+﻿@model AdvocatApp.BL.DTO.PageDTO
 
-<h2>Page</h2>
+<div class="pages">
+    <h5>@Model.Header</h5>
+        @if (Model.VideoURL != null)
+        {
+            if (Model.VideoURL != "")
+            {
+                <iframe class="youtube" src="@Model.VideoURL" frameborder="0" allowfullscreen></iframe>
+            }
+        }
 
-<h3>@Model.Header</h3>
+    <input class="textSt" type="hidden" value="@Model.Text" />
+    <div class="textSite">
+    </div>
+    
+    <br />
+    <p class="dateOfCreating">@Model.Date.Day.ToString():@Model.Date.Month.ToString():@Model.Date.Year.ToString() </p>
 
-<input class="textSt" type="hidden" value="@Model.Text" />
-<div class="textSite">
+    <p>
+        @Html.ActionLink("Edit", "EditPage/" + Model.Id.ToString()) |
+        @Html.ActionLink("Delete", "DeleteP/" + Model.Id.ToString())
+    </p>
 </div>
-
-@if (Model.VideoURL!=null && (Model.Type == AdvocatApp.DAL.Entities.TypePage.Statie || Model.Type == AdvocatApp.DAL.Entities.TypePage.VideoStatie))
-{
-    if (Model.VideoURL != "")
-    {
-        <iframe width="560" height="315" src="@Model.VideoURL" frameborder="0" allowfullscreen></iframe>
-    }
-}
-
-@section scripts{
-<script src='@Url.Content("~/Scripts/PageScript.js")'>
-</script>    
-}

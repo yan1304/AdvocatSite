@@ -36,21 +36,6 @@ namespace AdvocatApp.BL.Services
             }
         }
 
-        public void AddQuestion(QuestionDTO questionDTO)
-        {
-            var v = Database.Questions.Find(p => p.Ask == questionDTO.Ask).FirstOrDefault();
-            if (v == null)
-            {
-                Database.Questions.Create(ServiceFunctions.FromQuestionDTO(questionDTO));
-                Database.Save();
-            }
-            else
-            {
-                UpdateQuestion(questionDTO);
-                Database.Save();
-            }
-        }
-
         public void DeletePage(int? id)
         {
             if(id == null)
@@ -68,26 +53,6 @@ namespace AdvocatApp.BL.Services
                 throw new ValidationExeption("Не установлено id страницы", "");
             }
             await Database.Pages.DeleteAsync(id.Value);
-            await Database.SaveAsync();
-        }
-
-        public void DeleteQuestion(int? id)
-        {
-            if (id == null)
-            {
-                throw new ValidationExeption("Не установлено id вопроса", "");
-            }
-            Database.Questions.Delete(id.Value);
-            Database.Save();
-        }
-
-        public async Task DeleteQuestionAsync(int? id)
-        {
-            if (id == null)
-            {
-                throw new ValidationExeption("Не установлено id вопроса", "");
-            }
-            await Database.Questions.DeleteAsync(id.Value);
             await Database.SaveAsync();
         }
       
@@ -111,35 +76,9 @@ namespace AdvocatApp.BL.Services
             return ServiceFunctions.FromPage(page);
         }
 
-        public QuestionDTO GetQuestion(int? id)
-        {
-            if(id == null)
-                throw new ValidationExeption("Не установлено id вопроса", "");
-            var question = Database.Questions.Get(id.Value);
-            if (question == null)
-                throw new ValidationExeption("Вопрос не найден", "");
-            return ServiceFunctions.FromQuestion(question);
-        }
-
-        public async Task<QuestionDTO> GetQuestionAsync(int? id)
-        {
-            if (id == null)
-                throw new ValidationExeption("Не установлено id вопроса", "");
-            var question = await Database.Questions.GetAsync(id.Value);
-            if (question == null)
-                throw new ValidationExeption("Вопрос не найден", "");
-            return ServiceFunctions.FromQuestion(question);
-        }
-
         public void UpdatePage(PageDTO pageDTO)
         {
             Database.Pages.Update(ServiceFunctions.FromPageDTO(pageDTO));
-            Database.Save();
-        }
-
-        public void UpdateQuestion(QuestionDTO questionDTO)
-        {
-            Database.Questions.Update(ServiceFunctions.FromQuestionDTO(questionDTO));
             Database.Save();
         }
 
@@ -158,31 +97,10 @@ namespace AdvocatApp.BL.Services
                 await Database.SaveAsync();
             }
         }
-
-        public async Task AddQuestionAsync(QuestionDTO questionDTO)
-        {
-            var v = Database.Questions.Find(p => p.Ask == questionDTO.Ask).FirstOrDefault();
-            if (v == null)
-            {
-                Database.Questions.Create(ServiceFunctions.FromQuestionDTO(questionDTO));
-                await Database.SaveAsync();
-            }
-            else
-            {
-                UpdateQuestion(questionDTO);
-                await Database.SaveAsync();
-            }
-        }
-
+        
         public async Task UpdatePageAsync(PageDTO pageDTO)
         {
             Database.Pages.Update(ServiceFunctions.FromPageDTO(pageDTO));
-            await Database.SaveAsync();
-        }
-
-        public async Task UpdateQuestionAsync(QuestionDTO questionDTO)
-        {
-            Database.Questions.Update(ServiceFunctions.FromQuestionDTO(questionDTO));
             await Database.SaveAsync();
         }
 
@@ -200,18 +118,6 @@ namespace AdvocatApp.BL.Services
                 p.Add(ServiceFunctions.FromPage(item));
             }
             return p;
-        }
-
-       
-        public IEnumerable<QuestionDTO> GetQuestions()
-        {
-            IEnumerable<Question> quest = Database.Questions.GetAll().ToList();
-            List<QuestionDTO> q = new List<QuestionDTO>();
-            foreach (Question item in quest)
-            {
-                q.Add(ServiceFunctions.FromQuestion(item));
-            }
-            return q;
         }
 
         public IEnumerable<PageDTO> FindPage(Func<Page, bool> predicate)

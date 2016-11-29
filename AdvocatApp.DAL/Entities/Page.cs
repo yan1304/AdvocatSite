@@ -11,8 +11,7 @@ namespace AdvocatApp.DAL.Entities
         Statie,
         News,
         Warrings,
-        Partners,
-        VideoStatie
+        Partners
     }
     /// <summary>
     /// Модель статьи

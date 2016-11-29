@@ -7,9 +7,9 @@
     @foreach (PageDTO page in Model)
     {
         <div class="pages">
-            <h5>@page.Header</h5>
+            <input type="hidden" class="pId" value="@page.Id" />
+            <button class="statieBut"><h5>@page.Header</h5></button>
             <p>
-                @Html.ActionLink("See", "Page/" + page.Id.ToString()) |
                 @Html.ActionLink("Edit", "EditPage/" + page.Id.ToString()) |
                 @Html.ActionLink("Delete", "DeleteP/" + page.Id.ToString())
             </p>

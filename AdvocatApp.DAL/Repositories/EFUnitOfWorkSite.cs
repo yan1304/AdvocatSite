@@ -13,7 +13,6 @@ namespace AdvocatApp.DAL.Repositories
     {
         private SiteContext db;
         private PageRepository pageRepository;
-        private QuestionRepository questionRepository;
 
         public EFUnitOfWorkSite(string connectionString)
         {
@@ -27,16 +26,6 @@ namespace AdvocatApp.DAL.Repositories
                 if (pageRepository == null)
                     pageRepository = new PageRepository(db);
                 return pageRepository;
-            }
-        }
-
-        public IRepository<Question> Questions
-        {
-            get
-            {
-                if (questionRepository == null)
-                    questionRepository = new QuestionRepository(db);
-                return questionRepository;
             }
         }
         private bool disposed = false;

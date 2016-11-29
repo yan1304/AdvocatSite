@@ -1,39 +1,71 @@
 /// <reference path="typings/jquery/jquery.d.ts" />
+class Staties {
+    constructor() {
+        this.statie = new Statie();
+    }
+    load(id) {
+        $.getJSON(window.location.protocol + "//" + window.location.host + "/Admin/GetPage/" + id, (data) => {
+            this.statie = data;
+            this.insertValues();
+        });
+    }
+    insertValues() {
+        var page = $("#pageTextVideo").find(".pages");
+        page.find("h5").first().html(this.statie.Header);
+        var youtube = page.find(".youtube").first();
+        if (typeof (youtube.attr("src")) == "undefined") {
+            if (typeof (this.statie.VideoURL) == "undefined") {
+                if (this.statie.VideoURL != "") {
+                    page.find("h5").first().after('<iframe class="youtube" frameborder="0" src="' + this.statie.VideoURL
+                        + '" allowfullscreen> </iframe>');
+                }
+            }
+        }
+        else {
+            if (typeof (this.statie.VideoURL) != "undefined") {
+                if (this.statie.VideoURL != "" && this.statie.VideoURL != null) {
+                    youtube.attr("src", this.statie.VideoURL);
+                }
+                else {
+                    youtube.css("width", "0px");
+                    youtube.css("height", "0px");
+                    youtube.css("border", "none");
+                }
+            }
+            else {
+                youtube.css("width", "0px");
+                youtube.css("height", "0px");
+                youtube.css("border", "none");
+            }
+        }
+        page.find(".textSite").first().html(this.statie.Text);
+        page.find(".dateOfCreating").last().html(this.statie.Date);
+    }
+}
+class Statie {
+}
 window.onload = () => {
     var array = $(".textSt");
     var textArray = $(".textSite");
     for (let i = 0; i < array.length; i++) {
-        let statie = array[i].getAttribute("value");
-        textArray[i].innerHTML = statie;
+        let statie = $(array[i]).attr("value");
+        $(textArray[i]).html(statie);
     }
-    var youtubeFrame = $(".youtube");
-    if (youtubeFrame !== undefined && youtubeFrame.length > 0) {
-        youtubeFrame.each((i, elem) => {
-            if (innerWidth < 768) {
-                elem.setAttribute("width", (innerWidth / 1.3).toString());
-            }
-            else {
-                elem.setAttribute("width", (innerWidth / 2.58).toString());
-            }
-            elem.setAttribute("height", (parseInt(elem.getAttribute("width")) / 1.75).toString());
-        });
-    }
-    if (innerWidth < 600) {
-        $("h1").css("font-size", 20);
-    }
+    var array = $(".textSt");
+    setTimeout(() => {
+        $(".youtube").css("height", $(".youtube").width() / 1.75);
+    }, 50);
+    var staties = new Staties();
+    $('.statieBut').click((e) => {
+        var id;
+        var parent = $(e.target).parent();
+        if (parent.get(0).tagName == "BUTTON")
+            parent = parent.parent();
+        id = parent.children('.pId').val();
+        staties.load(parseInt(id));
+    });
 };
 window.onresize = () => {
-    var youtubeFrame = $(".youtube");
-    if (youtubeFrame !== undefined && youtubeFrame.length > 0) {
-        youtubeFrame.each((i, elem) => {
-            if (innerWidth < 768) {
-                elem.setAttribute("width", (innerWidth / 1.3).toString());
-            }
-            else {
-                elem.setAttribute("width", (innerWidth / 2.58).toString());
-            }
-            elem.setAttribute("height", (parseInt(elem.getAttribute("width")) / 1.75).toString());
-        });
-    }
+    $(".youtube").css("height", $(".youtube").width() / 1.75);
 };
 //# sourceMappingURL=PageScript.js.map

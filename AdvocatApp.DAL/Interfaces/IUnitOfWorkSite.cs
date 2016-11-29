@@ -9,7 +9,6 @@ namespace AdvocatApp.DAL.Interfaces
 {
     public interface IUnitOfWorkSite:IDisposable
     {
-        IRepository<Question> Questions { get;}
         IRepository<Page> Pages { get;}
         void Save();
         Task SaveAsync();

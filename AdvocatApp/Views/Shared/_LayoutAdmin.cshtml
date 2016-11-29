@@ -4,6 +4,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
+    <meta charset="utf-8" />
     <title>Администратирование  @ViewBag.Title</title>
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
     <link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" />
@@ -15,7 +16,7 @@
             <div class="container">
                 <h2>Корпоративный правовой центр</h2>
                 <div class="rightMobile">
-                    <p>Phone: 89160161601</p>
+                    <p>Phone: <tel>89160161601</tel></p>
                 </div>    
             </div>
         </div>
@@ -28,12 +29,11 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    @Html.ActionLink("Администратирование", "Index", "Admin",null, new { @class = "navbar-brand" })
+                    <div class="navbar-brand"> Администратирование</div>
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li>@Html.ActionLink("To main", "Index", "Admin")</li>
-                        <li>@Html.ActionLink("Quesions", "Questions", "Admin")</li>
                         <li>@Html.ActionLink("Edit information about me", "EditAbout", "Admin")</li>
                         <li>@Html.ActionLink("Logout", "Logout", "Account")</li>
                     </ul>
@@ -46,8 +46,7 @@
             @RenderBody()
         </div>
     </div>
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/jquery")
         @RenderSection("scripts", required: false)
         <script src="~/Scripts/bootstrap.min.js"></script>
 </body>

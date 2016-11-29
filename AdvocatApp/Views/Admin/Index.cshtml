@@ -9,14 +9,13 @@
 <div class="row">
     <div class="col-sm-6  col-sm-push-3 withlines">
         <div class="row">
-            <div class="col-sm-12 pageHead">
-                @{Html.RenderPartial("VideoStaties", Model.Where(p => p.Type == TypePage.VideoStatie)); }
-                @Html.ActionLink("Add", "AddPageWithVideo")
+            <div id="pageTextVideo" class="col-sm-12 pageHead">
+                @{Html.RenderPartial("Page",Model.Where(p=>p.Type==TypePage.Statie).FirstOrDefault());}
             </div>
         </div>
     </div>
     <div class="col-sm-3 col-sm-pull-6 pageHead withlines colored">
-        @{Html.RenderPartial("Staties", Model.Where(p => p.Type == TypePage.Statie)); }
+        @{Html.RenderPartial("Staties", Model.Where(p => p.Type == TypePage.Statie));}
         @Html.ActionLink("Add", "AddPage")
     </div>
         <div class="col-sm-3  withlines colored">

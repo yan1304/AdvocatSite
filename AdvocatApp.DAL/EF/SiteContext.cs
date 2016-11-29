@@ -10,7 +10,6 @@ namespace AdvocatApp.DAL.EF
 {
     public class SiteContext: DbContext
     {
-        public DbSet<Question> Questions { get; set; }
         public DbSet<Page> Pages { get; set; }
         
         static SiteContext()

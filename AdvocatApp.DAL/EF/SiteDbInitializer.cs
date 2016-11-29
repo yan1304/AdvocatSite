@@ -18,14 +18,6 @@ namespace AdvocatApp.DAL.EF
             };
 
             db.Pages.AddRange(pages);
-
-            List<Question> questions = new List<Question>
-            {
-                new Question { Id=1, Ask="Abc?", Resp="121"},
-                new Question { Id=2, Ask="Abce?", Resp="22121"},
-                new Question { Id=3, Ask="Abcgfg?", Resp="33333121"}
-            };
-            db.Questions.AddRange(questions);
             db.SaveChanges();
         }
     }

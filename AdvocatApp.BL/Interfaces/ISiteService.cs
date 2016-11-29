@@ -20,16 +20,7 @@ namespace AdvocatApp.BL.Interfaces
         void DeletePage(int? id);
         Task DeletePageAsync(int? id);
         IEnumerable<PageDTO> FindPage(Func<Page, bool> predicate);
-
-        void AddQuestion(QuestionDTO questionDTO);
-        Task AddQuestionAsync(QuestionDTO pageDTO);
-        QuestionDTO GetQuestion(int? id);
-        IEnumerable<QuestionDTO> GetQuestions();
-        Task<QuestionDTO> GetQuestionAsync(int? id);
-        void UpdateQuestion(QuestionDTO questionDTO);
-        Task UpdateQuestionAsync(QuestionDTO questionDTO);
-        void DeleteQuestion(int? id);
-        Task DeleteQuestionAsync(int? id);
+        
 
         void Dispose();
     }
