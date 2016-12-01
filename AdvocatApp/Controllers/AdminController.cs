@@ -206,7 +206,7 @@ namespace AdvocatApp.Controllers
             if (p.Id == 1) p.Name = "Index";
             Mapper.Initialize(cfg => cfg.CreateMap<PageModel, PageDTO>());
             var page = Mapper.Map<PageModel, PageDTO>(p);
-
+            page.Text = ReplaceStringTags(page.Text);
             await siteService.UpdatePageAsync(page);
 
             return RedirectToAction("Index");
@@ -218,6 +218,56 @@ namespace AdvocatApp.Controllers
             Mapper.Initialize(cfg => cfg.CreateMap<AdminDTO, ChangeAboutModel>());
             var q = Mapper.Map<AdminDTO, ChangeAboutModel>(UserService.GetInfo());
             return View(q);
+        }
+
+        [Authorize]
+        [HttpGet]
+        public JsonResult GetWarringPageList(int pageNum)
+        {
+            int coll = 10;
+            var pages = siteService.GetPages().Where(p=>p.Type==TypePage.Warrings).OrderByDescending(p=>p.Date).Skip(coll * (pageNum - 1)).Take(coll).ToList();
+            List<object> newPages = new List<object>();
+            foreach (var page in pages)
+            {
+                var p = new
+                {
+                    Id = page.Id,
+                    VideoURL = page.VideoURL,
+                    Header = page.Header,
+                    Date = page.Date.Day + ":" + page.Date.Month + ":" + page.Date.Year,
+                    Text = page.Text
+                };
+                newPages.Add(p);
+            }
+            return Json(
+                newPages,
+                JsonRequestBehavior.AllowGet
+                );
+        }
+
+        [Authorize]
+        [HttpGet]
+        public JsonResult GetNewsPageList(int pageNum)
+        {
+            int coll = 10;
+            var pages = siteService.GetPages().Where(p => p.Type == TypePage.News).OrderByDescending(p => p.Date).Skip(coll * (pageNum - 1)).Take(pageNum).ToList();
+            List<object> newPages = new List<object>();
+            foreach (var page in pages)
+            {
+                var p = new
+                {
+                    Id = page.Id,
+                    VideoURL = page.VideoURL,
+                    Header = page.Header,
+                    Date = page.Date.Day + ":" + page.Date.Month + ":" + page.Date.Year,
+                    Text = page.Text
+                };
+                newPages.Add(p);
+            }
+            return Json(
+                newPages,
+                JsonRequestBehavior.AllowGet
+                );
         }
     }
 }

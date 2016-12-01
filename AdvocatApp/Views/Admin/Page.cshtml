@@ -13,12 +13,11 @@
     <input class="textSt" type="hidden" value="@Model.Text" />
     <div class="textSite">
     </div>
-    
     <br />
     <p class="dateOfCreating">@Model.Date.Day.ToString():@Model.Date.Month.ToString():@Model.Date.Year.ToString() </p>
-
     <p class="linksPage">
         @Html.ActionLink("Edit", "EditPage/" + Model.Id.ToString()) |
-        @Html.ActionLink("Delete", "DeleteP/" + Model.Id.ToString())
+        @Html.ActionLink("Delete", "DeleteP/" + Model.Id.ToString()) |
+        <a href="#header1">В начало</a>
     </p>
 </div>

@@ -9,6 +9,7 @@
         <div class="pages">
             <input type="hidden" class="pId" value="@page.Id" />
             <button class="statieBut"><h5>@page.Header</h5></button>
+            <p>@page.Name</p>
             <p>
                 @Html.ActionLink("Edit", "EditPage/" + page.Id.ToString()) |
                 @Html.ActionLink("Delete", "DeleteP/" + page.Id.ToString())

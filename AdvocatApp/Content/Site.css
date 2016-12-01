@@ -185,10 +185,10 @@ textarea {
     border-top:5px solid white;
      min-height:40px;
      border-bottom: 5px solid #222;
-     background-image:-moz-linear-gradient(top,#0005ff, #031078);
+     background-image:-moz-linear-gradient(top,#000000, #031078);
     background-image:-webkit-linear-gradient(top,#000000, #031078);
-    background-image:-o-linear-gradient(top,#1F3F7F,#0f3f7f);
-    background-image:linear-gradient(top,#1F3F7F,#0f3f7f);
+    background-image:-o-linear-gradient(top,#000000,#031078);
+    background-image:linear-gradient(top,#000000,#031078);
 }
 
 .colored{
@@ -215,6 +215,24 @@ textarea {
 .statieBut:hover h5{
     font-size:20px;
     transition-duration: 0.25s;
+}
+
+.warSelectBut, .warSelectBut:focus, .newsSelectBut, .newsSelectBut:focus{
+    width:20px;
+    margin-top:2px;
+    padding:1px;
+    background:#1F3F7F;
+    color:white;
+}
+
+.warSelectBut:hover, .newsSelectBut:hover{
+    background:#0d88b0;
+    color:white;
+    transition-duration:0.25s;
+}
+
+.selectedBtn, .selectedBtn:hover, .selectedBtn:focus {
+    background-color: #900020;          
 }
 
 @media(max-width:768px){
@@ -268,4 +286,13 @@ textarea {
     text-align:right;
     font-size:13px;
     }
+    .navbar-bottom{
+        padding-left:30px;
+        padding-right:20px;
+        text-align:center;
+    }
+}
+
+.navbar-bottom{
+    padding-top:15px;
 }
