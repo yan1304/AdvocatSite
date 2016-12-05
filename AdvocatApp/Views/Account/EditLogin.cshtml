@@ -1,23 +1,35 @@
 ﻿@model AdvocatApp.Models.LoginModel
 @{
-    ViewBag.Title = "EditLogin";
+    ViewBag.Title = "Изменение пароля и e-mail";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h2>EditLogin</h2>
 
-
-@Html.BeginForm("EditLogin", "Account", FormMethod.Post)
+@using (Html.BeginForm("EditLogin", "Account", FormMethod.Post,
+        new { @class = "form-horizontal", role = "form" }))
 {
-@Html.AntiForgeryToken()
-@Html.ValidationSummary(true)
-<br />
-@Html.EditorFor(model => model.Email)
-@Html.ValidationMessageFor(model => model.Email)
-<br />
-@Html.EditorFor(model => model.Password)
-@Html.ValidationMessageFor(model => model.Password)
-<br />
-<p><input type="submit" value="Send" /></p>
+    @Html.AntiForgeryToken()
+    <h4>Изменение пароля и e-mail</h4>
+    <hr />
+    @Html.ValidationSummary(true)
+    <div class="form-group">
+        @Html.LabelFor(m => m.Email, new { @class = "col-sm-2 control-label" })
+        <div class="col-sm-10">
+            @Html.EditorFor(model => model.Email)
+            @Html.ValidationMessageFor(model => model.Email)
+       </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Password, new { @class = "col-sm-2 control-label" })
+       <div class="col-sm-10">
+           @Html.EditorFor(model => model.Password)
+           @Html.ValidationMessageFor(model => model.Password)
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <input type="submit" class="btn btn-default" value="Изменить" />
+        </div>
+    </div>
 }
 

@@ -18,7 +18,7 @@
                 <div class="rightMobile">
                     @if (ViewBag.Phone != null)
                     {
-                        <p>Phone: <tel>@ViewBag.Phone</tel></p>
+                        <p>Телефон: <tel>@ViewBag.Phone</tel></p>
                     }
                 </div>    
             </div>
@@ -36,11 +36,10 @@
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li>@Html.ActionLink("To main", "Index", "Admin")</li>
-                        <li>@Html.ActionLink("See about me", "About", "Admin")</li>
-                        <li>@Html.ActionLink("Edit information about me", "EditAbout", "Admin")</li>
-                        <li>@Html.ActionLink("Edit password and email", "EditLogin", "Account")</li>
-                        <li>@Html.ActionLink("Logout", "Logout", "Account")</li>
+                        <li>@Html.ActionLink("На главную", "Index", "Admin")</li>
+                        <li>@Html.ActionLink("О нас", "About", "Admin")</li>
+                        <li>@Html.ActionLink("Изменить пароль и email", "EditLogin", "Account")</li>
+                        <li>@Html.ActionLink("Выйти", "Logout", "Account")</li>
                     </ul>
                 </div>
             </div>
