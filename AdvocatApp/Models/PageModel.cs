@@ -12,15 +12,16 @@ namespace AdvocatApp.Models
     {
         [HiddenInput(DisplayValue = false)]
         public int Id { get; set; }
-        [Display(Name = "Заголовок меню")]
+        [Display(Name = "Заголовок пункта меню")]
         public string Name { get; set; }
         [Required]
-        [Display(Name = "Заголовок статьи")]
+        [Display(Name = "Заголовок")]
         public string Header { get; set; }
         [Display(Name = "Ссылка на видео с YouTube")]
+        [DataType(DataType.Url)]
         public string VideoURL { get; set; }
         [AllowHtml]
-        [Display(Name = "Введите текст статьи")]
+        [Display(Name = "Текст статьи")]
         [DataType(DataType.MultilineText)]
         public string Text { get; set; }
         [HiddenInput(DisplayValue = false)]

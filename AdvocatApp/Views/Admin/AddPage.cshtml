@@ -1,18 +1,64 @@
 ﻿@using AdvocatApp.Models
 @model PageModel
 @{
-    ViewBag.Title = "AddPage";
+    ViewBag.Title = "Добавление статьи";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
-<h2>AddPage</h2>
 
-@Html.BeginForm("AddPage","Admin",FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+@using(Html.BeginForm("AddPage","Admin",FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
     @Html.AntiForgeryToken()
-    @Html.ValidationSummary(true)
-    <br />
     <h4>Добавление новой статьи</h4>
-    @Html.EditorForModel()
-    <br/>
-    <input type="submit"  class="btn btn-default" value="Отправить" />
+    <hr />
+    @Html.ValidationSummary(true)
+    
+    @Html.HiddenFor(m => m.Date)
+    @Html.HiddenFor(m => m.Id)
+    @Html.HiddenFor(m => m.Type)
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Name, new { @class = "col-sm-2 control-label" })
+        <div class="col-sm-8">
+            @Html.EditorFor(model => model.Name)
+        </div>
+        <div class="col-sm-2">
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Header, new { @class = "col-sm-2 control-label" })
+        <div class="col-sm-8">
+            @Html.EditorFor(model => model.Header)
+        </div>
+        <div class="col-sm-2">
+            @Html.ValidationMessageFor(model => model.Header)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Text, new { @class = "col-sm-2 control-label" })
+        <div class="col-sm-8">
+            @Html.EditorFor(model => model.Text)
+        </div>
+        <div class="col-sm-2">
+            @Html.ValidationMessageFor(model => model.Text)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.VideoURL, new { @class = "col-sm-2 control-label" })
+        <div class="col-sm-8">
+            @Html.EditorFor(model => model.VideoURL)
+        </div>
+        <div class="col-sm-2">
+            @Html.ValidationMessageFor(model => model.VideoURL)
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <input type="submit" class="btn btn-default" value="Добавить" />
+        </div>
+    </div>
 }

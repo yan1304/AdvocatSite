@@ -244,6 +244,12 @@ textarea {
     background-color: #900020;          
 }
 
+@media(max-width:990px){
+    #admin-content{
+    margin-right:30px;
+    margin-left:30px;
+    }
+}
 @media(max-width:768px){
     body{
         font-size:17px;

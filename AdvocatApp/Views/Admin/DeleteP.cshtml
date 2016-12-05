@@ -1,16 +1,18 @@
 ﻿@model AdvocatApp.BL.DTO.PageDTO
 @{
-    ViewBag.Title = "DeleteP";
+    ViewBag.Title = "Удаление статьи";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h2>DeleteP</h2>
+<h4>Удаление страницы</h4>
 
-@Html.DisplayForModel()
-<br />
-@Html.BeginForm()
-{
-    <input type="submit" value="delete" />
-}
+<p>
+    <h5>@Model.Header</h5>
+</p>
+    <br />
+    @using (Html.BeginForm())
+    {
+    <input type="submit" value="Подтвердить удаление" />
+    }
 
 

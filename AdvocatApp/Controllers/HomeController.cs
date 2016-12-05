@@ -24,16 +24,5 @@ namespace AdvocatApp.Controllers
         {
             return View();
         }
-
-        [Authorize]
-        public string Auth()
-        {
-            return "Authorised!";
-        }
-        public ActionResult AboutAuthor()
-        {
-
-            return View(UserService.GetInfo());
-        }
     }
 }

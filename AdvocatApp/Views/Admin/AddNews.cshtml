@@ -1,17 +1,43 @@
 ﻿@using AdvocatApp.Models
 @model PageModelWithoutVideo
 @{
-    ViewBag.Title = "AddNews";
+    ViewBag.Title = "Добавление новости";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
-<h2>AddPageWithVideo</h2>
-
-@Html.BeginForm("AddNews", "Admin", FormMethod.Post)
+@using (Html.BeginForm("AddNews", "Admin", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
-@Html.AntiForgeryToken()
-@Html.ValidationSummary(true)
-<br />
-@Html.EditorForModel()
-<br />
-<input type="submit" value="Send" />
+    @Html.AntiForgeryToken()
+    <h4>Добавление новости</h4>
+    <hr />
+    @Html.ValidationSummary(true)
+
+    @Html.HiddenFor(m=>m.Date)
+    @Html.HiddenFor(m=>m.Id)
+    @Html.HiddenFor(m=>m.VideoURL)
+    @Html.HiddenFor(m=>m.Type)
+    <div class="form-group">
+        @Html.LabelFor(m => m.Header, new { @class = "col-sm-2 control-label" })
+        <div class="col-sm-8">
+            @Html.EditorFor(model => model.Header)
+        </div>
+        <div class="col-sm-2">
+            @Html.ValidationMessageFor(model => model.Header)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Text, new { @class = "col-sm-2 control-label" })
+        <div class="col-sm-8">
+            @Html.EditorFor(model => model.Text)
+        </div>
+        <div class="col-sm-2">
+            @Html.ValidationMessageFor(model => model.Text)
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <input type="submit" class="btn btn-default" value="Добавить" />
+        </div>
+    </div>
 }
