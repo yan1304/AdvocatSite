@@ -44,6 +44,11 @@ namespace AdvocatApp.Controllers
         [Authorize]
         public ActionResult Index()
         {
+            if (UserService.GetInfo() != null)
+            {
+                ViewBag.Phone = UserService.GetInfo().Phone;
+                ViewBag.NameOfSite = UserService.GetInfo().NameOfSite;
+            }
             return View( siteService.GetPages().ToList());
         }
         [Authorize]
@@ -57,56 +62,68 @@ namespace AdvocatApp.Controllers
         [HttpGet]
         public ActionResult AddPage()
         {
+            if (UserService != null)
+            {
+                ViewBag.Phone = UserService.GetInfo().Phone;
+                ViewBag.NameOfSite = UserService.GetInfo().NameOfSite;
+            }
             return View();
         }
         [Authorize]
         [HttpPost]
         public async Task<ActionResult> AddPage(PageModel p)
         {
-            p.Type = TypePage.Statie;
-            return await AddPageFunc(p);
+            if (ModelState.IsValid)
+            {
+                p.Type = TypePage.Statie;
+                return await AddPageFunc(p);
+            }
+            return View(p);
         }
 
         [Authorize]
         [HttpGet]
         public ActionResult AddWarringPage()
         {
+            if (UserService.GetInfo() != null)
+            {
+                ViewBag.Phone = UserService.GetInfo().Phone;
+                ViewBag.NameOfSite = UserService.GetInfo().NameOfSite;
+            }
             return View();
         }
         [Authorize]
         [HttpPost]
         public async Task<ActionResult> AddWarringPage(PageModel p)
         {
-            p.Type = TypePage.Warrings;
-            return await AddPageFunc(p);
+            if (ModelState.IsValid)
+            {
+                p.Type = TypePage.Warrings;
+                return await AddPageFunc(p);
+            }
+            return View(p);
         }
-
-        [Authorize]
-        [HttpGet]
-        public ActionResult AddPartners()
-        {
-            return View();
-        }
-        [Authorize]
-        [HttpPost]
-        public async Task<ActionResult> AddPartners(PageModelWithoutVideo p)
-        {
-            p.Type = TypePage.Partners;
-            return await AddPageFunc(p);
-        }
-
         [Authorize]
         [HttpGet]
         public ActionResult AddNews()
         {
+            if (UserService.GetInfo() != null)
+            {
+                ViewBag.Phone = UserService.GetInfo().Phone;
+                ViewBag.NameOfSite = UserService.GetInfo().NameOfSite;
+            }
             return View();
         }
         [Authorize]
         [HttpPost]
         public async Task<ActionResult> AddNews(PageModelWithoutVideo p)
         {
-            p.Type = TypePage.News;
-            return await AddPageFunc(p);
+            if (ModelState.IsValid)
+            {
+                p.Type = TypePage.News;
+                return await AddPageFunc(p);
+            }
+            else return View();
         }
         
         [Authorize]
@@ -158,6 +175,11 @@ namespace AdvocatApp.Controllers
         [Authorize]
         public async Task<ActionResult> DeleteP(int id)
         {
+            if (UserService.GetInfo() != null)
+            {
+                ViewBag.Phone = UserService.GetInfo().Phone;
+                ViewBag.NameOfSite = UserService.GetInfo().NameOfSite;
+            }
             PageDTO page = await siteService.GetPageAsync(id);
             if (page == null)
             {
@@ -192,6 +214,7 @@ namespace AdvocatApp.Controllers
         [HttpGet]
         public async Task<ActionResult> EditPage(int? id)
         {
+            ViewBag.Phone = UserService.GetInfo().Phone;
             if (id == null) return HttpNotFound();
             var page = await siteService.GetPageAsync(id.Value);
             if (page == null) return HttpNotFound();
@@ -203,13 +226,17 @@ namespace AdvocatApp.Controllers
         [HttpPost]
         public async Task<ActionResult> EditPage(PageModel p)
         {
-            if (p.Id == 1) p.Name = "Index";
-            Mapper.Initialize(cfg => cfg.CreateMap<PageModel, PageDTO>());
-            var page = Mapper.Map<PageModel, PageDTO>(p);
-            page.Text = ReplaceStringTags(page.Text);
-            await siteService.UpdatePageAsync(page);
+            if (ModelState.IsValid)
+            {
+                if (p.Id == 1) p.Name = "Index";
+                Mapper.Initialize(cfg => cfg.CreateMap<PageModel, PageDTO>());
+                var page = Mapper.Map<PageModel, PageDTO>(p);
+                page.Text = ReplaceStringTags(page.Text);
+                await siteService.UpdatePageAsync(page);
 
-            return RedirectToAction("Index");
+                return RedirectToAction("Index");
+            }
+            else return View(p.Id);
         }
 
         [Authorize]
@@ -217,7 +244,24 @@ namespace AdvocatApp.Controllers
         {
             Mapper.Initialize(cfg => cfg.CreateMap<AdminDTO, ChangeAboutModel>());
             var q = Mapper.Map<AdminDTO, ChangeAboutModel>(UserService.GetInfo());
+            if (q != null)
+            {
+                ViewBag.Phone = q.Phone;
+                ViewBag.NameOfSite = q.NameOfSite;
+            }
             return View(q);
+        }
+
+        [Authorize]
+        public ActionResult About()
+        {
+            if (UserService.GetInfo() != null)
+            {
+                ViewBag.Phone = UserService.GetInfo().Phone;
+                ViewBag.NameOfSite = UserService.GetInfo().NameOfSite;
+                return View(UserService.GetInfo());
+            }
+            else return HttpNotFound();
         }
 
         [Authorize]

@@ -9,8 +9,8 @@
 @Html.BeginForm("AddPage","Admin",FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
     @Html.AntiForgeryToken()
-    <hr/>
-    @Html.ValidationSummary()
+    @Html.ValidationSummary(true)
+    <br />
     <h4>Добавление новой статьи</h4>
     @Html.EditorForModel()
     <br/>

@@ -12,15 +12,13 @@ namespace AdvocatApp.Models
     {
         [HiddenInput(DisplayValue = false)]
         public int Id { get; set; }
-        [Required]
-        [Display(Name = "Системное имя статьи")]
+        [Display(Name = "Заголовок меню")]
         public string Name { get; set; }
         [Required]
         [Display(Name = "Заголовок статьи")]
         public string Header { get; set; }
         [Display(Name = "Ссылка на видео с YouTube")]
         public string VideoURL { get; set; }
-        [Required]
         [AllowHtml]
         [Display(Name = "Введите текст статьи")]
         [DataType(DataType.MultilineText)]
@@ -36,14 +34,10 @@ namespace AdvocatApp.Models
         [HiddenInput(DisplayValue = false)]
         public int Id { get; set; }
         [Required]
-        [Display(Name = "Системное имя статьи")]
-        public string Name { get; set; }
-        [Required]
         [Display(Name = "Заголовок статьи")]
         public string Header { get; set; }
         [HiddenInput(DisplayValue = false)]
         public string VideoURL { get; set; }
-        [Required]
         [AllowHtml]
         [Display(Name = "Введите текст статьи")]
         [DataType(DataType.MultilineText)]

@@ -1,0 +1,30 @@
+﻿@using AdvocatApp.BL.Authorization.DTO
+@model AdminDTO
+@{
+    ViewBag.Title = "About";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="row">
+    <div id="pageTextVideo" class="col-sm-12 pageHead">
+        <div class="pages">
+            <h4>О нас</h4>
+            <hr />
+            <input class="textSt" type="hidden" value="@Model.AboutMe" />
+            <div class="textSite"></div>
+                <p>
+                    gdfgfd
+                </p>
+                @if (Model.Facebook != null)
+            {
+                    <p>@Model.Facebook</p>
+                }
+            </div>
+        <p>
+            @Html.ActionLink("Edit", "EditAbout")
+        </p>
+    </div>
+</div>
+@section scripts{
+    <script src='@Url.Content("~/Scripts/PageScript.js")'>
+    </script>
+}

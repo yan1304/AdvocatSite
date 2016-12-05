@@ -87,6 +87,7 @@ namespace AdvocatApp.BL.Authorization.Services
             {
                 AdminDTO adm = new AdminDTO
                 {
+                    NameOfSite = v.NameOfSite,
                     AboutMe = v.AboutMe,
                     Address = v.Address,
                     Email = v.Email,
@@ -109,9 +110,24 @@ namespace AdvocatApp.BL.Authorization.Services
         public async Task Update(AdminDTO admin,string email)
         {
             ApplicationUser user = Database.UserManager.FindByEmail(email);
-            Database.AdminManager.Delete();
-            await Database.UserManager.DeleteAsync(user);
-            await Create(admin);
+            if (admin.Password != null)
+            {
+                if (admin.Password.Length > 4)
+                {
+                    Database.AdminManager.Delete();
+                    await Database.UserManager.DeleteAsync(user);
+                    await Create(admin);
+                }
+            }
+            else
+            {
+                Mapper.Initialize(cfg => cfg.CreateMap<AdminDTO, AboutAdmin>());
+                AboutAdmin clientProfile = Mapper.Map<AdminDTO, AboutAdmin>(admin);
+                Database.AdminManager.Delete();
+                clientProfile.Id = user.Id;
+                Database.AdminManager.Create(clientProfile);
+                await Database.SaveAsync();
+            }
         }
     }
 }

@@ -119,7 +119,16 @@ textarea {
     background-color: #DDD;
     transition-duration: 0.25s;
 }
+.navbar-bottom{
 
+    border-top:2px solid white;
+     background-image:-moz-linear-gradient(top,#000000, #031078);
+    background-image:-webkit-linear-gradient(top,#000000, #031078);
+    background-image:-o-linear-gradient(top,#000000,#031078);
+    background-image:linear-gradient(top,#000000,#031078);
+    margin-top:20px;
+    padding-top:15px;
+}
 #admin-content{
 
     background-color:white;
@@ -287,12 +296,9 @@ textarea {
     font-size:13px;
     }
     .navbar-bottom{
-        padding-left:30px;
-        padding-right:20px;
+        padding-left:50px;
+        padding-right:50px;
         text-align:center;
     }
 }
 
-.navbar-bottom{
-    padding-top:15px;
-}

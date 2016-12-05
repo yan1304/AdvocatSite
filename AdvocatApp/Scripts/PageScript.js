@@ -74,9 +74,9 @@ class Warrings {
             newDiv.find("h5").first().html(this.warrings[i].Header);
             newDiv.find(".textSite").first().html(this.warrings[i].Text);
             newDiv.find(".dateOfCreating").last().html(this.warrings[i].Date);
-            var p = newDiv.find(".linksPage");
-            p.children("a").first().attr("href", window.location.protocol + "//" + window.location.host + "/Admin/EditP/" + this.warrings[i].Id);
-            p.children("a").last().attr("href", window.location.protocol + "//" + window.location.host + "/Admin/DeleteP/" + this.warrings[i].Id);
+            var p = newDiv.find(".linksWar");
+            p.children("a").first().attr("href", window.location.protocol + "//" + window.location.host + "/Admin/EditPage/" + this.warrings[i].Id);
+            p.children("a").last().attr("href", window.location.protocol + "//" + window.location.host + "/Admin/DeletePage/" + this.warrings[i].Id);
             newDiv.insertAfter(div);
             div = newDiv;
         }
@@ -111,9 +111,9 @@ class News {
             newDiv.find("h5").first().html(this.news[i].Header);
             newDiv.find(".textSite").first().html(this.news[i].Text);
             newDiv.find(".dateOfCreating").last().html(this.news[i].Date);
-            var p = newDiv.find(".linksPage");
-            p.children("a").first().attr("href", window.location.protocol + "//" + window.location.host + "/Admin/EditP/" + this.news[i].Id);
-            p.children("a").last().attr("href", window.location.protocol + "//" + window.location.host + "/Admin/DeleteP/" + this.news[i].Id);
+            var p = newDiv.find(".linksNews");
+            p.children("a").first().attr("href", window.location.protocol + "//" + window.location.host + "/Admin/EditPage/" + this.news[i].Id);
+            p.children("a").last().attr("href", window.location.protocol + "//" + window.location.host + "/Admin/DeletePage/" + this.news[i].Id);
             newDiv.insertAfter(div);
             div = newDiv;
         }

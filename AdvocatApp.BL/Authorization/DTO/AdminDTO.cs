@@ -9,6 +9,7 @@ namespace AdvocatApp.BL.Authorization.DTO
     public class AdminDTO
     {
         public string Id { get; set; }
+        public string NameOfSite { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
         public string Fathername { get; set; }

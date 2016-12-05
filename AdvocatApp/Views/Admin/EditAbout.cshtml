@@ -8,6 +8,9 @@
 
 @Html.BeginForm("EditAbout","Account",FormMethod.Post)
 {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <br />
     @Html.EditorForModel()
     <input type="submit" value="send" />
 }

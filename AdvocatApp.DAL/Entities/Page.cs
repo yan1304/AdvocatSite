@@ -10,8 +10,7 @@ namespace AdvocatApp.DAL.Entities
     {
         Statie,
         News,
-        Warrings,
-        Partners
+        Warrings
     }
     /// <summary>
     /// Модель статьи

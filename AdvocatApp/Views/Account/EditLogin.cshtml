@@ -1,0 +1,23 @@
+﻿@model AdvocatApp.Models.LoginModel
+@{
+    ViewBag.Title = "EditLogin";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>EditLogin</h2>
+
+
+@Html.BeginForm("EditLogin", "Account", FormMethod.Post)
+{
+@Html.AntiForgeryToken()
+@Html.ValidationSummary(true)
+<br />
+@Html.EditorFor(model => model.Email)
+@Html.ValidationMessageFor(model => model.Email)
+<br />
+@Html.EditorFor(model => model.Password)
+@Html.ValidationMessageFor(model => model.Password)
+<br />
+<p><input type="submit" value="Send" /></p>
+}
+
