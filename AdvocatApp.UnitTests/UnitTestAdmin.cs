@@ -77,5 +77,6 @@ namespace AdvocatApp.UnitTests
 
             Assert.AreEqual(1, page.Id);
             Assert.AreEqual(TypePage.Statie, page.Type);
+        }
     }
 }
