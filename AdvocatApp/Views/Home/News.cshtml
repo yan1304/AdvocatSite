@@ -1,0 +1,25 @@
+﻿@model int
+
+
+<h4>Новости</h4>
+<p class="nPage">
+    <div class="pages newsPages" style="display:none;">
+        <h5></h5>
+        <input class="textSt" type="hidden" />
+        <div class="textSite">
+        </div>
+        <p class="dateOfCreating"> </p>
+    </div>
+</p>
+<div class="btn-toolbar">
+    @for (int i = 1; i <= Model; i += 10)
+    {
+        <div class="btn-group">
+            <button class="btn newsSelectBut">@((i - i % 10) / 10 + 1)</button>
+        </div>
+    }
+</div>
+
+
+
+

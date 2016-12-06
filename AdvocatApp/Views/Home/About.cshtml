@@ -2,7 +2,7 @@
 @model AdminDTO
 @{
     ViewBag.Title = "О нас";
-    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div class="row">
     <div id="pageTextVideo" class="col-sm-12 pageHead">
@@ -13,7 +13,7 @@
             <p>
                 <input class="textSt" type="hidden" value="@Model.AboutMe" />
                 <div class="textSite"></div>
-             </p>
+            </p>
             <hr />
             <h5>Мои контакты:</h5>
             <div style="padding-left:20px">
@@ -33,39 +33,36 @@
                         Наш адрес: @Model.Address
                     </p>
                 }
-                </div>
-            <hr />
-                @if (Model.Vk != null || Model.Facebook != null || Model.Twitter != null || Model.GooglePl != null
-            || Model.GooglePl != null || Model.Youtube != null)
-                {
-                    <h5>Дополнительные контакты:</h5>
-                }
-                <div style="padding-left:20px">
-                    @if (Model.Vk != null)
-                    {
-                        <b>ВКонтакте:</b> <p>@Model.Vk</p>
-                    }
-                    @if (Model.Facebook != null)
-                    {
-                        <b>Facebook:</b> <p>@Model.Facebook</p>
-                    }
-                    @if (Model.Twitter != null)
-                    {
-                        <b>Twitter:</b> <p>@Model.Twitter</p>
-                    }
-                    @if (Model.GooglePl != null)
-                    {
-                        <b>Google+:</b> <p>@Model.GooglePl</p>
-                    }
-                    @if (Model.Youtube != null)
-                    {
-                        <b>Youtube:</b> <p>@Model.Youtube</p>
-                    }
-                </div>
             </div>
-        <p>
-            @Html.ActionLink("Редактировать", "EditAbout")
-        </p>
+            <hr />
+            @if (Model.Vk != null || Model.Facebook != null || Model.Twitter != null || Model.GooglePl != null
+            || Model.GooglePl != null || Model.Youtube != null)
+            {
+                <h5>Дополнительные контакты:</h5>
+            }
+            <div style="padding-left:20px">
+                @if (Model.Vk != null)
+                {
+                    <b>ВКонтакте:</b> <p>@Model.Vk</p>
+                }
+                @if (Model.Facebook != null)
+                {
+                    <b>Facebook:</b> <p>@Model.Facebook</p>
+                }
+                @if (Model.Twitter != null)
+                {
+                    <b>Twitter:</b> <p>@Model.Twitter</p>
+                }
+                @if (Model.GooglePl != null)
+                {
+                    <b>Google+:</b> <p>@Model.GooglePl</p>
+                }
+                @if (Model.Youtube != null)
+                {
+                    <b>Youtube:</b> <p>@Model.Youtube</p>
+                }
+            </div>
+        </div>
     </div>
 </div>
 @section scripts{

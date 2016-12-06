@@ -94,7 +94,7 @@ namespace AdvocatApp.Controllers
         }
         [Authorize]
         [HttpPost]
-        public async Task<ActionResult> AddWarringPage(PageModel p)
+        public async Task<ActionResult> AddWarringPage(PageModelWithoutVideo p)
         {
             if (ModelState.IsValid)
             {
@@ -228,6 +228,7 @@ namespace AdvocatApp.Controllers
         {
             if (ModelState.IsValid)
             {
+                if (p.Name == "Index" && p.Id != 1) p.Name = "";
                 if (p.Id == 1) p.Name = "Index";
                 Mapper.Initialize(cfg => cfg.CreateMap<PageModel, PageDTO>());
                 var page = Mapper.Map<PageModel, PageDTO>(p);

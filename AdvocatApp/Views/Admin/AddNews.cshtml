@@ -10,11 +10,7 @@
     <h4>Добавление новости</h4>
     <hr />
     @Html.ValidationSummary(true)
-
-    @Html.HiddenFor(m=>m.Date)
-    @Html.HiddenFor(m=>m.Id)
-    @Html.HiddenFor(m=>m.VideoURL)
-    @Html.HiddenFor(m=>m.Type)
+    
     <div class="form-group">
         @Html.LabelFor(m => m.Header, new { @class = "col-sm-2 control-label" })
         <div class="col-sm-8">

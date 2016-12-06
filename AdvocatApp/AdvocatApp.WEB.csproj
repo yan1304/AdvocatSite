@@ -215,7 +215,6 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\PageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -250,6 +249,11 @@
     <Content Include="Views\Admin\Page.cshtml" />
     <Content Include="Views\Account\EditLogin.cshtml" />
     <Content Include="Views\Admin\About.cshtml" />
+    <Content Include="Views\Home\Page.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Staties.cshtml" />
+    <Content Include="Views\Home\Warrings.cshtml" />
+    <Content Include="Views\Home\News.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -259,7 +263,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Page\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AdvocatApp.BL\AdvocatApp.BL.csproj">
@@ -276,6 +279,7 @@
     <TypeScriptCompile Include="Scripts\typings\bootstrap\bootstrap.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\jqueryui\jqueryui.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\jquery\jquery.d.ts" />
+    <TypeScriptCompile Include="Scripts\UserPageScript.ts" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />

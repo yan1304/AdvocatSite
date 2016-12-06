@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
+using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Web;
@@ -17,6 +18,19 @@ namespace AdvocatApp.Controllers
 {
     public class AccountController : Controller
     {
+        private string ReplaceStringTags(string str)
+        {
+            StringBuilder s = new StringBuilder("<p>");
+            s = s.Append(str);
+            s = s.Replace("<sc", "<sr");
+            s = s.Replace("<Sc", "<sr");
+            s = s.Replace("<SC", "<sr");
+            s = s.Replace("<sC", "<sr");
+            s = s.Replace("\r\n", "</p><p>");
+            s = s.Append("</p>");
+            return s.ToString();
+        }
+
         private IUserService UserService
         {
             get
@@ -67,6 +81,7 @@ namespace AdvocatApp.Controllers
         [HttpPost]
         public async Task<ActionResult> EditAbout(ChangeAboutModel adm)
         {
+            adm.AboutMe = ReplaceStringTags(adm.AboutMe);
             if (ModelState.IsValid)
             {
                 Mapper.Initialize(cfg => cfg.CreateMap<ChangeAboutModel, AdminDTO>());

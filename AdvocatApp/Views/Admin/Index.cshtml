@@ -16,13 +16,13 @@
     </div>
     <div class="col-sm-3 col-sm-pull-6 pageHead withlines colored">
         @{Html.RenderPartial("Staties", Model.Where(p => p.Type == TypePage.Statie && p.Id != 1).OrderBy(st=>st.Name).ThenByDescending(st=>st.Date));}
-        @Html.ActionLink("Add", "AddPage")
+        @Html.ActionLink("Добавить", "AddPage")
     </div>
         <div class="col-sm-3  withlines colored">
             <div class="row">
                 <div class="col-sm-12 pageHead">
                     @{Html.RenderPartial("Warrings",Model.Where(p=>p.Type==TypePage.Warrings).Count()); }
-                    @Html.ActionLink("Add", "AddWarringPage")
+                    @Html.ActionLink("Добавить", "AddWarringPage")
                 </div>
             </div>
         </div>
@@ -32,7 +32,7 @@
             <div class="row">
                 <div class="col-sm-12 pageHead">
                 @{Html.RenderPartial("News", Model.Where(p => p.Type == TypePage.News).Count()); }
-                @Html.ActionLink("Add", "AddNews")
+                @Html.ActionLink("Добавить", "AddNews")
             </div>
         </div>
     </div>

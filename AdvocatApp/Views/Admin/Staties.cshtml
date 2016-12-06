@@ -11,8 +11,8 @@
             <button class="statieBut"><h5>@page.Header</h5></button>
             <p>@page.Name</p>
             <p>
-                @Html.ActionLink("Edit", "EditPage/" + page.Id.ToString()) |
-                @Html.ActionLink("Delete", "DeleteP/" + page.Id.ToString())
+                @Html.ActionLink("Редактировать", "EditPage/" + page.Id.ToString()) |
+                @Html.ActionLink("Удалить", "DeleteP/" + page.Id.ToString())
             </p>
             <p class="dateOfCreating">@page.Date.Day.ToString():@page.Date.Month.ToString():@page.Date.Year.ToString() </p>
         </div>

@@ -119,16 +119,7 @@ textarea {
     background-color: #DDD;
     transition-duration: 0.25s;
 }
-.navbar-bottom{
 
-    border-top:2px solid white;
-     background-image:-moz-linear-gradient(top,#000000, #031078);
-    background-image:-webkit-linear-gradient(top,#000000, #031078);
-    background-image:-o-linear-gradient(top,#000000,#031078);
-    background-image:linear-gradient(top,#000000,#031078);
-    margin-top:20px;
-    padding-top:15px;
-}
 #admin-content{
 
     background-color:white;
@@ -215,15 +206,29 @@ textarea {
     font-size:20px;
 }
 
+li .pages, .dropdown{
+    padding:0px;
+    text-align:center;
+}
 .statieBut{
-    border:0px;
-    background:inherit;
     text-align:left;
+    border:0px;
+    background:none;
 }
 
 .statieBut:hover h5{
     font-size:20px;
     transition-duration: 0.25s;
+}
+
+
+
+textarea{
+    width:100%;
+    height:400px;
+}
+input[type=text], input[type=url], input[type=email],input[type=tel], input[type=password]{
+    width:100%;
 }
 
 .warSelectBut, .warSelectBut:focus, .newsSelectBut, .newsSelectBut:focus{
@@ -232,6 +237,7 @@ textarea {
     padding:1px;
     background:#1F3F7F;
     color:white;
+    margin-bottom:3px;
 }
 
 .warSelectBut:hover, .newsSelectBut:hover{
@@ -242,6 +248,71 @@ textarea {
 
 .selectedBtn, .selectedBtn:hover, .selectedBtn:focus {
     background-color: #900020;          
+}
+
+
+.field-validation-error {
+    color: #9b1002;
+    font-weight:bold;
+}
+
+.validation-summary-errors {
+    color: #9b1002;
+    font-weight:bold;
+}
+ 
+input.input-validation-error {
+    background-color: rgba(251, 0, 0, 0.25);
+    font-weight:bold;
+}
+
+
+
+.dropdown{
+    text-align:center;
+    border-bottom:1px solid #ccc;
+   
+}
+.dropdown h5:hover{
+    font-size:20px;
+    transition-duration:0.25s;
+}
+.caret{
+    zoom:1.5;
+    color:black;
+}
+.dropdown-toggle h5{
+     padding-left:16px;
+    margin:10px;
+    margin-left:0px;
+    font-size:initial;
+    font-weight:bold;
+    color:black;
+}
+.dropdown .dropdown-toggle:hover{
+    background-color:azure;
+    color:white;
+    transition-duration:0.25s;
+}
+
+.dropdown .dropdown-toggle:hover h5{
+    color:black;
+    transition-duration:0.25s;
+}
+.dropdown-menu{
+    width:150%;
+    padding:0px;
+    background-color:rgba(94, 144, 233, 0.84);
+    border:2px solid black;
+    border-radius:5px;
+    color:white;
+}
+.dropdown-menu li{
+    border:2px solid black;
+}
+
+.stdLi button{
+    padding:7px;
 }
 
 @media(max-width:990px){
@@ -301,10 +372,8 @@ textarea {
     text-align:right;
     font-size:13px;
     }
-    .navbar-bottom{
-        padding-left:50px;
-        padding-right:50px;
-        text-align:center;
+    .dropdown-menu{
+        width:100%;
+        background-color:#031078;
     }
 }
-
