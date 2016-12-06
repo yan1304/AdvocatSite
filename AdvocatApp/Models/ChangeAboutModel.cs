@@ -17,22 +17,12 @@ namespace AdvocatApp.Models
         [Required]
         [Display(Name = "Название сайта*")]
         public string NameOfSite { get; set; }
-        [Required]
-        [Display(Name = "Имя*")]
-        public string Name { get; set; }
-        [Required]
-        [Display(Name = "Фамилия*")]
-        public string Surname { get; set; }
-        [Required]
-        [Display(Name = "Отчество*")]
-        public string Fathername { get; set; }
-        [Required]
         [Display(Name = "Мобильный телефон*")]
         [DataType(DataType.PhoneNumber)]
         public string Phone { get; set; }
-        [Display(Name = "Домашний телефон")]
+        [Display(Name = "Второй телефон")]
         [DataType(DataType.PhoneNumber)]
-        public string HomePhone { get; set; }
+        public string AnotherPhone { get; set; }
         [Display(Name = "Адрес ВКонтакте")]
         [DataType(DataType.Url)]
         public string Vk { get; set; }
@@ -50,11 +40,14 @@ namespace AdvocatApp.Models
         public string Youtube { get; set; }
         [Display(Name = "Адрес, по которому вас можно найти")]
         public string Address { get; set; }
-        [Required]
         [AllowHtml]
         [DataType(DataType.MultilineText)]
-        [Display(Name = "Введите основной текст, а также партнеров*")]
+        [Display(Name = "Введите основной текст")]
         public string AboutMe { get; set; }
+        [AllowHtml]
+        [DataType(DataType.MultilineText)]
+        [Display(Name = "Введите основной текст для контактов")]
+        public string TextForContacts { get; set; }
         [HiddenInput(DisplayValue = false)]
         public string Email { get; set; }
         [HiddenInput(DisplayValue = false)]

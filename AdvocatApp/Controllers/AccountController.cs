@@ -102,6 +102,7 @@ namespace AdvocatApp.Controllers
         public async Task<ActionResult> EditAbout(ChangeAboutModel adm)
         {
             adm.AboutMe = ReplaceStringTags(adm.AboutMe);
+            adm.TextForContacts = ReplaceStringTags(adm.TextForContacts);
             if (ModelState.IsValid)
             {
                 Mapper.Initialize(cfg => cfg.CreateMap<ChangeAboutModel, AdminDTO>());
@@ -177,18 +178,16 @@ namespace AdvocatApp.Controllers
                 await UserService.SetInitialData(new AdminDTO
                 {
                     NameOfSite = "Корпоративный правовой центр",
-                    Email = "admin@mail.ru",
-                    Password = "password",
-                    Name = "",
-                    Surname = "",
-                    Fathername = "",
+                    Email = "yan1304@mail.ru",
+                    Password = "fil130494",
+                    TextForContacts="",
                     AboutMe = "",
                     Phone = "89160161601",
                     Vk = "",
                     Youtube = "",
                     Facebook = "",
                     Twitter = "",
-                    HomePhone = "",
+                    AnotherPhone = "",
                     GooglePl = "",
                     Address = ""
                 });

@@ -9,60 +9,12 @@
         <div class="pages">
             <h4>О нас</h4>
             <hr />
-            <h5>Привет! Мое имя @Model.Name @Model.Surname @Model.Fathername</h5>
             <p>
                 <input class="textSt" type="hidden" value="@Model.AboutMe" />
                 <div class="textSite"></div>
              </p>
             <hr />
-            <h5>Мои контакты:</h5>
-            <div style="padding-left:20px">
-                <p>
-                    Телефон: <tel>@Model.Phone</tel>
-                    @if (Model.HomePhone != null)
-                    {
-                        <span>или </span><tel>@Model.HomePhone</tel>
-                    }
-                </p>
-                <p>
-                    E-mail: @Model.Email
-                </p>
-                @if (Model.Address != null)
-                {
-                    <p>
-                        Наш адрес: @Model.Address
-                    </p>
-                }
-                </div>
-            <hr />
-                @if (Model.Vk != null || Model.Facebook != null || Model.Twitter != null || Model.GooglePl != null
-            || Model.GooglePl != null || Model.Youtube != null)
-                {
-                    <h5>Дополнительные контакты:</h5>
-                }
-                <div style="padding-left:20px">
-                    @if (Model.Vk != null)
-                    {
-                        <b>ВКонтакте:</b> <p>@Model.Vk</p>
-                    }
-                    @if (Model.Facebook != null)
-                    {
-                        <b>Facebook:</b> <p>@Model.Facebook</p>
-                    }
-                    @if (Model.Twitter != null)
-                    {
-                        <b>Twitter:</b> <p>@Model.Twitter</p>
-                    }
-                    @if (Model.GooglePl != null)
-                    {
-                        <b>Google+:</b> <p>@Model.GooglePl</p>
-                    }
-                    @if (Model.Youtube != null)
-                    {
-                        <b>Youtube:</b> <p>@Model.Youtube</p>
-                    }
-                </div>
-            </div>
+        </div>
         <p>
             @Html.ActionLink("Редактировать", "EditAbout")
         </p>

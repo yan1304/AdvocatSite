@@ -18,11 +18,8 @@ namespace AdvocatApp.DAL.Authorization.Entities
         [ForeignKey("ApplicationUser")]
         public string Id { get; set; }
         public string NameOfSite { get; set; }
-        public string Name { get; set; }
-        public string Surname { get; set; }
-        public string Fathername { get; set; }
         public string Phone { get; set; }
-        public string HomePhone { get; set; }
+        public string AnotherPhone { get; set; }
         public string Vk { get; set; }
         public string Facebook { get; set; }
         public string Twitter { get; set; }
@@ -30,6 +27,7 @@ namespace AdvocatApp.DAL.Authorization.Entities
         public string Youtube { get; set; }
         public string Address { get; set; }
         public string AboutMe { get; set; }
+        public string TextForContacts { get; set; }
         public string Email { get; set; }
 
         public virtual ApplicationUser ApplicationUser { get; set; }

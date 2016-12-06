@@ -10,11 +10,8 @@ namespace AdvocatApp.BL.Authorization.DTO
     {
         public string Id { get; set; }
         public string NameOfSite { get; set; }
-        public string Name { get; set; }
-        public string Surname { get; set; }
-        public string Fathername { get; set; }
         public string Phone { get; set; }
-        public string HomePhone { get; set; }
+        public string AnotherPhone { get; set; }
         public string Vk { get; set; }
         public string Facebook { get; set; }
         public string Twitter { get; set; }
@@ -24,5 +21,6 @@ namespace AdvocatApp.BL.Authorization.DTO
         public string AboutMe { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
+        public string TextForContacts { get; set; }
     }
 }

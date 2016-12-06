@@ -50,6 +50,7 @@ namespace AdvocatApp.Controllers
             {
                 ViewBag.Phone = UserService.GetInfo().Phone;
                 ViewBag.NameOfSite = UserService.GetInfo().NameOfSite;
+                ViewBag.AnotherPhone = UserService.GetInfo().AnotherPhone;
             }
             return View( siteService.GetPages().ToList());
         }
@@ -72,6 +73,7 @@ namespace AdvocatApp.Controllers
             {
                 ViewBag.Phone = UserService.GetInfo().Phone;
                 ViewBag.NameOfSite = UserService.GetInfo().NameOfSite;
+                ViewBag.AnotherPhone = UserService.GetInfo().AnotherPhone;
             }
             return View();
         }
@@ -102,6 +104,7 @@ namespace AdvocatApp.Controllers
             {
                 ViewBag.Phone = UserService.GetInfo().Phone;
                 ViewBag.NameOfSite = UserService.GetInfo().NameOfSite;
+                ViewBag.AnotherPhone = UserService.GetInfo().AnotherPhone;
             }
             return View();
         }
@@ -132,6 +135,7 @@ namespace AdvocatApp.Controllers
             {
                 ViewBag.Phone = UserService.GetInfo().Phone;
                 ViewBag.NameOfSite = UserService.GetInfo().NameOfSite;
+                ViewBag.AnotherPhone = UserService.GetInfo().AnotherPhone;
             }
             return View();
         }
@@ -210,6 +214,7 @@ namespace AdvocatApp.Controllers
             {
                 ViewBag.Phone = UserService.GetInfo().Phone;
                 ViewBag.NameOfSite = UserService.GetInfo().NameOfSite;
+                ViewBag.AnotherPhone = UserService.GetInfo().AnotherPhone;
             }
             PageDTO page = await siteService.GetPageAsync(id);
             if (page == null)
@@ -299,6 +304,7 @@ namespace AdvocatApp.Controllers
             {
                 ViewBag.Phone = q.Phone;
                 ViewBag.NameOfSite = q.NameOfSite;
+                ViewBag.AnotherPhone = q.AnotherPhone;
             }
             return View(q);
         }
@@ -313,11 +319,28 @@ namespace AdvocatApp.Controllers
             {
                 ViewBag.Phone = UserService.GetInfo().Phone;
                 ViewBag.NameOfSite = UserService.GetInfo().NameOfSite;
+                ViewBag.AnotherPhone = UserService.GetInfo().AnotherPhone;
                 return View(UserService.GetInfo());
             }
             else return HttpNotFound();
         }
 
+        /// <summary>
+        /// Контакты для связи с владельцем
+        /// </summary>
+        /// <returns></returns>
+        [Authorize]
+        public ActionResult Contacts()
+        {
+            if(UserService.GetInfo()!=null)
+            {
+                ViewBag.Phone = UserService.GetInfo().Phone;
+                ViewBag.NameOfSite = UserService.GetInfo().NameOfSite;
+                ViewBag.AnotherPhone = UserService.GetInfo().AnotherPhone;
+                return View(UserService.GetInfo());
+            }
+            return HttpNotFound();
+        }
         /// <summary>
         /// Получение уведомления в JSON формате (для AJAX запросов)
         /// </summary>

@@ -1,17 +1,16 @@
 ﻿@using AdvocatApp.BL.DTO
 @model IEnumerable<PageDTO>
 
-<h4>Статьи</h4>
-
-<div class="navmenu navmenu-default navmenu-left offcanvas-sm statieMenu">
-    <ul class="nav navmenu-nav">
+<h4>Видеоблог</h4>
+<div class="statieMenu decstop">
+    <ul class="dropdown">
         @foreach (IGrouping<string, PageDTO> key in Model.GroupBy(m => m.Name))
         {
             if (key.Key == null || key.Key == "")
             {
                 foreach (PageDTO page in key)
                 {
-                    <li class="stdLi">
+                    <li class="menu-item">
                         <div class="pages">
                             <input type="hidden" class="pId" value="@page.Id" />
                             <button class="statieBut"><h5>@page.Header</h5></button>
@@ -21,13 +20,51 @@
             }
             else
             {
-                <li class="dropdown">
+                
+                <li class="menu-item dropdown dropdown-submenu">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">@key.Key</a>
+                    <ul class="dropdown-menu vlMenu">
+                        @foreach (PageDTO page in key)
+                        {
+                            <li class="menu-item openedSubmenu">
+                                <div class="pages statieSelect">
+                                    <input type="hidden" class="pId" value="@page.Id" />
+                                    <button class="statieBut"><h5>@page.Header</h5></button>
+                                </div>
+                            </li>
+                        }
+                    </ul>
+                </li>
+            }
+        }
+    </ul>
+</div>
+
+<div class="hidden-sm-up navmenu navmenu-default navmenu-left offcanvas-sm statieMenu mobile">
+    <ul class="dropdown">
+        @foreach (IGrouping<string, PageDTO> key in Model.GroupBy(m => m.Name))
+        {
+            if (key.Key == null || key.Key == "")
+            {
+                foreach (PageDTO page in key)
+                {
+                    <li class="menu-item">
+                        <div class="pages">
+                            <input type="hidden" class="pId" value="@page.Id" />
+                            <button class="statieBut"><h5>@page.Header</h5></button>
+                        </div>
+                    </li>
+                }
+            }
+            else
+            {
+                <li class="menu-item dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><h5>@key.Key<b class="caret"></b></h5></a>
                     <ul class="dropdown-menu navmenu-nav">
                         @foreach (PageDTO page in key)
                         {
-                            <li>
-                                <div class="pages">
+                            <li class="menu-item">
+                                <div class="pages statieSelect">
                                     <input type="hidden" class="pId" value="@page.Id" />
                                     <button class="statieBut"><h5>@page.Header</h5></button>
                                 </div>

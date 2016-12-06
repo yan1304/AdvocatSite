@@ -3,7 +3,8 @@
 @model IEnumerable<PageDTO>
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
-    ViewBag.Title = "IndexAdmin";
+    if (ViewBag.NameOfSite != null) { ViewBag.Title = ViewBag.NameOfSite; }
+    else { ViewBag.Title = "Index"; }
 }
 
 <div class="row">
@@ -40,4 +41,5 @@
 @section scripts{
     <script src='@Url.Content("~/Scripts/UserPageScript.js")'>
     </script>
+    <script src="~/Scripts/Dropdown.js"></script>
 }

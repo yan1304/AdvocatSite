@@ -15,7 +15,6 @@
 
     @Html.HiddenFor(m=>m.Email)
     @Html.HiddenFor(m => m.Password)
-    @Html.HiddenFor(m => m.Id)
 
     <div class="form-group">
         @Html.LabelFor(m => m.NameOfSite, new { @class = "col-sm-2 control-label" })
@@ -26,37 +25,7 @@
             @Html.ValidationMessageFor(model => model.NameOfSite)
         </div>
     </div>
-
-    <div class="form-group">
-        @Html.LabelFor(m => m.Name, new { @class = "col-sm-2 control-label" })
-        <div class="col-sm-8">
-            @Html.EditorFor(model => model.Name)
-        </div>
-        <div class="col-sm-2">
-            @Html.ValidationMessageFor(model => model.Name)
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(m => m.Surname, new { @class = "col-sm-2 control-label" })
-        <div class="col-sm-8">
-            @Html.EditorFor(model => model.Surname)
-        </div>
-        <div class="col-sm-2">
-            @Html.ValidationMessageFor(model => model.Surname)
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(m => m.Fathername, new { @class = "col-sm-2 control-label" })
-        <div class="col-sm-8">
-            @Html.EditorFor(model => model.Fathername)
-        </div>
-        <div class="col-sm-2">
-            @Html.ValidationMessageFor(model => model.Fathername)
-        </div>
-    </div>
-
+    
     <div class="form-group">
         @Html.LabelFor(m => m.AboutMe, new { @class = "col-sm-2 control-label" })
         <div class="col-sm-8">
@@ -64,6 +33,16 @@
         </div>
         <div class="col-sm-2">
             @Html.ValidationMessageFor(model => model.AboutMe)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.TextForContacts, new { @class = "col-sm-2 control-label" })
+        <div class="col-sm-8">
+            @Html.EditorFor(model => model.TextForContacts)
+        </div>
+        <div class="col-sm-2">
+            @Html.ValidationMessageFor(model => model.TextForContacts)
         </div>
     </div>
 
@@ -78,12 +57,12 @@
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(m => m.HomePhone, new { @class = "col-sm-2 control-label" })
+        @Html.LabelFor(m => m.AnotherPhone, new { @class = "col-sm-2 control-label" })
         <div class="col-sm-8">
-            @Html.EditorFor(model => model.HomePhone)
+            @Html.EditorFor(model => model.AnotherPhone)
         </div>
         <div class="col-sm-2">
-            @Html.ValidationMessageFor(model => model.HomePhone)
+            @Html.ValidationMessageFor(model => model.AnotherPhone)
         </div>
     </div>
 

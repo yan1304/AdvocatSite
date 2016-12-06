@@ -30,8 +30,8 @@ namespace AdvocatApp.BL.Authorization.Services
             return new AdminDTO
             {
                 Address = user.AboutAdmin.Address,
-                Name = user.AboutAdmin.Name,
                 AboutMe = user.AboutAdmin.AboutMe,
+                TextForContacts = user.AboutAdmin.TextForContacts
             };
         }
 
@@ -91,16 +91,14 @@ namespace AdvocatApp.BL.Authorization.Services
                     AboutMe = v.AboutMe,
                     Address = v.Address,
                     Email = v.Email,
-                    Name = v.Name,
-                    Surname = v.Surname,
-                    Fathername = v.Fathername,
                     Phone = v.Phone,
-                    HomePhone = v.HomePhone,
+                    AnotherPhone = v.AnotherPhone,
                     Vk = v.Vk,
                     Youtube = v.Youtube,
                     Twitter = v.Twitter,
                     Facebook = v.Facebook,
-                    GooglePl = v.GooglePl
+                    GooglePl = v.GooglePl,
+                    TextForContacts = v.TextForContacts
                 };
                 return adm;
             }

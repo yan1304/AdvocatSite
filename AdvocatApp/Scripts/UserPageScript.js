@@ -118,7 +118,11 @@ window.onload = () => {
         $(".youtube").css("height", $(".youtube").width() / 1.75);
     }, 50);
     var staties = new UserStaties();
+    $('.statieSelect').click((e) => {
+        $(e.target).find('.statieBut').click();
+    });
     $('.statieBut').click((e) => {
+        e.preventDefault();
         var id;
         var parent = $(e.target).parent();
         if (parent.get(0).tagName == "BUTTON")

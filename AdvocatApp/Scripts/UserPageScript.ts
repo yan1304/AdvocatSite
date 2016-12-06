@@ -146,7 +146,12 @@ window.onload = () => {
 
     var staties: UserStaties = new UserStaties();
 
+    $('.statieSelect').click((e) => {
+         $(e.target).find('.statieBut').click();
+    });
+
     $('.statieBut').click((e) => {
+        e.preventDefault();
         var id;
         var parent = $(e.target).parent();
         if (parent.get(0).tagName == "BUTTON") parent = parent.parent();
@@ -168,7 +173,6 @@ window.onload = () => {
 
     $('.warSelectBut').first().click();
     $('.newsSelectBut').first().click();
-
 };
 
 window.onresize = () => {

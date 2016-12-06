@@ -59,6 +59,7 @@ namespace AdvocatApp.Controllers
                 {
                     ViewBag.Phone = UserService.GetInfo().Phone;
                     ViewBag.NameOfSite = UserService.GetInfo().NameOfSite;
+                    ViewBag.AnotherPhone = UserService.GetInfo().AnotherPhone;
                 }
             }
             return View(siteService.GetPages().ToList());
@@ -75,6 +76,22 @@ namespace AdvocatApp.Controllers
         /// Информация о владельце
         /// </summary>
         public ActionResult About()
+        {
+            if (UserService != null)
+            {
+                if (UserService.GetInfo() != null)
+                {
+                    ViewBag.Phone = UserService.GetInfo().Phone;
+                    ViewBag.NameOfSite = UserService.GetInfo().NameOfSite;
+                    ViewBag.AnotherPhone = UserService.GetInfo().AnotherPhone;
+                    return View(UserService.GetInfo());
+                }
+                else return HttpNotFound();
+            }
+            else return HttpNotFound();
+        }
+
+        public ActionResult Contacts()
         {
             if (UserService != null)
             {
