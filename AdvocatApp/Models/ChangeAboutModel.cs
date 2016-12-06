@@ -7,6 +7,9 @@ using System.Web.Mvc;
 
 namespace AdvocatApp.Models
 {
+    /// <summary>
+    /// Модель для отображения или изменения данных о владельце сайта
+    /// </summary>
     public class ChangeAboutModel
     {
         [HiddenInput(DisplayValue = false)]

@@ -6,6 +6,9 @@ using System.Web;
 
 namespace AdvocatApp.Models
 {
+    /// <summary>
+    /// Модель для форм авторизации и редактирования данных для авторизации
+    /// </summary>
     public class LoginModel
     {
         [Required(ErrorMessage = "Введите e-mail")]

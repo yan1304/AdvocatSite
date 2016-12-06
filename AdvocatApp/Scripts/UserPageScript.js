@@ -6,7 +6,7 @@ class UserStaties {
         this.statie = new StatieU();
     }
     load(id) {
-        $.getJSON(window.location.protocol + "//" + window.location.host + "/Home/GetPage/" + id, (data) => {
+        $.getJSON(window.location.protocol + "//" + window.location.host + "/Admin/GetPage/" + id, (data) => {
             this.statie = data;
             this.insertValues();
         });
@@ -49,10 +49,9 @@ class UserWarrings {
         this.warrings = new Array(10);
     }
     load(id) {
-        $.getJSON(window.location.protocol + "//" + window.location.host + "/Home/GetWarringPageList?pageNum=" + id, (data) => {
+        $.getJSON(window.location.protocol + "//" + window.location.host + "/Admin/GetWarringPageList?pageNum=" + id, (data) => {
             this.warrings = new Array(10);
             this.warrings = data;
-            console.log(data);
             this.insertValues();
             $(".warSelectBut").removeClass("selectedBtn");
             $('.warSelectBut:contains(' + id + ')').addClass("selectedBtn");
@@ -61,9 +60,7 @@ class UserWarrings {
     insertValues() {
         var div = $(".warringPages").first().clone();
         $('.warringPages').remove();
-        console.log($(".warringPages").html());
         $('.wPage').append(div);
-        console.log($(".warringPages").html());
         div = $(".warringPages");
         for (let i = 0; i < 10; i++) {
             if (this.warrings[i] === undefined)
@@ -83,10 +80,9 @@ class UserNews {
         this.news = new Array(10);
     }
     load(id) {
-        $.getJSON(window.location.protocol + "//" + window.location.host + "/Home/GetWarringPageList?pageNum=" + id, (data) => {
+        $.getJSON(window.location.protocol + "//" + window.location.host + "/Admin/GetWarringPageList?pageNum=" + id, (data) => {
             this.news = new Array(10);
             this.news = data;
-            console.log(data);
             this.insertValues();
             $(".newsSelectBut").removeClass("selectedBtn");
             $('.newsSelectBut:contains(' + id + ')').addClass("selectedBtn");
@@ -95,9 +91,7 @@ class UserNews {
     insertValues() {
         var div = $(".newsPages").first().clone();
         $('.newsPages').remove();
-        console.log($(".newsPages").html());
         $('.nPage').append(div);
-        console.log($(".newsPages").html());
         div = $(".newsPages");
         for (let i = 0; i < 10; i++) {
             if (this.news[i] === undefined)

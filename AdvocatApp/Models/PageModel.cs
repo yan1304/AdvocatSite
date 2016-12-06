@@ -8,6 +8,9 @@ using System.Web.Mvc;
 
 namespace AdvocatApp.Models
 {
+    /// <summary>
+    /// Модель для статьи
+    /// </summary>
     public class PageModel
     {
         [HiddenInput(DisplayValue = false)]
@@ -29,7 +32,9 @@ namespace AdvocatApp.Models
         [HiddenInput(DisplayValue = false)]
         public DateTime Date { get; set; }
     }
-
+    /// <summary>
+    /// Модель для новости или уведомления
+    /// </summary>
     public class PageModelWithoutVideo
     {
         [HiddenInput(DisplayValue = false)]

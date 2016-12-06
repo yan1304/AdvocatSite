@@ -1,6 +1,5 @@
 ﻿using AdvocatApp.BL.Authorization.DTO;
 using AdvocatApp.BL.Authorization.Interfaces;
-using AdvocatApp.BL.Authorization.Services;
 using AdvocatApp.BL.DTO;
 using AdvocatApp.BL.Interfaces;
 using AdvocatApp.DAL.Entities;
@@ -18,14 +17,17 @@ using System.Web.Mvc;
 
 namespace AdvocatApp.Controllers
 {
+    /// <summary>
+    /// Контроллер администраторской части сайта
+    /// </summary>
     public class AdminController : Controller
     {
-        ISiteService siteService;
+        ISiteService siteService; //данные сайта (статьи, новости, уведомления)
         public AdminController(ISiteService serv)
         {
             siteService = serv;
         }
-        private IUserService UserService
+        private IUserService UserService //Данные авторизации и информация о владельце
         {
             get
             {
@@ -58,6 +60,10 @@ namespace AdvocatApp.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+        /// <summary>
+        /// Добавление статьи
+        /// </summary>
+        /// <returns></returns>
         [Authorize]
         [HttpGet]
         public ActionResult AddPage()
@@ -69,18 +75,25 @@ namespace AdvocatApp.Controllers
             }
             return View();
         }
+        /// <summary>
+        /// Добавление статьи (POST)
+        /// </summary>
         [Authorize]
         [HttpPost]
         public async Task<ActionResult> AddPage(PageModel p)
         {
             if (ModelState.IsValid)
             {
+                if (p.Name == "Index" || p.Name == "Price") p.Name = "";
                 p.Type = TypePage.Statie;
                 return await AddPageFunc(p);
             }
             return View(p);
         }
 
+        /// <summary>
+        /// Добавление уведомления
+        /// </summary>
         [Authorize]
         [HttpGet]
         public ActionResult AddWarringPage()
@@ -92,6 +105,10 @@ namespace AdvocatApp.Controllers
             }
             return View();
         }
+
+        /// <summary>
+        /// Добавление уведомления(POST)
+        /// </summary>
         [Authorize]
         [HttpPost]
         public async Task<ActionResult> AddWarringPage(PageModelWithoutVideo p)
@@ -103,6 +120,10 @@ namespace AdvocatApp.Controllers
             }
             return View(p);
         }
+
+        /// <summary>
+        /// Добавление новости
+        /// </summary>
         [Authorize]
         [HttpGet]
         public ActionResult AddNews()
@@ -114,6 +135,10 @@ namespace AdvocatApp.Controllers
             }
             return View();
         }
+
+        /// <summary>
+        /// Добавление новости (POST)
+        /// </summary>
         [Authorize]
         [HttpPost]
         public async Task<ActionResult> AddNews(PageModelWithoutVideo p)
@@ -126,6 +151,7 @@ namespace AdvocatApp.Controllers
             else return View();
         }
         
+        
         [Authorize]
         [HttpPost]
         public ActionResult Page(PageDTO page)
@@ -134,20 +160,11 @@ namespace AdvocatApp.Controllers
             return PartialView(page);
         }
 
-        [Authorize]
-        public async Task<JsonResult> GetPage(int id)
-        {
-            var page = await siteService.GetPageAsync(id);
-            return Json(
-                new { Id = page.Id,
-                VideoURL = page.VideoURL,
-                Header = page.Header,
-                Date = page.Date.Day+":"+page.Date.Month+":"+page.Date.Year,
-                Text = page.Text}, 
-                JsonRequestBehavior.AllowGet
-                );
-        }
-
+        /// <summary>
+        /// Выделение текста статьи в теги <p/> для выделения параграфов
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
         private string ReplaceStringTags(string str)
         {
             StringBuilder s = new StringBuilder("<p>");
@@ -158,9 +175,17 @@ namespace AdvocatApp.Controllers
             s = s.Replace("<sC", "<sr");
             s = s.Replace("\r\n", "</p><p>");
             s = s.Append("</p>");
+            s = s.Replace("<p><p>", "<p>");
+            s = s.Replace("</p></p>", "</p>");
             return s.ToString();
         }
 
+        /// <summary>
+        /// Обобщенная функция добавления статей
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="p"></param>
+        /// <returns></returns>
         private async Task<ActionResult> AddPageFunc<T>(T p)
         {
             Mapper.Initialize(cfg => cfg.CreateMap<T, PageDTO>());
@@ -172,6 +197,12 @@ namespace AdvocatApp.Controllers
             return RedirectToAction("Index");
         }
 
+
+        /// <summary>
+        /// Удаление статьи (открывает страницу с подтверждением действия)
+        /// </summary>
+        /// <param name="id">ид статьи</param>
+        /// <returns></returns>
         [Authorize]
         public async Task<ActionResult> DeleteP(int id)
         {
@@ -188,12 +219,16 @@ namespace AdvocatApp.Controllers
             return View(page);
         }
 
-
+        /// <summary>
+        /// Удаление статьи 
+        /// </summary>
+        /// <param name="id">ид статьи</param>
+        /// <returns></returns>
         [Authorize]
         [HttpPost, ActionName("DeleteP")]
         public async Task<ActionResult> DeletePage(int id)
         {
-            if (id == 1)
+            if (id == 1 || id==2)
             {
                 PageDTO page = await siteService.GetPageAsync(id);
                 page.Header = "";
@@ -209,7 +244,11 @@ namespace AdvocatApp.Controllers
             return RedirectToAction("Index");
         }
 
-
+        /// <summary>
+        /// Редактирование статьи
+        /// </summary>
+        /// <param name="id">ид статьи</param>
+        /// <returns></returns>
         [Authorize]
         [HttpGet]
         public async Task<ActionResult> EditPage(int? id)
@@ -222,12 +261,19 @@ namespace AdvocatApp.Controllers
             var p = Mapper.Map<PageDTO, PageModel>(page);
             return View(p);
         }
+
+        /// <summary>
+        /// Редактирование статьи (POST)
+        /// </summary>
         [Authorize]
         [HttpPost]
         public async Task<ActionResult> EditPage(PageModel p)
         {
             if (ModelState.IsValid)
             {
+                //Проверка, что названия Главной страницы и страницы цен не были изменены
+                if (p.Name == "Price" && p.Id != 2) p.Name = "";
+                if (p.Id == 2) p.Name = "Price";
                 if (p.Name == "Index" && p.Id != 1) p.Name = "";
                 if (p.Id == 1) p.Name = "Index";
                 Mapper.Initialize(cfg => cfg.CreateMap<PageModel, PageDTO>());
@@ -240,6 +286,10 @@ namespace AdvocatApp.Controllers
             else return View(p.Id);
         }
 
+        /// <summary>
+        /// Редактирование информации о владельце
+        /// </summary>
+        /// <returns></returns>
         [Authorize]
         public ActionResult EditAbout()
         {
@@ -253,6 +303,9 @@ namespace AdvocatApp.Controllers
             return View(q);
         }
 
+        /// <summary>
+        /// Информация о владельце
+        /// </summary>
         [Authorize]
         public ActionResult About()
         {
@@ -265,7 +318,11 @@ namespace AdvocatApp.Controllers
             else return HttpNotFound();
         }
 
-        [Authorize]
+        /// <summary>
+        /// Получение уведомления в JSON формате (для AJAX запросов)
+        /// </summary>
+        /// <param name="id">id статьи</param>
+        /// <returns></returns>
         [HttpGet]
         public JsonResult GetWarringPageList(int pageNum)
         {
@@ -290,7 +347,11 @@ namespace AdvocatApp.Controllers
                 );
         }
 
-        [Authorize]
+        /// <summary>
+        /// Получение новости в JSON формате (для AJAX запросов)
+        /// </summary>
+        /// <param name="id">id статьи</param>
+        /// <returns></returns>
         [HttpGet]
         public JsonResult GetNewsPageList(int pageNum)
         {
@@ -311,6 +372,28 @@ namespace AdvocatApp.Controllers
             }
             return Json(
                 newPages,
+                JsonRequestBehavior.AllowGet
+                );
+        }
+
+        /// <summary>
+        /// Получение статьи в JSON формате (для AJAX запросов)
+        /// </summary>
+        /// <param name="id">id статьи</param>
+        /// <returns></returns>
+        [HttpGet]
+        public async Task<JsonResult> GetPage(int id)
+        {
+            var page = await siteService.GetPageAsync(id);
+            return Json(
+                new
+                {
+                    Id = page.Id,
+                    VideoURL = page.VideoURL,
+                    Header = page.Header,
+                    Date = page.Date.Day + ":" + page.Date.Month + ":" + page.Date.Year,
+                    Text = page.Text
+                },
                 JsonRequestBehavior.AllowGet
                 );
         }

@@ -4,9 +4,6 @@ using AdvocatApp.Models;
 using AutoMapper;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading;
@@ -16,8 +13,16 @@ using System.Web.Mvc;
 
 namespace AdvocatApp.Controllers
 {
+    /// <summary>
+    /// Контроллер для ASP Identity
+    /// </summary>
     public class AccountController : Controller
     {
+        /// <summary>
+        /// Выделение текста статьи в теги <p/> для выделения параграфов
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
         private string ReplaceStringTags(string str)
         {
             StringBuilder s = new StringBuilder("<p>");
@@ -28,10 +33,12 @@ namespace AdvocatApp.Controllers
             s = s.Replace("<sC", "<sr");
             s = s.Replace("\r\n", "</p><p>");
             s = s.Append("</p>");
+            s = s.Replace("<p><p>", "<p>");
+            s = s.Replace("</p></p>", "</p>");
             return s.ToString();
         }
 
-        private IUserService UserService
+        private IUserService UserService //данные сайта (статьи, новости, уведомления)
         {
             get
             {
@@ -46,11 +53,20 @@ namespace AdvocatApp.Controllers
                 return HttpContext.GetOwinContext().Authentication;
             }
         }
+
+        /// <summary>
+        /// Страница авторизации администратора
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Login()
         {
             return View();
         }
 
+        /// <summary>
+        /// Страница авторизации администратора (POST)
+        /// </summary>
+        /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Login(LoginModel model)
@@ -77,6 +93,10 @@ namespace AdvocatApp.Controllers
             return View(model);
         }
 
+        /// <summary>
+        /// Редактирование информации о владельце (POST)
+        /// </summary>
+        /// <returns></returns>
         [Authorize]
         [HttpPost]
         public async Task<ActionResult> EditAbout(ChangeAboutModel adm)
@@ -93,7 +113,11 @@ namespace AdvocatApp.Controllers
             }
             return RedirectToAction("EditAbout", "Admin",adm);
         }
-        
+
+        /// <summary>
+        /// Редактирование данных авторизации
+        /// </summary>
+        /// <returns></returns>
         [Authorize]
         public ActionResult EditLogin()
         {
@@ -109,6 +133,11 @@ namespace AdvocatApp.Controllers
             login.Password = "";
             return View(login);
         }
+
+        /// <summary>
+        /// Редактирование данных авторизации(POST)
+        /// </summary>
+        /// <returns></returns>
         [Authorize]
         [HttpPost]
         public async Task<ActionResult> EditLogin(LoginModel NewLogin)
@@ -126,21 +155,31 @@ namespace AdvocatApp.Controllers
             return View(NewLogin);
         }
 
+        /// <summary>
+        /// Выход из режима админа
+        /// </summary>
+        /// <returns></returns>
     public ActionResult Logout()
         {
             AuthenticationManager.SignOut();
             return RedirectToAction("Index", "Home");
         }
+
+        /// <summary>
+        /// Начальная инициализация
+        /// </summary>
+        /// <returns></returns>
         private async Task SetInitialDataAsync()
         {
+            //Проверяем, что данных еще нет в БД
             if (UserService.GetInfo() == null)
             {
                 await UserService.SetInitialData(new AdminDTO
                 {
                     NameOfSite = "Корпоративный правовой центр",
-                    Email = "yan1304@mail.ru",
-                    Password = "fil130494",
-                    Name = "Ян",
+                    Email = "admin@mail.ru",
+                    Password = "password",
+                    Name = "",
                     Surname = "",
                     Fathername = "",
                     AboutMe = "",
@@ -151,7 +190,7 @@ namespace AdvocatApp.Controllers
                     Twitter = "",
                     HomePhone = "",
                     GooglePl = "",
-                    Address = "ул. Спортивная, д.30, кв.75"
+                    Address = ""
                 });
             }
         }

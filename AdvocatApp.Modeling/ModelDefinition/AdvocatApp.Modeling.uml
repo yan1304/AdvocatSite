@@ -220,6 +220,45 @@
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
           </association>
+          <association
+            Id="888dd062-ee1e-4a27-8a80-7a9f799f5821"
+            isDerived="false"
+            sourceEndRoleName="Пользователь"
+            targetEndRoleName="Просмотр новостей и уведомлений"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="c5d7348a-c4db-4b6f-a6b2-fdc35479a5ca"
+              LastKnownName="Просмотр новостей и уведомлений"
+              LastKnownLocation="AdvocatApp.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="7f556e19-35df-4b67-bd61-558c0b5c23d4"
+                  name="Пользователь"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="2de04625-7fa0-493b-913b-f9368a13aaa2"
+                  name="Просмотр новостей и уведомлений"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
         </targetEnds>
       </actor>
     </packageHasNamedElement>
@@ -280,45 +319,6 @@
         isLeaf="false">
         <targetEnds>
           <association
-            Id="b7ff0350-b44e-48d9-a4b1-a033273ac273"
-            isDerived="false"
-            sourceEndRoleName="Администратор"
-            targetEndRoleName="Изменить левое меню"
-            isLeaf="false"
-            isAbstract="false">
-            <useCaseMoniker
-              Id="c93b7663-0a95-4919-bc6d-169e6644de70"
-              LastKnownName="Изменить левое меню"
-              LastKnownLocation="AdvocatApp.Modeling.uml" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="dc144ee4-ae3f-45ec-a4cb-cf93a573d509"
-                  name="Администратор"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false"
-                  isNavigableOwned="false" />
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="013b971e-d549-4727-a521-76d89b5ec174"
-                  name="Изменить левое меню"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false" />
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-          </association>
-          <association
             Id="4991634b-0757-4dac-aff7-8d3058626103"
             isDerived="false"
             sourceEndRoleName="Администратор"
@@ -366,7 +366,7 @@
             isAbstract="false">
             <useCaseMoniker
               Id="04d2b20e-0393-4b29-979f-ee7ab531ab0d"
-              LastKnownName="Изменить вопрос-ответ"
+              LastKnownName="Изменить уведомление или новость"
               LastKnownLocation="AdvocatApp.Modeling.uml" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
@@ -444,7 +444,7 @@
             isAbstract="false">
             <useCaseMoniker
               Id="3998c878-ec4b-4fdb-87d1-a3e530dbcdcc"
-              LastKnownName="Удалить ссылку с правой панели"
+              LastKnownName="Удалить уведомление или новость"
               LastKnownLocation="AdvocatApp.Modeling.uml" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
@@ -483,7 +483,7 @@
             isAbstract="false">
             <useCaseMoniker
               Id="c580c9af-23cc-42e7-b20c-292a17fc2e5b"
-              LastKnownName="Добавить ссылку на правую панель"
+              LastKnownName="Добавление уведомлений и новостей"
               LastKnownLocation="AdvocatApp.Modeling.uml" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
@@ -669,6 +669,45 @@
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
           </association>
+          <association
+            Id="578b6f25-0c88-4ce5-85ac-98ae8bc9ea3c"
+            isDerived="false"
+            sourceEndRoleName="Администратор"
+            targetEndRoleName="Изменить данные авторизации"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="47411411-e7a1-419e-912f-979448eb1d9f"
+              LastKnownName="Изменить данные авторизации"
+              LastKnownLocation="AdvocatApp.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="1a0a4bf3-10c7-4756-9b45-6ab535efe72d"
+                  name="Администратор"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="3b05df2f-cdc1-49c0-8b4b-0ff59f6b5077"
+                  name="Изменить данные авторизации"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
         </targetEnds>
       </actor>
     </packageHasNamedElement>
@@ -678,6 +717,47 @@
         name="Добавить статью"
         isAbstract="false"
         isLeaf="false">
+        <targetEnds>
+          <association
+            Id="8d8c8c29-783c-4ec5-8ce6-6575ebf18d8b"
+            isDerived="false"
+            sourceEndRoleName="Добавить статью"
+            targetEndRoleName="Изменить  меню"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="c93b7663-0a95-4919-bc6d-169e6644de70"
+              LastKnownName="Изменить  меню"
+              LastKnownLocation="AdvocatApp.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="2d6670c5-0abf-4a8b-b206-990dec70a639"
+                  name="Добавить статью"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="84ae6a9a-273a-4c28-b16f-c711356f9c5c"
+                  name="Изменить  меню"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
         <subjects>
           <subsystemMoniker
             Id="fe1a761c-47b7-47c3-9e23-ef762950336d"
@@ -692,6 +772,47 @@
         name="Удалить статью"
         isAbstract="false"
         isLeaf="false">
+        <targetEnds>
+          <association
+            Id="292e1a48-8eaa-4969-89ea-33d55d8464d4"
+            isDerived="false"
+            sourceEndRoleName="Удалить статью"
+            targetEndRoleName="Изменить  меню"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="c93b7663-0a95-4919-bc6d-169e6644de70"
+              LastKnownName="Изменить  меню"
+              LastKnownLocation="AdvocatApp.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="148edfa5-bb9a-440f-834e-34e1cdbe67ff"
+                  name="Удалить статью"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="9795e2af-0d84-40a3-8e7c-7f5478034d7a"
+                  name="Изменить  меню"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
         <subjects>
           <subsystemMoniker
             Id="fe1a761c-47b7-47c3-9e23-ef762950336d"
@@ -706,6 +827,47 @@
         name="Изменить статью"
         isAbstract="false"
         isLeaf="false">
+        <targetEnds>
+          <association
+            Id="6e72557e-5643-42aa-8af0-1a1a59dc32d0"
+            isDerived="false"
+            sourceEndRoleName="Изменить статью"
+            targetEndRoleName="Изменить  меню"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="c93b7663-0a95-4919-bc6d-169e6644de70"
+              LastKnownName="Изменить  меню"
+              LastKnownLocation="AdvocatApp.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="7fd5a266-024b-457a-9f55-e55c7abd1179"
+                  name="Изменить статью"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="7fe9d1d7-06fa-4810-be19-4f773884f0d5"
+                  name="Изменить  меню"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
         <subjects>
           <subsystemMoniker
             Id="fe1a761c-47b7-47c3-9e23-ef762950336d"
@@ -724,7 +886,7 @@
     <packageHasNamedElement>
       <useCase
         Id="c580c9af-23cc-42e7-b20c-292a17fc2e5b"
-        name="Добавить ссылку на правую панель"
+        name="Добавление уведомлений и новостей"
         isAbstract="false"
         isLeaf="false">
         <subjects>
@@ -738,7 +900,7 @@
     <packageHasNamedElement>
       <useCase
         Id="3998c878-ec4b-4fdb-87d1-a3e530dbcdcc"
-        name="Удалить ссылку с правой панели"
+        name="Удалить уведомление или новость"
         isAbstract="false"
         isLeaf="false">
         <subjects>
@@ -752,7 +914,7 @@
     <packageHasNamedElement>
       <useCase
         Id="c93b7663-0a95-4919-bc6d-169e6644de70"
-        name="Изменить левое меню"
+        name="Изменить  меню"
         isAbstract="false"
         isLeaf="false">
         <subjects>
@@ -766,7 +928,7 @@
     <packageHasNamedElement>
       <useCase
         Id="04d2b20e-0393-4b29-979f-ee7ab531ab0d"
-        name="Изменить вопрос-ответ"
+        name="Изменить уведомление или новость"
         isAbstract="false"
         isLeaf="false">
         <subjects>
@@ -824,12 +986,6 @@
             </relationshipOwnedElementsInternal>
           </association>
         </targetEnds>
-        <subjects>
-          <subsystemMoniker
-            Id="fe1a761c-47b7-47c3-9e23-ef762950336d"
-            LastKnownName="Authorised"
-            LastKnownLocation="AdvocatApp.Modeling.uml" />
-        </subjects>
       </useCase>
     </packageHasNamedElement>
     <packageHasNamedElement>
@@ -917,24 +1073,24 @@
         name="Authorised"
         isAbstract="false"
         isLeaf="false"
-        isActiveClass="false">
-        <suppliersInternal>
-          <dependency
-            Id="7a0c4671-550c-4866-9632-08d764968f53">
-            <actorMoniker
-              Id="76d9706a-69a5-40e0-9db4-b81111957cf8"
-              LastKnownName="БД"
-              LastKnownLocation="AdvocatApp.Modeling.uml" />
-          </dependency>
-        </suppliersInternal>
-      </subsystem>
+        isActiveClass="false" />
     </packageHasNamedElement>
     <packageHasNamedElement>
       <actor
         Id="76d9706a-69a5-40e0-9db4-b81111957cf8"
         name="БД"
         isAbstract="false"
-        isLeaf="false" />
+        isLeaf="false">
+        <suppliersInternal>
+          <dependency
+            Id="6d6a9415-377f-4e77-96ce-9055368da2aa">
+            <subsystemMoniker
+              Id="fe1a761c-47b7-47c3-9e23-ef762950336d"
+              LastKnownName="Authorised"
+              LastKnownLocation="AdvocatApp.Modeling.uml" />
+          </dependency>
+        </suppliersInternal>
+      </actor>
     </packageHasNamedElement>
     <packageHasNamedElement>
       <actor
@@ -950,8 +1106,46 @@
               LastKnownName="Авторизация"
               LastKnownLocation="AdvocatApp.Modeling.uml" />
           </dependency>
+          <dependency
+            Id="86451b19-db3c-4663-91d7-c6e886a26efa">
+            <useCaseMoniker
+              Id="47411411-e7a1-419e-912f-979448eb1d9f"
+              LastKnownName="Изменить данные авторизации"
+              LastKnownLocation="AdvocatApp.Modeling.uml" />
+          </dependency>
         </suppliersInternal>
       </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="c5d7348a-c4db-4b6f-a6b2-fdc35479a5ca"
+        name="Просмотр новостей и уведомлений"
+        isAbstract="false"
+        isLeaf="false">
+        <suppliersInternal>
+          <dependency
+            Id="74817f8b-498e-416b-ab51-7077d0a6ad2e">
+            <actorMoniker
+              Id="76d9706a-69a5-40e0-9db4-b81111957cf8"
+              LastKnownName="БД"
+              LastKnownLocation="AdvocatApp.Modeling.uml" />
+          </dependency>
+        </suppliersInternal>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="47411411-e7a1-419e-912f-979448eb1d9f"
+        name="Изменить данные авторизации"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="fe1a761c-47b7-47c3-9e23-ef762950336d"
+            LastKnownName="Authorised"
+            LastKnownLocation="AdvocatApp.Modeling.uml" />
+        </subjects>
+      </useCase>
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType

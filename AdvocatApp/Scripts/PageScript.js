@@ -41,8 +41,8 @@ class Staties {
         page.find(".textSite").first().html(this.statie.Text);
         page.find(".dateOfCreating").last().html(this.statie.Date);
         var p = page.find(".linksPage");
-        p.children("a").first().attr("href", window.location.protocol + "//" + window.location.host + "/Admin/EditP/" + this.statie.Id);
-        p.children("a").last().attr("href", window.location.protocol + "//" + window.location.host + "/Admin/DeleteP/" + this.statie.Id);
+        p.children("a").first().attr("href", window.location.protocol + "//" + window.location.host + "/Admin/EditPage/" + this.statie.Id);
+        p.children("a").last().attr("href", window.location.protocol + "//" + window.location.host + "/Admin/DeletePage/" + this.statie.Id);
     }
 }
 class Warrings {
@@ -62,9 +62,7 @@ class Warrings {
     insertValues() {
         var div = $(".warringPages").first().clone();
         $('.warringPages').remove();
-        console.log($(".warringPages").html());
         $('.wPage').append(div);
-        console.log($(".warringPages").html());
         div = $(".warringPages");
         for (let i = 0; i < 10; i++) {
             if (this.warrings[i] === undefined)
@@ -99,9 +97,7 @@ class News {
     insertValues() {
         var div = $(".newsPages").first().clone();
         $('.newsPages').remove();
-        console.log($(".newsPages").html());
         $('.nPage').append(div);
-        console.log($(".newsPages").html());
         div = $(".newsPages");
         for (let i = 0; i < 10; i++) {
             if (this.news[i] === undefined)

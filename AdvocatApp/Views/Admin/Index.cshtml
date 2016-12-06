@@ -15,7 +15,7 @@
         </div>
     </div>
     <div class="col-sm-3 col-sm-pull-6 pageHead withlines colored">
-        @{Html.RenderPartial("Staties", Model.Where(p => p.Type == TypePage.Statie && p.Id != 1).OrderBy(st=>st.Name).ThenByDescending(st=>st.Date));}
+        @{Html.RenderPartial("Staties", Model.Where(p => p.Type == TypePage.Statie && p.Id != 1 && p.Id!=2).OrderBy(st=>st.Name).ThenByDescending(st=>st.Date));}
         @Html.ActionLink("Добавить", "AddPage")
     </div>
         <div class="col-sm-3  withlines colored">

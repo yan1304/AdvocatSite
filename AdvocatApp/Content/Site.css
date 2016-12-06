@@ -315,7 +315,7 @@ input.input-validation-error {
     padding:7px;
 }
 
-@media(max-width:990px){
+@media(max-width:1199px){
     #admin-content{
     margin-right:30px;
     margin-left:30px;

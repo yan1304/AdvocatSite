@@ -117,7 +117,7 @@ namespace AdvocatApp.BL.Services
             {
                 p.Add(ServiceFunctions.FromPage(item));
             }
-            return p;
+            return p.ToList();
         }
 
         public IEnumerable<PageDTO> FindPage(Func<Page, bool> predicate)

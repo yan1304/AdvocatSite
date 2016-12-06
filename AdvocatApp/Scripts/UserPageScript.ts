@@ -3,6 +3,7 @@ interface ILoadJSON {
     load(id: number): void;
     insertValues(): void;
 }
+
 class StatieU {
     Id: number;
     VideoURL: string;
@@ -15,7 +16,7 @@ class UserStaties implements ILoadJSON {
     private statie: StatieU = new StatieU();
 
     load(id: number): void {
-        $.getJSON(window.location.protocol + "//" + window.location.host + "/Home/GetPage/" + id,
+        $.getJSON(window.location.protocol + "//" + window.location.host + "/Admin/GetPage/" + id,
             (data) => {
                 this.statie = data;
                 this.insertValues();
@@ -61,11 +62,10 @@ class UserWarrings implements ILoadJSON {
     private warrings: StatieU[] = new Array<StatieU>(10);
 
     load(id: number): void {
-        $.getJSON(window.location.protocol + "//" + window.location.host + "/Home/GetWarringPageList?pageNum=" + id,
+        $.getJSON(window.location.protocol + "//" + window.location.host + "/Admin/GetWarringPageList?pageNum=" + id,
             (data) => {
                 this.warrings = new Array<StatieU>(10);
                 this.warrings = data;
-                console.log(data);
                 this.insertValues();
                 $(".warSelectBut").removeClass("selectedBtn");
                 $('.warSelectBut:contains(' + id + ')').addClass("selectedBtn");
@@ -76,9 +76,7 @@ class UserWarrings implements ILoadJSON {
         var div = $(".warringPages").first().clone();
 
         $('.warringPages').remove();
-        console.log($(".warringPages").html());
         $('.wPage').append(div);
-        console.log($(".warringPages").html());
         div = $(".warringPages");
         for (let i: number = 0; i < 10; i++) {
             if (this.warrings[i] === undefined)
@@ -101,11 +99,10 @@ class UserWarrings implements ILoadJSON {
 class UserNews implements ILoadJSON {
     private news: StatieU[] = new Array<StatieU>(10);
     load(id: number): void {
-        $.getJSON(window.location.protocol + "//" + window.location.host + "/Home/GetWarringPageList?pageNum=" + id,
+        $.getJSON(window.location.protocol + "//" + window.location.host + "/Admin/GetWarringPageList?pageNum=" + id,
             (data) => {
                 this.news = new Array<StatieU>(10);
                 this.news = data;
-                console.log(data);
                 this.insertValues();
                 $(".newsSelectBut").removeClass("selectedBtn");
                 $('.newsSelectBut:contains(' + id + ')').addClass("selectedBtn");
@@ -116,9 +113,7 @@ class UserNews implements ILoadJSON {
         var div = $(".newsPages").first().clone();
 
         $('.newsPages').remove();
-        console.log($(".newsPages").html());
         $('.nPage').append(div);
-        console.log($(".newsPages").html());
         div = $(".newsPages");
         for (let i: number = 0; i < 10; i++) {
             if (this.news[i] === undefined)

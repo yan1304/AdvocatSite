@@ -39,6 +39,10 @@
                         <li>@Html.ActionLink("На главную", "Index", "Admin")</li>
                         <li>@Html.ActionLink("О нас", "About", "Admin")</li>
                         <li>@Html.ActionLink("Изменить пароль и email", "EditLogin", "Account")</li>
+                        <li>
+                            <input type="hidden" class="pId" value="2" />
+                            <a class="statieBut" href="#">Цены на услуги</a>
+                        </li>
                         <li>@Html.ActionLink("Выйти", "Logout", "Account")</li>
                     </ul>
                 </div>
@@ -46,7 +50,7 @@
         </div>
     </div>
     <div class="row">
-        <div id="admin-content" class="col-md-10 col-md-offset-1">
+        <div id="admin-content" class="col-lg-10 col-lg-offset-1">
             @RenderBody()
         </div>
     </div>
