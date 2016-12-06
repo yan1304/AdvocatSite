@@ -2,8 +2,8 @@
 Сайт, с поддержкой CRUD-статей, для нужд адвоката (пока не опубликован)
 
 
-Front-end: HTML, CSS, bootstrap, TypeScript, jQuery
-Back-end: ASP.NET MVC 5, SQL Server 2014, EntityFramework 6 (CodeFirst), Ioc Ninject
+Front-end: HTML, CSS, bootstrap, TypeScript, jQuery.
+Back-end: ASP.NET MVC 5, SQL Server 2014, EntityFramework 6 (CodeFirst), Ioc Ninject.
 Авторизация с помощью ASP.NET Identity
 За основу взята трёхуровневая архитектрура.
 
