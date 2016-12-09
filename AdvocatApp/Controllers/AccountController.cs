@@ -61,6 +61,13 @@ namespace AdvocatApp.Controllers
         /// <returns></returns>
         public ActionResult Login()
         {
+            if (UserService.GetInfo() != null)
+            {
+                ViewBag.Phone = UserService.GetInfo().Phone;
+                ViewBag.Address = UserService.GetInfo().Address;
+                ViewBag.NameOfSite = UserService.GetInfo().NameOfSite;
+                ViewBag.AnotherPhone = UserService.GetInfo().AnotherPhone;
+            }
             return View();
         }
 
@@ -125,6 +132,13 @@ namespace AdvocatApp.Controllers
         [Authorize]
         public ActionResult EditLogin()
         {
+            if (UserService.GetInfo() != null)
+            {
+                ViewBag.Phone = UserService.GetInfo().Phone;
+                ViewBag.Address = UserService.GetInfo().Address;
+                ViewBag.NameOfSite = UserService.GetInfo().NameOfSite;
+                ViewBag.AnotherPhone = UserService.GetInfo().AnotherPhone;
+            }
             Mapper.Initialize(cfg => cfg.CreateMap<AdminDTO, ChangeAboutModel>());
             var q = Mapper.Map<AdminDTO, ChangeAboutModel>(UserService.GetInfo());
             if (q != null)
@@ -181,8 +195,8 @@ namespace AdvocatApp.Controllers
                 await UserService.SetInitialData(new AdminDTO
                 {
                     NameOfSite = "Корпоративный правовой центр",
-                    Email = "yan1304@mail.ru",
-                    Password = "fil130494",
+                    Email = "admin",
+                    Password = "12345",
                     Phone = "89160161601"
                 });
             }
