@@ -2,6 +2,7 @@
 using AdvocatApp.BL.Authorization.Interfaces;
 using AdvocatApp.Models;
 using AutoMapper;
+using BotDetect.Web.Mvc;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using System.Security.Claims;
@@ -69,11 +70,13 @@ namespace AdvocatApp.Controllers
         /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [CaptchaValidation("CaptchaCode", "ExampleCaptcha", "Введено неверное значение с картинки!")]
         public async Task<ActionResult> Login(LoginModel model)
         {
             await SetInitialDataAsync();
             if (ModelState.IsValid)
             {
+                MvcCaptcha.ResetCaptcha("ExampleCaptcha");
                 AdminDTO userDto = new AdminDTO { Email = model.Email, Password = model.Password };
                 ClaimsIdentity claim = await UserService.Authenticate(userDto);
                 if (claim == null)
