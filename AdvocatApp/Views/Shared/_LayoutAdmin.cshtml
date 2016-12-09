@@ -14,7 +14,7 @@
     <div id="#header">
         <div class="navbar navbar-default">
             <div class="container">
-                <h2 id="header1"><img src="~/Content/Images/Icon.png" id="headImg"/>@ViewBag.NameOfSite</h2>
+                <h2 id="header1"><img src="~/Content/Images/Icon.png" id="headImg"/>@ViewBag.NameOfSite<p style="font-size:medium">@ViewBag.Address</p></h2>
                 <div class="rightMobile">
                     @if (ViewBag.Phone != null)
                     {
@@ -45,10 +45,8 @@
                         <li>@Html.ActionLink("О нас", "About", "Admin")</li>
                         <li>@Html.ActionLink("Контакты", "Contacts", "Admin")</li>
                         <li>@Html.ActionLink("Изменить пароль и email", "EditLogin", "Account")</li>
-                        <li>
-                            <input type="hidden" class="pId" value="2" />
-                            <a class="statieBut" href="#">Цены на услуги</a>
-                        </li>
+                        <li>@Html.ActionLink("Цены на услуги", "Index/2", "Admin")</li>
+                        <li>@Html.ActionLink("Руководство по использованию сайта","Gide","Admin")</li>
                         <li>@Html.ActionLink("Выйти", "Logout", "Account")</li>
                     </ul>
                 </div>

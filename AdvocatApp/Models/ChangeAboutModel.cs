@@ -52,5 +52,42 @@ namespace AdvocatApp.Models
         public string Email { get; set; }
         [HiddenInput(DisplayValue = false)]
         public string Password { get; set; }
+        [DataType(DataType.Text)]
+        [Display(Name = "Подпись к первой карте")]
+        public string ForMap1 { get; set; }
+        [DataType(DataType.Text)]
+        [Display(Name = "Подпись ко второй карте")]
+        public string ForMap2 { get; set; }
+        [DataType(DataType.Text)]
+        [Display(Name = "Подпись к третей карте")]
+        public string ForMap3 { get; set; }
+        [AllowHtml]
+        [DataType(DataType.Text)]
+        [Display(Name = "Введите первую карту")]
+        public string Map1 { get; set; }
+        [AllowHtml]
+        [DataType(DataType.Text)]
+        [Display(Name = "Введите вторую карту")]
+        public string Map2 { get; set; }
+        [AllowHtml]
+        [DataType(DataType.Text)]
+        [Display(Name = "Введите третью карту")]
+        public string Map3 { get; set; }
+        [AllowHtml]
+        [DataType(DataType.Text)]
+        [Display(Name = "Введите первую карту малых размеров")]
+        public string Map1M { get; set; }
+        [AllowHtml]
+        [DataType(DataType.Text)]
+        [Display(Name = "Введите вторую карту малых размеров")]
+        public string Map2M { get; set; }
+        [AllowHtml]
+        [DataType(DataType.Text)]
+        [Display(Name = "Введите третью карту малых размеров")]
+        public string Map3M { get; set; }
+
+        [DataType(DataType.Url)]
+        [Display(Name = "Ссылка на видео о вас")]
+        public string VideoURL { get; set; }
     }
 }

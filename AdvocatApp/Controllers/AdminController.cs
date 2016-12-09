@@ -42,13 +42,19 @@ namespace AdvocatApp.Controllers
                 return HttpContext.GetOwinContext().Authentication;
             }
         }
+        public ActionResult Gide ()
+        {
+            return View();
+        }
         // GET: Admin
         [Authorize]
-        public ActionResult Index()
+        public ActionResult Index(int id=1)
         {
+            ViewBag.Id = id;
             if (UserService.GetInfo() != null)
             {
                 ViewBag.Phone = UserService.GetInfo().Phone;
+                ViewBag.Address = UserService.GetInfo().Address;
                 ViewBag.NameOfSite = UserService.GetInfo().NameOfSite;
                 ViewBag.AnotherPhone = UserService.GetInfo().AnotherPhone;
             }
@@ -72,6 +78,7 @@ namespace AdvocatApp.Controllers
             if (UserService != null)
             {
                 ViewBag.Phone = UserService.GetInfo().Phone;
+                ViewBag.Address = UserService.GetInfo().Address;
                 ViewBag.NameOfSite = UserService.GetInfo().NameOfSite;
                 ViewBag.AnotherPhone = UserService.GetInfo().AnotherPhone;
             }
@@ -103,6 +110,7 @@ namespace AdvocatApp.Controllers
             if (UserService.GetInfo() != null)
             {
                 ViewBag.Phone = UserService.GetInfo().Phone;
+                ViewBag.Address = UserService.GetInfo().Address;
                 ViewBag.NameOfSite = UserService.GetInfo().NameOfSite;
                 ViewBag.AnotherPhone = UserService.GetInfo().AnotherPhone;
             }
@@ -134,6 +142,7 @@ namespace AdvocatApp.Controllers
             if (UserService.GetInfo() != null)
             {
                 ViewBag.Phone = UserService.GetInfo().Phone;
+                ViewBag.Address = UserService.GetInfo().Address;
                 ViewBag.NameOfSite = UserService.GetInfo().NameOfSite;
                 ViewBag.AnotherPhone = UserService.GetInfo().AnotherPhone;
             }
@@ -213,6 +222,7 @@ namespace AdvocatApp.Controllers
             if (UserService.GetInfo() != null)
             {
                 ViewBag.Phone = UserService.GetInfo().Phone;
+                ViewBag.Address = UserService.GetInfo().Address;
                 ViewBag.NameOfSite = UserService.GetInfo().NameOfSite;
                 ViewBag.AnotherPhone = UserService.GetInfo().AnotherPhone;
             }
@@ -258,7 +268,13 @@ namespace AdvocatApp.Controllers
         [HttpGet]
         public async Task<ActionResult> EditPage(int? id)
         {
-            ViewBag.Phone = UserService.GetInfo().Phone;
+            if (UserService.GetInfo() != null)
+            {
+                ViewBag.Phone = UserService.GetInfo().Phone;
+                ViewBag.Address = UserService.GetInfo().Address;
+                ViewBag.NameOfSite = UserService.GetInfo().NameOfSite;
+                ViewBag.AnotherPhone = UserService.GetInfo().AnotherPhone;
+            }
             if (id == null) return HttpNotFound();
             var page = await siteService.GetPageAsync(id.Value);
             if (page == null) return HttpNotFound();
@@ -305,6 +321,7 @@ namespace AdvocatApp.Controllers
                 ViewBag.Phone = q.Phone;
                 ViewBag.NameOfSite = q.NameOfSite;
                 ViewBag.AnotherPhone = q.AnotherPhone;
+                ViewBag.Address = UserService.GetInfo().Address;
             }
             return View(q);
         }
@@ -320,6 +337,7 @@ namespace AdvocatApp.Controllers
                 ViewBag.Phone = UserService.GetInfo().Phone;
                 ViewBag.NameOfSite = UserService.GetInfo().NameOfSite;
                 ViewBag.AnotherPhone = UserService.GetInfo().AnotherPhone;
+                ViewBag.Address = UserService.GetInfo().Address;
                 return View(UserService.GetInfo());
             }
             else return HttpNotFound();
@@ -337,6 +355,7 @@ namespace AdvocatApp.Controllers
                 ViewBag.Phone = UserService.GetInfo().Phone;
                 ViewBag.NameOfSite = UserService.GetInfo().NameOfSite;
                 ViewBag.AnotherPhone = UserService.GetInfo().AnotherPhone;
+                ViewBag.Address = UserService.GetInfo().Address;
                 return View(UserService.GetInfo());
             }
             return HttpNotFound();
@@ -379,7 +398,7 @@ namespace AdvocatApp.Controllers
         public JsonResult GetNewsPageList(int pageNum)
         {
             int coll = 10;
-            var pages = siteService.GetPages().Where(p => p.Type == TypePage.News).OrderByDescending(p => p.Date).Skip(coll * (pageNum - 1)).Take(pageNum).ToList();
+            var pages = siteService.GetPages().Where(p => p.Type == TypePage.News).OrderByDescending(p => p.Date).Skip(coll * (pageNum - 1)).Take(coll).ToList();
             List<object> newPages = new List<object>();
             foreach (var page in pages)
             {

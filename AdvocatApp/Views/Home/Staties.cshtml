@@ -1,7 +1,7 @@
 ﻿@using AdvocatApp.BL.DTO
 @model IEnumerable<PageDTO>
 
-<h4>Видеоблог</h4>
+<h4>Наши услуги</h4>
 <div class="statieMenu decstop">
     <ul class="dropdown">
         @foreach (IGrouping<string, PageDTO> key in Model.GroupBy(m => m.Name))

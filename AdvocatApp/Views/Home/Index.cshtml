@@ -11,7 +11,7 @@
     <div class="col-sm-6  col-sm-push-3 withlines">
         <div class="row">
             <div id="pageTextVideo" class="col-sm-12 pageHead">
-                @{Html.RenderPartial("Page", Model.Where(p => p.Id == 1).FirstOrDefault());}
+                @{Html.RenderPartial("Page", Model.Where(p => p.Id == ViewBag.Id).FirstOrDefault());}
             </div>
         </div>
     </div>

@@ -99,7 +99,7 @@ class UserWarrings implements ILoadJSON {
 class UserNews implements ILoadJSON {
     private news: StatieU[] = new Array<StatieU>(10);
     load(id: number): void {
-        $.getJSON(window.location.protocol + "//" + window.location.host + "/Admin/GetWarringPageList?pageNum=" + id,
+        $.getJSON(window.location.protocol + "//" + window.location.host + "/Admin/GetNewsPageList?pageNum=" + id,
             (data) => {
                 this.news = new Array<StatieU>(10);
                 this.news = data;
@@ -142,6 +142,7 @@ window.onload = () => {
     var array = $(".textSt");
     setTimeout(() => {
         $(".youtube").css("height", $(".youtube").width() / 1.75);
+        $(".youtubeAbout").css("height", $(".youtubeAbout").width() / 1.75); 
     }, 50);
 
     var staties: UserStaties = new UserStaties();
@@ -177,4 +178,5 @@ window.onload = () => {
 
 window.onresize = () => {
     $(".youtube").css("height", $(".youtube").width() / 1.75);
+    $(".youtubeAbout").css("height", $(".youtubeAbout").width() / 1.75); 
 };

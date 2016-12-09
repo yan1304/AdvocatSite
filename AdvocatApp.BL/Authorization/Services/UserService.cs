@@ -98,7 +98,17 @@ namespace AdvocatApp.BL.Authorization.Services
                     Twitter = v.Twitter,
                     Facebook = v.Facebook,
                     GooglePl = v.GooglePl,
-                    TextForContacts = v.TextForContacts
+                    TextForContacts = v.TextForContacts,
+                    Map1 = v.Map1,
+                    Map2 = v.Map2,
+                    Map3 = v.Map3,
+                    Map1M = v.Map1M,
+                    Map2M = v.Map2M,
+                    Map3M = v.Map3M,
+                    ForMap1 = v.ForMap1,
+                    ForMap2 = v.ForMap2,
+                    ForMap3 = v.ForMap3,
+                    VideoURL = v.VideoURL
                 };
                 return adm;
             }

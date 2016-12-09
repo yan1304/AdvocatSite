@@ -4,10 +4,9 @@
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h2>EditAbout</h2>
-
 @using (Html.BeginForm("EditAbout", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
+    <hr />
     @Html.AntiForgeryToken()
     <h4>Изменение информации о вас</h4>
     <hr />
@@ -36,6 +35,18 @@
         </div>
     </div>
 
+    <div class="form-group">
+        @Html.LabelFor(m => m.VideoURL, new { @class = "col-sm-2 control-label" })
+        <div class="col-sm-8">
+            @Html.EditorFor(model => model.VideoURL)
+        </div>
+        <div class="col-sm-2">
+            @Html.ValidationMessageFor(model => model.VideoURL)
+        </div>
+    </div>
+    <hr />
+    <h4>Изменение контактной информации</h4>
+    <hr />
     <div class="form-group">
         @Html.LabelFor(m => m.TextForContacts, new { @class = "col-sm-2 control-label" })
         <div class="col-sm-8">
@@ -125,10 +136,99 @@
             @Html.ValidationMessageFor(model => model.Address)
         </div>
     </div>
-
+    <hr />
+    <div class="form-group">
+        @Html.LabelFor(m => m.ForMap1, new { @class = "col-sm-2 control-label" })
+        <div class="col-sm-8">
+            @Html.EditorFor(model => model.ForMap1)
+        </div>
+        <div class="col-sm-2">
+            @Html.ValidationMessageFor(model => model.ForMap1)
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Map1, new { @class = "col-sm-2 control-label" })
+        <div class="col-sm-8">
+            @Html.EditorFor(model => model.Map1)
+        </div>
+        <div class="col-sm-2">
+            @Html.ValidationMessageFor(model => model.Map1)
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Map1M, new { @class = "col-sm-2 control-label" })
+        <div class="col-sm-8">
+            @Html.EditorFor(model => model.Map1M)
+        </div>
+        <div class="col-sm-2">
+            @Html.ValidationMessageFor(model => model.Map1M)
+        </div>
+    </div>
+    <hr />
+    <div class="form-group">
+        @Html.LabelFor(m => m.ForMap2, new { @class = "col-sm-2 control-label" })
+        <div class="col-sm-8">
+            @Html.EditorFor(model => model.ForMap2)
+        </div>
+        <div class="col-sm-2">
+            @Html.ValidationMessageFor(model => model.ForMap2)
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Map2, new { @class = "col-sm-2 control-label" })
+        <div class="col-sm-8">
+            @Html.EditorFor(model => model.Map2)
+        </div>
+        <div class="col-sm-2">
+            @Html.ValidationMessageFor(model => model.Map2)
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Map2M, new { @class = "col-sm-2 control-label" })
+        <div class="col-sm-8">
+            @Html.EditorFor(model => model.Map2M)
+        </div>
+        <div class="col-sm-2">
+            @Html.ValidationMessageFor(model => model.Map2M)
+        </div>
+    </div>
+    <hr />
+    <div class="form-group">
+        @Html.LabelFor(m => m.ForMap3, new { @class = "col-sm-2 control-label" })
+        <div class="col-sm-8">
+            @Html.EditorFor(model => model.ForMap3)
+        </div>
+        <div class="col-sm-2">
+            @Html.ValidationMessageFor(model => model.ForMap3)
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Map3, new { @class = "col-sm-2 control-label" })
+        <div class="col-sm-8">
+            @Html.EditorFor(model => model.Map3)
+        </div>
+        <div class="col-sm-2">
+            @Html.ValidationMessageFor(model => model.Map3)
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Map3M, new { @class = "col-sm-2 control-label" })
+        <div class="col-sm-8">
+            @Html.EditorFor(model => model.Map3M)
+        </div>
+        <div class="col-sm-2">
+            @Html.ValidationMessageFor(model => model.Map3M)
+        </div>
+    </div>
+    
     <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
             <input type="submit" class="btn btn-default" value="Сохранить" />
         </div>
     </div>
+}
+
+@section scripts{
+    <script src='@Url.Content("~/Scripts/PageScript.js")'>
+    </script>
 }

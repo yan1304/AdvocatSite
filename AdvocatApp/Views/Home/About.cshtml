@@ -9,9 +9,20 @@
         <div class="pages">
             <h4>О нас</h4>
             <hr />
+            @if (Model.VideoURL != null)
+            {
+                if (Model.VideoURL != "")
+                {
+                    <iframe class="youtubeAbout" src="@Model.VideoURL" frameborder="0" allowfullscreen></iframe>
+                }
+            }
             <p>
                 <input class="textSt" type="hidden" value="@Model.AboutMe" />
                 <div class="textSite"></div>
+            </p>
+            <hr />
+            <p class="linksPage">
+                <a href="#header1">В начало</a>
             </p>
         </div>
     </div>

@@ -51,14 +51,16 @@ namespace AdvocatApp.Controllers
         {
             siteService = serv;
         }
-        public ActionResult Index()
+        public ActionResult Index(int id = 1)
         {
+            ViewBag.Id = id;
             if (UserService != null)
             {
                 if (UserService.GetInfo() != null)
                 {
                     ViewBag.Phone = UserService.GetInfo().Phone;
                     ViewBag.NameOfSite = UserService.GetInfo().NameOfSite;
+                    ViewBag.Address = UserService.GetInfo().Address;
                     ViewBag.AnotherPhone = UserService.GetInfo().AnotherPhone;
                 }
             }
@@ -83,6 +85,7 @@ namespace AdvocatApp.Controllers
                 {
                     ViewBag.Phone = UserService.GetInfo().Phone;
                     ViewBag.NameOfSite = UserService.GetInfo().NameOfSite;
+                    ViewBag.Address = UserService.GetInfo().Address;
                     ViewBag.AnotherPhone = UserService.GetInfo().AnotherPhone;
                     return View(UserService.GetInfo());
                 }
@@ -99,6 +102,7 @@ namespace AdvocatApp.Controllers
                 {
                     ViewBag.Phone = UserService.GetInfo().Phone;
                     ViewBag.NameOfSite = UserService.GetInfo().NameOfSite;
+                    ViewBag.Address = UserService.GetInfo().Address;
                     return View(UserService.GetInfo());
                 }
                 else return HttpNotFound();

@@ -22,5 +22,15 @@ namespace AdvocatApp.BL.Authorization.DTO
         public string Email { get; set; }
         public string Password { get; set; }
         public string TextForContacts { get; set; }
+        public string ForMap1 { get; set; }
+        public string ForMap2 { get; set; }
+        public string ForMap3 { get; set; }
+        public string Map1 { get; set; }
+        public string Map2 { get; set; }
+        public string Map3 { get; set; }
+        public string Map1M { get; set; }
+        public string Map2M { get; set; }
+        public string Map3M { get; set; }
+        public string VideoURL { get; set; }
     }
 }

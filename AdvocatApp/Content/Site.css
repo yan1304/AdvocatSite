@@ -30,6 +30,10 @@ textarea {
 .youtube{
        width:100%;
     }
+.youtubeAbout{
+    float:right;
+    width:40%;
+}
 .navbar-default h2{
     float:left;
     font-size:44px;
@@ -221,13 +225,6 @@ li .pages, .dropdown{
     background:none;
 }
 
-.statieBut:hover h5{
-    font-size:20px;
-    transition-duration: 0.25s;
-}
-
-
-
 textarea{
     width:100%;
     height:400px;
@@ -278,8 +275,7 @@ input.input-validation-error {
     }
 }
 #timePh{
-    margin-right:26px;
-    font-size:18px;
+    font-size:15px;
 }
 
 @media (min-width:769px) {
@@ -378,6 +374,12 @@ input.input-validation-error {
     body{
         font-size:17px;
     }
+
+    .youtubeAbout{
+    float:initial;
+    width:100%;
+    }
+
     .navbar-default .navbar-brand {
     color: #DDDDDD;
     font-size:24px;
@@ -390,8 +392,8 @@ input.input-validation-error {
     }
 
     .pageHead{
-        padding-left:25px;
-        padding-right:25px;
+        padding-left:5px;
+        padding-right:5px;
     }
 
     .pages a{
@@ -432,7 +434,6 @@ input.input-validation-error {
     }
 
     #timePh{
-    margin-right:46px;
     font-size:26px;
     }
     .mobile{
@@ -455,5 +456,17 @@ input.input-validation-error {
 @media (max-width:490px){
     .navbar-default h2{
     font-size:16px;
+    }
+}
+@media(min-width:731px) {
+    .yandMobile {
+        display: none;
+    }
+}
+
+@media(max-width:730px)
+{
+    .yand{
+        display:none;
     }
 }

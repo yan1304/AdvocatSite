@@ -85,7 +85,7 @@ class News {
         this.news = new Array(10);
     }
     load(id) {
-        $.getJSON(window.location.protocol + "//" + window.location.host + "/Admin/GetWarringPageList?pageNum=" + id, (data) => {
+        $.getJSON(window.location.protocol + "//" + window.location.host + "/Admin/GetNewsPageList?pageNum=" + id, (data) => {
             this.news = new Array(10);
             this.news = data;
             console.log(data);
@@ -127,6 +127,7 @@ window.onload = () => {
     var array = $(".textSt");
     setTimeout(() => {
         $(".youtube").css("height", $(".youtube").width() / 1.75);
+        $(".youtubeAbout").css("height", $(".youtubeAbout").width() / 1.75);
     }, 50);
     var staties = new Staties();
     $('.statieBut').click((e) => {
@@ -152,5 +153,6 @@ window.onload = () => {
 };
 window.onresize = () => {
     $(".youtube").css("height", $(".youtube").width() / 1.75);
+    $(".youtubeAbout").css("height", $(".youtubeAbout").width() / 1.75);
 };
 //# sourceMappingURL=PageScript.js.map

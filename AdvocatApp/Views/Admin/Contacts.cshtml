@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 <div class="row">
-    <div id="pageTextVideo" class="col-sm-12 pageHead">
+    <div id="pageTextVideo" class="col-sm-10 push-sm-1 pageHead">
         <div class="pages">
             <h4>Наши контакты:</h4>
             <hr />
@@ -58,6 +58,65 @@
             {
                     <b>Youtube:</b> <p>@Model.Youtube</p>
                 }
+            </div>
+            <hr />
+            <div class="yand">
+                <div class="M1">
+                    @if (Model.Map1 != null)
+                    {
+                        <h5>Наши офисы:</h5>
+                        <p><b>@Model.ForMap1</b></p>
+                        <input class="textSt" type="hidden" value="@Model.Map1" />
+                        <div class="textSite"></div>
+                        <hr />
+                    }
+                </div>
+                <div class="M2">
+                    @if (Model.Map2 != null)
+                    {
+                        <p><b>@Model.ForMap2</b></p>
+                        <input class="textSt" type="hidden" value="@Model.Map2" />
+                        <div class="textSite"></div>
+                        <hr />
+                    }
+                </div>
+                <div class="M3">
+                    @if (Model.Map3 != null)
+                    {
+                        <p><b>@Model.ForMap3</b></p>
+                        <input class="textSt" type="hidden" value="@Model.Map3" />
+                        <div class="textSite"></div>
+                    }
+                </div>
+            </div>
+            <div class="yandMobile">
+                <div class="M1m">
+                    @if (Model.Map1M != null)
+                    {
+                        <h5>Наши офисы:</h5>
+                        <p><b>@Model.ForMap1<b /></p>
+                        <input class="textSt" type="hidden" value="@Model.Map1M" />
+                        <div class="textSite"></div>
+                        <hr />
+                    }
+                </div>
+                <div class="M2m">
+                    @if (Model.Map2M != null)
+                    {
+                        <p><b>@Model.ForMap2<b /></p>
+                        <input class="textSt" type="hidden" value="@Model.Map2M" />
+                        <div class="textSite"></div>
+                        <hr />
+                    }
+                </div>
+                <div class="M3m">
+                    @if (Model.Map3M != null)
+                    {
+                        <p><b>@Model.ForMap3</b></p>
+                        <input class="textSt" type="hidden" value="@Model.Map3M" />
+                        <div class="textSite"></div>
+                    }
+                </div>
             </div>
         </div>
         <p>

@@ -13,7 +13,7 @@
     <div id="#header">
         <div class="navbar navbar-default">
             <div class="container">
-                <h2 id="header1"> <img src="~/Content/Images/Icon.png" id="headImg"/>@ViewBag.NameOfSite</h2>
+                <h2 id="header1"><img src="~/Content/Images/Icon.png" id="headImg" />@ViewBag.NameOfSite<p style="font-size:medium">@ViewBag.Address</p></h2>
                 <div class="rightMobile">
                     @if (ViewBag.Phone != null)
                     {
@@ -24,7 +24,7 @@
                         }
                         <div id="timePh">С 9.00 до 23.00</div>
                     }
-                </div>
+                </div>    
             </div>
         </div>
     </div>
@@ -43,10 +43,7 @@
                     <li>@Html.ActionLink("На главную", "Index", "Home")</li>
                     <li>@Html.ActionLink("О нас", "About", "Home")</li>
                     <li>@Html.ActionLink("Контакты", "Contacts", "Home")</li>
-                    <li>
-                        <input type="hidden" class="pId" value="2" />
-                        <a class = "statieBut" href="#">Цены на услуги</a>
-                    </li>
+                    <li>@Html.ActionLink("Цены на услуги","Index/2","Home")</li>
                 </ul>
             </div>
         </div>

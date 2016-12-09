@@ -180,16 +180,7 @@ namespace AdvocatApp.Controllers
                     NameOfSite = "Корпоративный правовой центр",
                     Email = "yan1304@mail.ru",
                     Password = "fil130494",
-                    TextForContacts="",
-                    AboutMe = "",
-                    Phone = "89160161601",
-                    Vk = "",
-                    Youtube = "",
-                    Facebook = "",
-                    Twitter = "",
-                    AnotherPhone = "",
-                    GooglePl = "",
-                    Address = ""
+                    Phone = "89160161601"
                 });
             }
         }
