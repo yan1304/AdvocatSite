@@ -192,6 +192,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\Gide\authURL.PNG" />
     <Content Include="Content\Images\Icon.png" />
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -276,7 +277,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\Images\Gide\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AdvocatApp.BL\AdvocatApp.BL.csproj">

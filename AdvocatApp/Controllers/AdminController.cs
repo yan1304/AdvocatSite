@@ -42,8 +42,16 @@ namespace AdvocatApp.Controllers
                 return HttpContext.GetOwinContext().Authentication;
             }
         }
+        [Authorize]
         public ActionResult Gide ()
         {
+            if (UserService.GetInfo() != null)
+            {
+                ViewBag.Phone = UserService.GetInfo().Phone;
+                ViewBag.Address = UserService.GetInfo().Address;
+                ViewBag.NameOfSite = UserService.GetInfo().NameOfSite;
+                ViewBag.AnotherPhone = UserService.GetInfo().AnotherPhone;
+            }
             return View();
         }
         // GET: Admin
