@@ -1,15 +1,16 @@
 /// <reference path="typings/jquery/jquery.d.ts" />
-class Staties {
-    constructor() {
+var Staties = (function () {
+    function Staties() {
         this.statie = new Statie();
     }
-    load(id) {
-        $.getJSON(window.location.protocol + "//" + window.location.host + "/Admin/GetPage/" + id, (data) => {
-            this.statie = data;
-            this.insertValues();
+    Staties.prototype.load = function (id) {
+        var _this = this;
+        $.getJSON(window.location.protocol + "//" + window.location.host + "/Admin/GetPage/" + id, function (data) {
+            _this.statie = data;
+            _this.insertValues();
         });
-    }
-    insertValues() {
+    };
+    Staties.prototype.insertValues = function () {
         var page = $("#pageTextVideo").find(".pages");
         page.find("h5").first().html(this.statie.Header);
         var youtube = page.find(".youtube").first();
@@ -42,29 +43,31 @@ class Staties {
         page.find(".dateOfCreating").last().html(this.statie.Date);
         var p = page.find(".linksPage");
         p.children("a").first().attr("href", window.location.protocol + "//" + window.location.host + "/Admin/EditPage/" + this.statie.Id);
-        p.children("a").last().attr("href", window.location.protocol + "//" + window.location.host + "/Admin/DeletePage/" + this.statie.Id);
-    }
-}
-class Warrings {
-    constructor() {
+        p.children("a").last().attr("href", window.location.protocol + "//" + window.location.host + "/Admin/DeleteP/" + this.statie.Id);
+    };
+    return Staties;
+}());
+var Warrings = (function () {
+    function Warrings() {
         this.warrings = new Array(10);
     }
-    load(id) {
-        $.getJSON(window.location.protocol + "//" + window.location.host + "/Admin/GetWarringPageList?pageNum=" + id, (data) => {
-            this.warrings = new Array(10);
-            this.warrings = data;
+    Warrings.prototype.load = function (id) {
+        var _this = this;
+        $.getJSON(window.location.protocol + "//" + window.location.host + "/Admin/GetWarringPageList?pageNum=" + id, function (data) {
+            _this.warrings = new Array(10);
+            _this.warrings = data;
             console.log(data);
-            this.insertValues();
+            _this.insertValues();
             $(".warSelectBut").removeClass("selectedBtn");
             $('.warSelectBut:contains(' + id + ')').addClass("selectedBtn");
         });
-    }
-    insertValues() {
+    };
+    Warrings.prototype.insertValues = function () {
         var div = $(".warringPages").first().clone();
         $('.warringPages').remove();
         $('.wPage').append(div);
         div = $(".warringPages");
-        for (let i = 0; i < 10; i++) {
+        for (var i = 0; i < 10; i++) {
             if (this.warrings[i] === undefined)
                 break;
             var newDiv = div.clone();
@@ -74,32 +77,34 @@ class Warrings {
             newDiv.find(".dateOfCreating").last().html(this.warrings[i].Date);
             var p = newDiv.find(".linksWar");
             p.children("a").first().attr("href", window.location.protocol + "//" + window.location.host + "/Admin/EditPage/" + this.warrings[i].Id);
-            p.children("a").last().attr("href", window.location.protocol + "//" + window.location.host + "/Admin/DeletePage/" + this.warrings[i].Id);
+            p.children("a").last().attr("href", window.location.protocol + "//" + window.location.host + "/Admin/DeleteP/" + this.warrings[i].Id);
             newDiv.insertAfter(div);
             div = newDiv;
         }
-    }
-}
-class News {
-    constructor() {
+    };
+    return Warrings;
+}());
+var News = (function () {
+    function News() {
         this.news = new Array(10);
     }
-    load(id) {
-        $.getJSON(window.location.protocol + "//" + window.location.host + "/Admin/GetNewsPageList?pageNum=" + id, (data) => {
-            this.news = new Array(10);
-            this.news = data;
+    News.prototype.load = function (id) {
+        var _this = this;
+        $.getJSON(window.location.protocol + "//" + window.location.host + "/Admin/GetNewsPageList?pageNum=" + id, function (data) {
+            _this.news = new Array(10);
+            _this.news = data;
             console.log(data);
-            this.insertValues();
+            _this.insertValues();
             $(".newsSelectBut").removeClass("selectedBtn");
             $('.newsSelectBut:contains(' + id + ')').addClass("selectedBtn");
         });
-    }
-    insertValues() {
+    };
+    News.prototype.insertValues = function () {
         var div = $(".newsPages").first().clone();
         $('.newsPages').remove();
         $('.nPage').append(div);
         div = $(".newsPages");
-        for (let i = 0; i < 10; i++) {
+        for (var i = 0; i < 10; i++) {
             if (this.news[i] === undefined)
                 break;
             var newDiv = div.clone();
@@ -109,28 +114,32 @@ class News {
             newDiv.find(".dateOfCreating").last().html(this.news[i].Date);
             var p = newDiv.find(".linksNews");
             p.children("a").first().attr("href", window.location.protocol + "//" + window.location.host + "/Admin/EditPage/" + this.news[i].Id);
-            p.children("a").last().attr("href", window.location.protocol + "//" + window.location.host + "/Admin/DeletePage/" + this.news[i].Id);
+            p.children("a").last().attr("href", window.location.protocol + "//" + window.location.host + "/Admin/DeleteP/" + this.news[i].Id);
             newDiv.insertAfter(div);
             div = newDiv;
         }
+    };
+    return News;
+}());
+var Statie = (function () {
+    function Statie() {
     }
-}
-class Statie {
-}
-window.onload = () => {
+    return Statie;
+}());
+window.onload = function () {
     var array = $(".textSt");
     var textArray = $(".textSite");
-    for (let i = 0; i < array.length; i++) {
-        let statie = $(array[i]).attr("value");
+    for (var i = 0; i < array.length; i++) {
+        var statie = $(array[i]).attr("value");
         $(textArray[i]).html(statie);
     }
     var array = $(".textSt");
-    setTimeout(() => {
+    setTimeout(function () {
         $(".youtube").css("height", $(".youtube").width() / 1.75);
         $(".youtubeAbout").css("height", $(".youtubeAbout").width() / 1.75);
     }, 50);
     var staties = new Staties();
-    $('.statieBut').click((e) => {
+    $('.statieBut').click(function (e) {
         var id;
         var parent = $(e.target).parent();
         if (parent.get(0).tagName == "BUTTON")
@@ -139,19 +148,19 @@ window.onload = () => {
         staties.load(parseInt(id));
     });
     var warrings = new Warrings();
-    $('.warSelectBut').click((e) => {
+    $('.warSelectBut').click(function (e) {
         var id = parseInt($(e.target).text());
         warrings.load(id);
     });
     var news = new News();
-    $('.newsSelectBut').click((e) => {
+    $('.newsSelectBut').click(function (e) {
         var id = parseInt($(e.target).text());
         news.load(id);
     });
     $('.warSelectBut').first().click();
     $('.newsSelectBut').first().click();
 };
-window.onresize = () => {
+window.onresize = function () {
     $(".youtube").css("height", $(".youtube").width() / 1.75);
     $(".youtubeAbout").css("height", $(".youtubeAbout").width() / 1.75);
 };

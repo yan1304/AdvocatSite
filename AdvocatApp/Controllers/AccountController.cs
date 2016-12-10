@@ -70,7 +70,7 @@ namespace AdvocatApp.Controllers
             }
             return View();
         }
-
+        //by Yan Evtushenko
         /// <summary>
         /// Страница авторизации администратора (POST)
         /// </summary>
@@ -197,7 +197,8 @@ namespace AdvocatApp.Controllers
                     NameOfSite = "Корпоративный правовой центр",
                     Email = "admin",
                     Password = "12345",
-                    Phone = "89160161601"
+                    Phone = "0-000-000-00-00",
+                    AnotherPhone="0-(000)-000-00-00"
                 });
             }
         }

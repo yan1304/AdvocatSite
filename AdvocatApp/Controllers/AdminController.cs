@@ -447,5 +447,6 @@ namespace AdvocatApp.Controllers
                 JsonRequestBehavior.AllowGet
                 );
         }
+        //by Yan Evtushenko
     }
 }

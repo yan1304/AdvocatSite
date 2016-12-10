@@ -53,7 +53,7 @@ class Staties implements ILoadJSON {
         page.find(".dateOfCreating").last().html(this.statie.Date);
         var p = page.find(".linksPage");
         p.children("a").first().attr("href", window.location.protocol + "//" + window.location.host +"/Admin/EditPage/" + this.statie.Id);
-        p.children("a").last().attr("href", window.location.protocol + "//" + window.location.host +"/Admin/DeletePage/" + this.statie.Id);
+        p.children("a").last().attr("href", window.location.protocol + "//" + window.location.host +"/Admin/DeleteP/" + this.statie.Id);
     }
 }
 
@@ -90,7 +90,7 @@ class Warrings implements ILoadJSON {
             newDiv.find(".dateOfCreating").last().html(this.warrings[i].Date);
             var p = newDiv.find(".linksWar");
             p.children("a").first().attr("href", window.location.protocol + "//" + window.location.host + "/Admin/EditPage/" + this.warrings[i].Id);
-            p.children("a").last().attr("href", window.location.protocol + "//" + window.location.host + "/Admin/DeletePage/" + this.warrings[i].Id);
+            p.children("a").last().attr("href", window.location.protocol + "//" + window.location.host + "/Admin/DeleteP/" + this.warrings[i].Id);
 
             newDiv.insertAfter(div);
             div = newDiv;
@@ -131,7 +131,7 @@ class News implements ILoadJSON {
             newDiv.find(".dateOfCreating").last().html(this.news[i].Date);
             var p = newDiv.find(".linksNews");
             p.children("a").first().attr("href", window.location.protocol + "//" + window.location.host + "/Admin/EditPage/" + this.news[i].Id);
-            p.children("a").last().attr("href", window.location.protocol + "//" + window.location.host + "/Admin/DeletePage/" + this.news[i].Id);
+            p.children("a").last().attr("href", window.location.protocol + "//" + window.location.host + "/Admin/DeleteP/" + this.news[i].Id);
 
             newDiv.insertAfter(div);
             div = newDiv;

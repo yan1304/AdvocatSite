@@ -1,17 +1,21 @@
 /// <reference path="typings/jquery/jquery.d.ts" />
-class StatieU {
-}
-class UserStaties {
-    constructor() {
+var StatieU = (function () {
+    function StatieU() {
+    }
+    return StatieU;
+}());
+var UserStaties = (function () {
+    function UserStaties() {
         this.statie = new StatieU();
     }
-    load(id) {
-        $.getJSON(window.location.protocol + "//" + window.location.host + "/Admin/GetPage/" + id, (data) => {
-            this.statie = data;
-            this.insertValues();
+    UserStaties.prototype.load = function (id) {
+        var _this = this;
+        $.getJSON(window.location.protocol + "//" + window.location.host + "/Admin/GetPage/" + id, function (data) {
+            _this.statie = data;
+            _this.insertValues();
         });
-    }
-    insertValues() {
+    };
+    UserStaties.prototype.insertValues = function () {
         var page = $("#pageTextVideo").find(".pages");
         page.find("h5").first().html(this.statie.Header);
         var youtube = page.find(".youtube").first();
@@ -42,27 +46,29 @@ class UserStaties {
         }
         page.find(".textSite").first().html(this.statie.Text);
         page.find(".dateOfCreating").last().html(this.statie.Date);
-    }
-}
-class UserWarrings {
-    constructor() {
+    };
+    return UserStaties;
+}());
+var UserWarrings = (function () {
+    function UserWarrings() {
         this.warrings = new Array(10);
     }
-    load(id) {
-        $.getJSON(window.location.protocol + "//" + window.location.host + "/Admin/GetWarringPageList?pageNum=" + id, (data) => {
-            this.warrings = new Array(10);
-            this.warrings = data;
-            this.insertValues();
+    UserWarrings.prototype.load = function (id) {
+        var _this = this;
+        $.getJSON(window.location.protocol + "//" + window.location.host + "/Admin/GetWarringPageList?pageNum=" + id, function (data) {
+            _this.warrings = new Array(10);
+            _this.warrings = data;
+            _this.insertValues();
             $(".warSelectBut").removeClass("selectedBtn");
             $('.warSelectBut:contains(' + id + ')').addClass("selectedBtn");
         });
-    }
-    insertValues() {
+    };
+    UserWarrings.prototype.insertValues = function () {
         var div = $(".warringPages").first().clone();
         $('.warringPages').remove();
         $('.wPage').append(div);
         div = $(".warringPages");
-        for (let i = 0; i < 10; i++) {
+        for (var i = 0; i < 10; i++) {
             if (this.warrings[i] === undefined)
                 break;
             var newDiv = div.clone();
@@ -73,27 +79,29 @@ class UserWarrings {
             newDiv.insertAfter(div);
             div = newDiv;
         }
-    }
-}
-class UserNews {
-    constructor() {
+    };
+    return UserWarrings;
+}());
+var UserNews = (function () {
+    function UserNews() {
         this.news = new Array(10);
     }
-    load(id) {
-        $.getJSON(window.location.protocol + "//" + window.location.host + "/Admin/GetNewsPageList?pageNum=" + id, (data) => {
-            this.news = new Array(10);
-            this.news = data;
-            this.insertValues();
+    UserNews.prototype.load = function (id) {
+        var _this = this;
+        $.getJSON(window.location.protocol + "//" + window.location.host + "/Admin/GetNewsPageList?pageNum=" + id, function (data) {
+            _this.news = new Array(10);
+            _this.news = data;
+            _this.insertValues();
             $(".newsSelectBut").removeClass("selectedBtn");
             $('.newsSelectBut:contains(' + id + ')').addClass("selectedBtn");
         });
-    }
-    insertValues() {
+    };
+    UserNews.prototype.insertValues = function () {
         var div = $(".newsPages").first().clone();
         $('.newsPages').remove();
         $('.nPage').append(div);
         div = $(".newsPages");
-        for (let i = 0; i < 10; i++) {
+        for (var i = 0; i < 10; i++) {
             if (this.news[i] === undefined)
                 break;
             var newDiv = div.clone();
@@ -104,25 +112,26 @@ class UserNews {
             newDiv.insertAfter(div);
             div = newDiv;
         }
-    }
-}
-window.onload = () => {
+    };
+    return UserNews;
+}());
+window.onload = function () {
     var array = $(".textSt");
     var textArray = $(".textSite");
-    for (let i = 0; i < array.length; i++) {
-        let statie = $(array[i]).attr("value");
+    for (var i = 0; i < array.length; i++) {
+        var statie = $(array[i]).attr("value");
         $(textArray[i]).html(statie);
     }
     var array = $(".textSt");
-    setTimeout(() => {
+    setTimeout(function () {
         $(".youtube").css("height", $(".youtube").width() / 1.75);
         $(".youtubeAbout").css("height", $(".youtubeAbout").width() / 1.75);
     }, 50);
     var staties = new UserStaties();
-    $('.statieSelect').click((e) => {
+    $('.statieSelect').click(function (e) {
         $(e.target).find('.statieBut').click();
     });
-    $('.statieBut').click((e) => {
+    $('.statieBut').click(function (e) {
         e.preventDefault();
         var id;
         var parent = $(e.target).parent();
@@ -132,19 +141,19 @@ window.onload = () => {
         staties.load(parseInt(id));
     });
     var warrings = new UserWarrings();
-    $('.warSelectBut').click((e) => {
+    $('.warSelectBut').click(function (e) {
         var id = parseInt($(e.target).text());
         warrings.load(id);
     });
     var news = new UserNews();
-    $('.newsSelectBut').click((e) => {
+    $('.newsSelectBut').click(function (e) {
         var id = parseInt($(e.target).text());
         news.load(id);
     });
     $('.warSelectBut').first().click();
     $('.newsSelectBut').first().click();
 };
-window.onresize = () => {
+window.onresize = function () {
     $(".youtube").css("height", $(".youtube").width() / 1.75);
     $(".youtubeAbout").css("height", $(".youtubeAbout").width() / 1.75);
 };

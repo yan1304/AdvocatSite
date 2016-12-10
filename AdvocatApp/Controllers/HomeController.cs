@@ -93,7 +93,7 @@ namespace AdvocatApp.Controllers
             }
             else return HttpNotFound();
         }
-
+        //by Yan Evtushenko
         public ActionResult Contacts()
         {
             if (UserService != null)
