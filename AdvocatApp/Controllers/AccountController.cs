@@ -195,8 +195,8 @@ namespace AdvocatApp.Controllers
                 await UserService.SetInitialData(new AdminDTO
                 {
                     NameOfSite = "Корпоративный правовой центр",
-                    Email = "admin",
-                    Password = "12345",
+                    Email = "admin@mail.ru",
+                    Password = "123456",
                     Phone = "0-000-000-00-00",
                     AnotherPhone="0-(000)-000-00-00"
                 });
